@@ -5,21 +5,21 @@ using UnityEngine.UI;
 
 public class TimeSlotter : MonoBehaviour
 {
-    public bool test;
+    public Text Textfield;
+    public bool choosing = false;
+    public string previous;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetAction(string text)
     {
-        test = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (test == true) 
-        {
-            Debug.Log("hello!");
+        if (choosing == false) {
+            previous = Textfield.text;
+            Textfield.text = text;
+            choosing = true;
+        } else {
+            Textfield.text = previous;
+            choosing = false;
         }
     }
+
 
 }
