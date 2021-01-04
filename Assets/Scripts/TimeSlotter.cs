@@ -5,21 +5,46 @@ using UnityEngine.UI;
 
 public class TimeSlotter : MonoBehaviour
 {
+    public bool chose;
     public Text Textfield;
-    public bool choosing = false;
-    public string previous;
+    public bool choosing;
+    public string time;
+    public string cancel;
+    public GameObject track;
+    public bool otherButtonsPressed;
+    public string action;
 
-    public void SetAction(string text)
+    public void Start() {
+        choosing = false;
+        chose = false;
+        cancel = "cancel";
+        Textfield.text = time;
+    }
+    void Update() {
+        otherButtonsPressed = track.GetComponent<Tracker>().Condition();
+        
+    }
+    public void SetAction()
     {
-        if (choosing == false) {
-            previous = Textfield.text;
-            Textfield.text = text;
-            choosing = true;
-        } else {
-            Textfield.text = previous;
-            choosing = false;
+        if (otherButtonsPressed && !choosing) 
+        {
+
+        }  else {
+            if (choosing == false ) {
+                Textfield.text = cancel;
+                choosing = true;
+            } else {
+                Textfield.text = time;
+                choosing = false;
+                
+            }
+        chose = false;
+        track.GetComponent<Tracker>().Refresh();
+        
+
         }
     }
+    
 
 
 }

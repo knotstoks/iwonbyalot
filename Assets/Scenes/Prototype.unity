@@ -304,7 +304,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 92718097}
         m_MethodName: SetAction
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -362,9 +362,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0000dd439c9e5754fbdeedf5976d6018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chose: 0
   Textfield: {fileID: 1824114735}
   choosing: 0
-  previous: 
+  time: 1500 - 1600
+  cancel: 
+  track: {fileID: 2002838414}
+  otherButtonsPressed: 0
+  action: 
 --- !u!1 &95531688
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +607,7 @@ GameObject:
   - component: {fileID: 142369296}
   - component: {fileID: 142369298}
   - component: {fileID: 142369297}
+  - component: {fileID: 142369299}
   m_Layer: 5
   m_Name: Bottom Panel
   m_TagString: Untagged
@@ -666,6 +672,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142369295}
   m_CullTransparentMesh: 0
+--- !u!114 &142369299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142369295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c705c66a37c7b4791fd8d4adf0a5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  days: 7
+  Textfield: {fileID: 813396056}
+  ratio: 10 / 90
 --- !u!1 &159775556
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +913,7 @@ GameObject:
   - component: {fileID: 244992410}
   - component: {fileID: 244992409}
   - component: {fileID: 244992408}
+  - component: {fileID: 244992411}
   m_Layer: 5
   m_Name: Execute
   m_TagString: Untagged
@@ -941,8 +963,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -961,7 +983,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 244992409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 244992411}
+        m_MethodName: ExecuteAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &244992409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -975,7 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.28230685, b: 0.28230685, a: 1}
+  m_Color: {r: 1, g: 0.044800464, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -999,6 +1032,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244992406}
   m_CullTransparentMesh: 0
+--- !u!114 &244992411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244992406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b9cdf5fd0a29a4c8565d8a5400af72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Track: {fileID: 2002838414}
+  Slot1: {fileID: 276361076}
+  Slot2: {fileID: 2109249691}
+  Slot3: {fileID: 401616413}
+  Slot4: {fileID: 92718091}
+  im: {fileID: 244992409}
 --- !u!1 &276361076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1156,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 276361082}
         m_MethodName: SetAction
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1163,9 +1214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0000dd439c9e5754fbdeedf5976d6018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chose: 0
   Textfield: {fileID: 2112756316}
   choosing: 0
-  previous: 
+  time: 1200 - 1300
+  cancel: 
+  track: {fileID: 2002838414}
+  otherButtonsPressed: 0
+  action: 
 --- !u!1 &330554014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1235,7 @@ GameObject:
   - component: {fileID: 330554018}
   - component: {fileID: 330554017}
   - component: {fileID: 330554016}
+  - component: {fileID: 330554020}
   m_Layer: 5
   m_Name: Slot 2
   m_TagString: Untagged
@@ -1268,7 +1325,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 330554018}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 330554020}
+        m_MethodName: AssignAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &330554018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,6 +1374,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330554014}
   m_CullTransparentMesh: 0
+--- !u!114 &330554020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330554014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf1de0020992bf418004586fb64a11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 2002838414}
+  actionID: Part-Time Job
+  selected: 0
+  bottom: {fileID: 142369295}
+  actionDescription: Earn your pocket money
 --- !u!1 &401616413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1497,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 401616419}
         m_MethodName: SetAction
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1470,9 +1555,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0000dd439c9e5754fbdeedf5976d6018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chose: 0
   Textfield: {fileID: 2072595292}
   choosing: 0
-  previous: 
+  time: 1400 - 1500
+  cancel: 
+  track: {fileID: 2002838414}
+  otherButtonsPressed: 0
+  action: 
 --- !u!1 &543586524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,8 +1903,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 714260881}
-        m_MethodName: Settext
-        m_Mode: 5
+        m_MethodName: AssignAction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1869,12 +1959,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 714260875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0000dd439c9e5754fbdeedf5976d6018, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bf1de0020992bf418004586fb64a11f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Textfield: {fileID: 1404639717}
-  choosing: 0
-  previous: 
+  track: {fileID: 2002838414}
+  actionID: Rally Speech
+  selected: 0
+  bottom: {fileID: 142369295}
+  actionDescription: Talk bout stuff
 --- !u!1 &812585061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,6 +2139,7 @@ GameObject:
   - component: {fileID: 940410245}
   - component: {fileID: 940410244}
   - component: {fileID: 940410243}
+  - component: {fileID: 940410247}
   m_Layer: 5
   m_Name: Slot 3
   m_TagString: Untagged
@@ -2136,7 +2229,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 940410245}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 940410247}
+        m_MethodName: AssignAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &940410245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,6 +2278,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940410241}
   m_CullTransparentMesh: 0
+--- !u!114 &940410247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940410241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf1de0020992bf418004586fb64a11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 2002838414}
+  actionID: Print Flyers
+  selected: 0
+  bottom: {fileID: 142369295}
+  actionDescription: For Propaganda
 --- !u!1 &1069609855
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,6 +3433,7 @@ GameObject:
   - component: {fileID: 1904504983}
   - component: {fileID: 1904504982}
   - component: {fileID: 1904504981}
+  - component: {fileID: 1904504985}
   m_Layer: 5
   m_Name: Slot 4
   m_TagString: Untagged
@@ -3401,7 +3523,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1904504983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1904504985}
+        m_MethodName: AssignAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1904504983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3439,6 +3572,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904504979}
   m_CullTransparentMesh: 0
+--- !u!114 &1904504985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904504979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf1de0020992bf418004586fb64a11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 2002838414}
+  actionID: Pander To Voters
+  selected: 0
+  bottom: {fileID: 142369295}
+  actionDescription: Time to get votes
+--- !u!1 &2002838414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2002838416}
+  - component: {fileID: 2002838415}
+  m_Layer: 0
+  m_Name: Tracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2002838415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002838414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370d9d9655bb4bc49a5d11ec926023f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Slot1: {fileID: 276361076}
+  Slot2: {fileID: 2109249691}
+  Slot3: {fileID: 401616413}
+  Slot4: {fileID: 92718091}
+  Desc: {fileID: 142369295}
+  s1: 0
+  s2: 0
+  s3: 0
+  s4: 0
+  c1: 0
+  c2: 0
+  c3: 0
+  c4: 0
+  days: 7
+  influence: 0
+  money: 0
+--- !u!4 &2002838416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002838414}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 570.46295, y: 290.82208, z: -264.34952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2028070238
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,7 +3922,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2109249697}
         m_MethodName: SetAction
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3771,9 +3980,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0000dd439c9e5754fbdeedf5976d6018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chose: 0
   Textfield: {fileID: 1741134445}
   choosing: 0
-  previous: 
+  time: ' 1300 - 1400'
+  cancel: 
+  track: {fileID: 2002838414}
+  otherButtonsPressed: 0
+  action: 
 --- !u!1 &2112756314
 GameObject:
   m_ObjectHideFlags: 0
