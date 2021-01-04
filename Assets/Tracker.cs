@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tracker : MonoBehaviour
 {
-    public GameObject Slot1,Slot2,Slot3,Slot4,Desc;
-    public bool s1,s2,s3,s4;
-    public bool c1,c2,c3,c4;
+	public GameObject Desc, Timetable, timeslot_prefab, Execute;
+	private List<GameObject> timeslots;
+	private List<bool> timeslots_choosing;
+	private List<bool> timeslots_chose;
     public int days;
     public float influence;
     public float money;
@@ -14,34 +16,76 @@ public class Tracker : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {   
+    {
+		timeslots = new List<GameObject>();
+		timeslots_choosing = new List<bool>();
+		timeslots_chose = new List<bool>();
+		Init(12, 16);
     }
+	
+	void Init(int start_hour, int end_hour) {
+		for (int i = start_hour; i < end_hour; i++) {
+			GameObject timeslot = Instantiate(timeslot_prefab, Timetable.transform) as GameObject;
+			timeslot.GetComponent<TimeSlotter>().Init(i, this);
+			timeslots.Add(timeslot);
+			timeslots_choosing.Add(false);
+			timeslots_chose.Add(false);
+		}
+		
+		LayoutRebuilder.ForceRebuildLayoutImmediate(Timetable.GetComponent<RectTransform>());
+	}
 
     // Update is called once per frame
     public void Refresh()
     {
-        s1 = Slot1.GetComponent<TimeSlotter>().choosing;
-        s2 = Slot2.GetComponent<TimeSlotter>().choosing;
-        s3 = Slot3.GetComponent<TimeSlotter>().choosing;
-        s4 = Slot4.GetComponent<TimeSlotter>().choosing;
-        c1 = Slot1.GetComponent<TimeSlotter>().chose;
-        c2 = Slot2.GetComponent<TimeSlotter>().chose;
-        c3 = Slot3.GetComponent<TimeSlotter>().chose;
-        c4 = Slot4.GetComponent<TimeSlotter>().chose;
+		for (int i = 0; i < timeslots.Count; i++) {
+			timeslots_choosing[i] = timeslots[i].GetComponent<TimeSlotter>().choosing;
+			timeslots_chose[i] = timeslots[i].GetComponent<TimeSlotter>().chose;
+		}
+		
         Desc.GetComponent<Description>().days = days;
         Desc.GetComponent<Description>().SetOriginalText();
-
+		
+		if (AllDone()) {
+			Execute.GetComponent<Button>().interactable = true;
+		}
     }
 
     public GameObject Chosen() {
-        return s1 ? Slot1 : s2 ? Slot2 : s3 ? Slot3 : Slot4;
+        for (int i = 0; i < timeslots.Count; i++) {
+			if (timeslots_choosing[i])
+				return timeslots[i];
+		}
+		
+		return timeslots[0]; // this should never be reached
     }
 
     public bool Condition() {
-        return s1 || s2 || s3 || s4;
+		for (int i = 0; i < timeslots.Count; i++) {
+			if (timeslots_choosing[i])
+				return true;
+		}
+        return false;
     }
 
     public bool AllDone(){
-        return c1 && c2 && c3 && c4;
+        for (int i = 0; i < timeslots.Count; i++) {
+			if (!timeslots_chose[i])
+				return false;
+		}
+		return true;
     }
+	
+	public void ExecuteAction() {
+		days -= 1;
+		Execute.GetComponent<Button>().interactable = false;
+		
+		for (int i = 0; i < timeslots.Count; i++) {
+			timeslots[i].GetComponent<TimeSlotter>().Start();
+		}
+		
+		Refresh();
+		
+		//run the actions but haven't coded them yet
+	}
 }

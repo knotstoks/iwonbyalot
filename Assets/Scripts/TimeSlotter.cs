@@ -5,23 +5,35 @@ using UnityEngine.UI;
 
 public class TimeSlotter : MonoBehaviour
 {
-    public bool chose;
     public Text Textfield;
+	public Tracker track;
+	
+	public bool chose;
     public bool choosing;
-    public string time;
-    public string cancel;
-    public GameObject track;
-    public bool otherButtonsPressed;
-    public string action;
+	bool time_set = false;
+    string time;
+    string cancel;
+    bool otherButtonsPressed;
+    string action;
 
     public void Start() {
         choosing = false;
         chose = false;
         cancel = "cancel";
-        Textfield.text = time;
+		
+		if (time_set)
+			Textfield.text = time;
     }
+	
+	public void Init(int start_time, Tracker _track) {
+		time = start_time.ToString() + ":00 - " + (start_time + 1).ToString() + ":00";
+		Textfield.text = time;
+		time_set = true;
+		track = _track;
+	}
+	
     void Update() {
-        otherButtonsPressed = track.GetComponent<Tracker>().Condition();
+        otherButtonsPressed = track.Condition();
         
     }
     public void SetAction()
@@ -39,12 +51,7 @@ public class TimeSlotter : MonoBehaviour
                 
             }
         chose = false;
-        track.GetComponent<Tracker>().Refresh();
-        
-
+        track.Refresh();
         }
     }
-    
-
-
 }
