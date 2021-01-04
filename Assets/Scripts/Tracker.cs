@@ -74,7 +74,7 @@ public class Tracker : MonoBehaviour
         Execute.GetComponent<Button>().interactable = true;
     }
 
-    public bool AllDone(){
+    public bool AllDone() {
         for (int i = 0; i < timeslots.Count; i++) {
 			if (currentSchedule[i] == null)
 				return false;
@@ -122,7 +122,7 @@ public class Tracker : MonoBehaviour
 
 	private void DisableSchedulingUi()
     {
-		foreach(GameObject ui in schedulingUi)
+		foreach (GameObject ui in schedulingUi)
         {
 			ui.SetActive(false);
         }

@@ -952,8 +952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138, y: -158}
-  m_SizeDelta: {x: 264.19482, y: 34.46019}
+  m_AnchoredPosition: {x: 132.42, y: -158}
+  m_SizeDelta: {x: 253.04376, y: 34.46019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330554016
 MonoBehaviour:
@@ -1079,10 +1079,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   track: {fileID: 1278676108}
-  actionID: Part-Time Job
+  actionID: Print and Distribute Flyers
   selected: 0
   bottom: {fileID: 142369295}
-  actionDescription: Earn your pocket money
+  actionDescription: -10 Money, +14 Influence
 --- !u!1 &543586524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,7 +1253,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: print flyers
+  m_Text: part-time job
 --- !u!222 &547736161
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1378,8 +1378,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138, y: -91}
-  m_SizeDelta: {x: 264.19482, y: 34.46019}
+  m_AnchoredPosition: {x: 132.4, y: -91}
+  m_SizeDelta: {x: 253.09277, y: 34.46019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714260877
 MonoBehaviour:
@@ -1505,10 +1505,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   track: {fileID: 1278676108}
-  actionID: Rally Speech
+  actionID: Active Campaigning
   selected: 0
   bottom: {fileID: 142369295}
-  actionDescription: Talk bout stuff
+  actionDescription: +4 Influence
 --- !u!1 &812585061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1578,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: pander to voters
+  m_Text: speech
 --- !u!222 &812585064
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1637,7 +1637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0, b: 0.007166215, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1706,8 +1706,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138, y: -223}
-  m_SizeDelta: {x: 264.19482, y: 34.46019}
+  m_AnchoredPosition: {x: 132.42, y: -223}
+  m_SizeDelta: {x: 253.04376, y: 34.46019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940410243
 MonoBehaviour:
@@ -1833,10 +1833,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   track: {fileID: 1278676108}
-  actionID: Print Flyers
+  actionID: Part-Time Job
   selected: 0
   bottom: {fileID: 142369295}
-  actionDescription: For Propaganda
+  actionDescription: +5 Money
 --- !u!1 &1069609855
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,6 +2166,7 @@ RectTransform:
   - {fileID: 1515069322}
   - {fileID: 86952199}
   - {fileID: 244992407}
+  - {fileID: 2016548627}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2268,7 +2269,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Rally speech
+  m_Text: active campaigning
 --- !u!222 &1404639718
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2346,7 +2347,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: part-time job
+  m_Text: print and distribute flyers
 --- !u!222 &1443747573
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2870,8 +2871,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138, y: -291}
-  m_SizeDelta: {x: 264.19482, y: 34.46019}
+  m_AnchoredPosition: {x: 132.42, y: -291}
+  m_SizeDelta: {x: 253.04376, y: 34.46019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904504981
 MonoBehaviour:
@@ -2997,10 +2998,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   track: {fileID: 1278676108}
-  actionID: Pander To Voters
+  actionID: Speech
   selected: 0
   bottom: {fileID: 142369295}
-  actionDescription: Time to get votes
+  actionDescription: -10 Influence, +10 Votes
+--- !u!1 &2016548626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016548627}
+  m_Layer: 5
+  m_Name: Tutorial Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2016548627
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016548626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1278676112}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 678, y: 92}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2028070238
 GameObject:
   m_ObjectHideFlags: 0
