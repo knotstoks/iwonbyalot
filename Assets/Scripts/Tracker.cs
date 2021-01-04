@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Tracker : MonoBehaviour
 {
+	public List<GameObject> schedulingUi;
 	public GameObject Desc, Timetable, timeslot_prefab, Execute;
 	public delegate void TimeslotCallback(Action action);
 	private TimeslotCallback timeslotCallback;
@@ -63,14 +65,12 @@ public class Tracker : MonoBehaviour
         for (int i = 0; i < timeslots.Count; i++)
         {
 			timeslots[i].GetComponent<TimeSlotter>().Refresh();
-        }
+			currentSchedule[i] = null;
+		}
 
         Desc.GetComponent<Description>().days = days;
         Desc.GetComponent<Description>().SetOriginalText();
 
-        //if (AllDone())
-        //{
-        //}
         Execute.GetComponent<Button>().interactable = true;
     }
 
@@ -88,14 +88,43 @@ public class Tracker : MonoBehaviour
 			return;
         }
 		Execute.GetComponent<Button>().interactable = false;
+		DisableSchedulingUi();
 		days -= 1;
-		
-		//for (int i = 0; i < timeslots.Count; i++) {
-		//	timeslots[i].GetComponent<TimeSlotter>().Start();
-		//}
-		
-		Refresh();
-		
+
+
+		List<string> dialogueList = new List<string>();
+		for (int i = 0; i < currentSchedule.Count; i++)
+		{
+			Action action = currentSchedule[i];
+			influence += action.getInfluenceGain();
+			money += action.getMoneyGain();
+			//switch (action.getActionType())
+			//{
+			//    case Action.ActionType.Farming:
+
+			//}
+			string dialogue = String.Format("Did {0} to gain {1} influence and {2} money", 
+				action.getName(), action.getInfluenceGain(), action.getMoneyGain());
+			dialogueList.Add(dialogue);
+		}
 		//run the actions but haven't coded them yet
+		Desc.GetComponent<Description>().executeDialogue(dialogueList, ResumeScheduling);
 	}
+
+	public void ResumeScheduling()
+    {
+		foreach (GameObject ui in schedulingUi)
+		{
+			ui.SetActive(true);
+		}
+		Refresh();
+	}
+
+	private void DisableSchedulingUi()
+    {
+		foreach(GameObject ui in schedulingUi)
+        {
+			ui.SetActive(false);
+        }
+    }
 }

@@ -27,7 +27,7 @@ public class ActionSlotter : MonoBehaviour,IPointerExitHandler, IPointerEnterHan
     public void OnPointerEnter(PointerEventData eventData)
     {
         
-        bottom.GetComponent<Description>().Textfield.text = actionDescription;
+        bottom.GetComponent<Description>().textfield.text = actionDescription;
         
     }
 
