@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Action
 {
-    public static enum ActionType
+    public enum ActionType
     {
         Farming,
         TradingVotes,
