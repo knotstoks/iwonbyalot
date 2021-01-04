@@ -2,35 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class MapDistrictController : MonoBehaviour
+public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public GameObject districtUi; // Assign in inspector
+    private District curDistrict;
     private static Color32 blue = new Color32(0, 128, 225, 200);
     private static Color32 red = new Color32(255, 51, 51, 200);
+    public MapDetailController mapDetailController;
 
     public void ShowDistrict(District district)
     {
-        if (district.for_votes_count >= district.against_votes_count)
+        gameObject.SetActive(true);
+        if (district.forVotesCount >= district.againstVotesCount)
         {
-            districtUi.GetComponent<Image>().color = blue;
+            gameObject.GetComponent<Image>().color = blue;
         }
         else
         {
-            districtUi.GetComponent<Image>().color = red;
+            gameObject.GetComponent<Image>().color = red;
         }
-        districtUi.SetActive(true);
+        curDistrict = district;
     }
 
     public void HideDistrict()
     {
-        districtUi.SetActive(false);
+        gameObject.SetActive(false);
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.4f;
     }
 
     // Update is called once per frame
@@ -38,4 +40,15 @@ public class MapDistrictController : MonoBehaviour
     {
         
     }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        mapDetailController.ShowDetails(curDistrict, transform.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        mapDetailController.HideDetails();
+    }
+
 }

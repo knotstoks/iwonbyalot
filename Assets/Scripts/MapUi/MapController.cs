@@ -37,7 +37,7 @@ public class MapController : MonoBehaviour
         testDistricts = new List<District>();
         District dist1 = new District();
         District dist2 = new District();
-        dist2.against_votes_count = 11;
+        dist2.againstVotesCount = 11;
         testDistricts.Add(dist1);
         testDistricts.Add(dist2);
     }
