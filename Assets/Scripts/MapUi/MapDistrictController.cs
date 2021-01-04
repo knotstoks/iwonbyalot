@@ -28,6 +28,7 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
     public void HideDistrict()
     {
         gameObject.SetActive(false);
+        mapDetailController.HideDetails();
     }
 
     void Awake()
