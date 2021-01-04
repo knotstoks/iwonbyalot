@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class Tracker : MonoBehaviour
 {
 	public GameObject Desc, Timetable, timeslot_prefab, Execute;
+	public delegate void TimeslotCallback(Action action);
+	private TimeslotCallback timeslotCallback;
 	private List<GameObject> timeslots;
-	private List<bool> timeslots_choosing;
-	private List<bool> timeslots_chose;
-    public int days;
+	private List<Action> currentSchedule;
+	private int selectedTimeslot;
+	public int days;
     public float influence;
     public float money;
     
@@ -18,71 +20,79 @@ public class Tracker : MonoBehaviour
     void Start()
     {
 		timeslots = new List<GameObject>();
-		timeslots_choosing = new List<bool>();
-		timeslots_chose = new List<bool>();
+		currentSchedule = new List<Action>();
+		selectedTimeslot = -1;
 		Init(12, 16);
     }
 	
 	void Init(int start_hour, int end_hour) {
 		for (int i = start_hour; i < end_hour; i++) {
 			GameObject timeslot = Instantiate(timeslot_prefab, Timetable.transform) as GameObject;
-			timeslot.GetComponent<TimeSlotter>().Init(i, this);
+			timeslot.GetComponent<TimeSlotter>().Init(i - start_hour, i, this);
 			timeslots.Add(timeslot);
-			timeslots_choosing.Add(false);
-			timeslots_chose.Add(false);
+			currentSchedule.Add(null);
 		}
 		
 		LayoutRebuilder.ForceRebuildLayoutImmediate(Timetable.GetComponent<RectTransform>());
 	}
 
+	public void SelectTimeslot(int index, TimeslotCallback timeslotCallback)
+    {
+		if (selectedTimeslot != -1)
+        {
+			this.timeslotCallback(null);
+
+		}
+		selectedTimeslot = index;
+		this.timeslotCallback = timeslotCallback;
+	}
+
+	public void SelectAction(Action action)
+	{
+		if (selectedTimeslot != -1)
+		{
+			currentSchedule[selectedTimeslot] = action;
+			this.timeslotCallback(action);
+			selectedTimeslot = -1;
+		}
+	}
+
     // Update is called once per frame
     public void Refresh()
     {
-		for (int i = 0; i < timeslots.Count; i++) {
-			timeslots_choosing[i] = timeslots[i].GetComponent<TimeSlotter>().choosing;
-			timeslots_chose[i] = timeslots[i].GetComponent<TimeSlotter>().chose;
-		}
-		
+        for (int i = 0; i < timeslots.Count; i++)
+        {
+			timeslots[i].GetComponent<TimeSlotter>().Refresh();
+        }
+
         Desc.GetComponent<Description>().days = days;
         Desc.GetComponent<Description>().SetOriginalText();
-		
-		if (AllDone()) {
-			Execute.GetComponent<Button>().interactable = true;
-		}
-    }
 
-    public GameObject Chosen() {
-        for (int i = 0; i < timeslots.Count; i++) {
-			if (timeslots_choosing[i])
-				return timeslots[i];
-		}
-		
-		return timeslots[0]; // this should never be reached
-    }
-
-    public bool Condition() {
-		for (int i = 0; i < timeslots.Count; i++) {
-			if (timeslots_choosing[i])
-				return true;
-		}
-        return false;
+        //if (AllDone())
+        //{
+        //}
+        Execute.GetComponent<Button>().interactable = true;
     }
 
     public bool AllDone(){
         for (int i = 0; i < timeslots.Count; i++) {
-			if (!timeslots_chose[i])
+			if (currentSchedule[i] == null)
 				return false;
 		}
 		return true;
     }
 	
 	public void ExecuteAction() {
-		days -= 1;
+		if (!AllDone())
+        {
+			return;
+        }
 		Execute.GetComponent<Button>().interactable = false;
+		days -= 1;
 		
-		for (int i = 0; i < timeslots.Count; i++) {
-			timeslots[i].GetComponent<TimeSlotter>().Start();
-		}
+		//for (int i = 0; i < timeslots.Count; i++) {
+		//	timeslots[i].GetComponent<TimeSlotter>().Start();
+		//}
 		
 		Refresh();
 		

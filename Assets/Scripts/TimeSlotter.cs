@@ -8,50 +8,70 @@ public class TimeSlotter : MonoBehaviour
     public Text Textfield;
 	public Tracker track;
 	
-	public bool chose;
-    public bool choosing;
+	//public bool chose;
+    public bool isTimeslotSelected;
 	bool time_set = false;
     string time;
     string cancel;
-    bool otherButtonsPressed;
-    string action;
+    //bool otherButtonsPressed;
+    //string action;
+    private Action curAction;
+    private int slotIndex;
 
     public void Start() {
-        choosing = false;
-        chose = false;
+        isTimeslotSelected = false;
+        //chose = false;
         cancel = "cancel";
 		
 		if (time_set)
 			Textfield.text = time;
     }
-	
-	public void Init(int start_time, Tracker _track) {
+
+    public void Init(int slotIndex, int start_time, Tracker track) {
 		time = start_time.ToString() + ":00 - " + (start_time + 1).ToString() + ":00";
 		Textfield.text = time;
 		time_set = true;
-		track = _track;
+        this.slotIndex = slotIndex;
+		this.track = track;
 	}
-	
-    void Update() {
-        otherButtonsPressed = track.Condition();
-        
-    }
-    public void SetAction()
-    {
-        if (otherButtonsPressed && !choosing) 
-        {
 
-        }  else {
-            if (choosing == false ) {
-                Textfield.text = cancel;
-                choosing = true;
-            } else {
-                Textfield.text = time;
-                choosing = false;
-                
-            }
-        chose = false;
-        track.Refresh();
+    public void Refresh()
+    {
+        Textfield.text = time;
+        isTimeslotSelected = false;
+    }
+
+    public void onClick()
+    {
+        if (isTimeslotSelected)
+        {
+            Textfield.text = time;
+            isTimeslotSelected = false;
         }
+        else
+        {
+            track.SelectTimeslot(slotIndex, SetActionCallback);
+            Textfield.text = cancel;
+            isTimeslotSelected = true;
+        }
+    }
+
+    public void SetActionCallback(Action action)
+    {
+        isTimeslotSelected = false;
+        if (action == null)
+        {
+            if (curAction == null)
+            {
+                Textfield.text = time;
+            }
+            else
+            {
+                Textfield.text = curAction.getName();
+            }
+            return;
+        } 
+        curAction = action;
+        Textfield.text = curAction.getName();
     }
 }

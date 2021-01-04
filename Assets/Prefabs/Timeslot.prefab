@@ -200,7 +200,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 216161761125971641}
-        m_MethodName: SetAction
+        m_MethodName: onClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -222,14 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0000dd439c9e5754fbdeedf5976d6018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chose: 0
   Textfield: {fileID: 216161759423710111}
-  choosing: 0
-  time: 1200 - 1300
-  cancel: 
   track: {fileID: 0}
-  otherButtonsPressed: 0
-  action: 
+  isTimeslotSelected: 0
 --- !u!114 &2913038144174315678
 MonoBehaviour:
   m_ObjectHideFlags: 0

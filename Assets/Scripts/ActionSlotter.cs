@@ -9,32 +9,21 @@ public class ActionSlotter : MonoBehaviour,IPointerExitHandler, IPointerEnterHan
     public GameObject track;
     public string actionID;
     public bool selected;
-     GameObject timeSlot;
     public GameObject bottom;
     public string actionDescription;
+    private Action representedAction;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        representedAction = new Action(actionID, actionDescription, 0, 0, Action.ActionType.Farming);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AssignAction()
     {
-        selected = track.GetComponent<Tracker>().Condition();
+        track.GetComponent<Tracker>().SelectAction(representedAction);
     }
 
-    public void AssignAction() {
-        if(selected){
-            timeSlot = track.GetComponent<Tracker>().Chosen();
-            timeSlot.GetComponent<TimeSlotter>().Textfield.text = actionID;
-            timeSlot.GetComponent<TimeSlotter>().choosing = false; 
-            timeSlot.GetComponent<TimeSlotter>().chose = true;
-            track.GetComponent<Tracker>().Refresh();
-            
-        }
-    }
-    
     public void OnPointerEnter(PointerEventData eventData)
     {
         
