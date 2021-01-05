@@ -12,7 +12,6 @@ public class TimeSlotter : MonoBehaviour
     public bool isTimeslotSelected;
 	bool time_set = false;
     string time;
-    string cancel;
     //bool otherButtonsPressed;
     //string action;
     private Action curAction;
@@ -21,7 +20,6 @@ public class TimeSlotter : MonoBehaviour
     public void Start() {
         isTimeslotSelected = false;
         //chose = false;
-        cancel = "cancel";
 		
 		if (time_set)
 			Textfield.text = time;
@@ -35,7 +33,7 @@ public class TimeSlotter : MonoBehaviour
 		this.track = track;
 	}
 
-    public void Refresh()
+    public void Reset()
     {
         Textfield.text = time;
         isTimeslotSelected = false;
@@ -51,7 +49,7 @@ public class TimeSlotter : MonoBehaviour
         else
         {
             track.SelectTimeslot(slotIndex);
-            Textfield.text = cancel;
+            Textfield.text = "cancel";
             isTimeslotSelected = true;
         }
     }
@@ -73,5 +71,6 @@ public class TimeSlotter : MonoBehaviour
         } 
         curAction = action;
         Textfield.text = curAction.getName();
+        track.UpdateExecute();
     }
 }

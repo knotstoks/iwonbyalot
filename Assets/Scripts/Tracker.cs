@@ -23,7 +23,7 @@ public class Tracker : MonoBehaviour
 		currentSchedule = new List<Action>();
 		selectedTimeslot = -1;
 		Init(12, 16);
-		Refresh();
+		Reset();
 	}
 	
 	void Init(int start_hour, int end_hour) {
@@ -57,37 +57,33 @@ public class Tracker : MonoBehaviour
 	}
 
     // Update is called once per frame
-    public void Refresh()
+    public void Reset()
     {
         for (int i = 0; i < timeslots.Count; i++)
         {
-			timeslots[i].GetComponent<TimeSlotter>().Refresh();
+			timeslots[i].GetComponent<TimeSlotter>().Reset();
 			currentSchedule[i] = null;
 		}
 
         Desc.GetComponent<Description>().days = days;
         Desc.GetComponent<Description>().SetOriginalText();
-
-        Execute.GetComponent<Button>().interactable = true;
+		
+        Execute.GetComponent<Button>().interactable = false;
     }
 
-    public bool AllDone() {
+    public void UpdateExecute() {
+        // check if all timeslots have been set
         for (int i = 0; i < timeslots.Count; i++) {
 			if (currentSchedule[i] == null)
-				return false;
+				return;
 		}
-		return true;
+		
+        Execute.GetComponent<Button>().interactable = true;
     }
 	
 	public void ExecuteAction() {
-		if (!AllDone())
-        {
-			return;
-        }
-		Execute.GetComponent<Button>().interactable = false;
 		DisableSchedulingUi();
 		days -= 1;
-
 
 		List<string> dialogueList = new List<string>();
 		for (int i = 0; i < currentSchedule.Count; i++)
@@ -114,7 +110,7 @@ public class Tracker : MonoBehaviour
 		{
 			ui.SetActive(true);
 		}
-		Refresh();
+		Reset();
 	}
 
 	private void DisableSchedulingUi()
