@@ -23,7 +23,8 @@ public class Tracker : MonoBehaviour
 		currentSchedule = new List<Action>();
 		selectedTimeslot = -1;
 		Init(12, 16);
-    }
+		Refresh();
+	}
 	
 	void Init(int start_hour, int end_hour) {
 		for (int i = start_hour; i < end_hour; i++) {
