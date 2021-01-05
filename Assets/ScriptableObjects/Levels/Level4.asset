@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 558df1454344cfb47b7fe6e4e5b26a7e, type: 3}
-  m_Name: New Level
+  m_Name: Level4
   m_EditorClassIdentifier: 
-  startTime: 0
-  endTime: 0
-  days: 0
-  actionSlots:
-  - {fileID: 0}
+  position: Placeholder2
+  startTime: 8
+  endTime: 20
+  days: 28
+  actionSlots: []

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558df1454344cfb47b7fe6e4e5b26a7e, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  position: Class President
+  startTime: 12
+  endTime: 16
+  days: 10
+  actionSlots:
+  - {fileID: 11400000, guid: 5e4768265f64c744991933f59a55cc29, type: 2}
+  - {fileID: 11400000, guid: 0b630f208eb5a964e86f80670e1edf22, type: 2}
+  - {fileID: 11400000, guid: ec2c18e1c9614d043b2bc4481cb0c364, type: 2}
+  - {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}

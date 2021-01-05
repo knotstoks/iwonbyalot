@@ -1780,7 +1780,6 @@ MonoBehaviour:
   timeslotPrefab: {fileID: 216161761125971639, guid: cdb9487636f13ab428ced4678dca226d,
     type: 3}
   Execute: {fileID: 244992406}
-  days: 10
   influence: 0
   money: 0
   levelOneActionData:
@@ -1788,6 +1787,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b630f208eb5a964e86f80670e1edf22, type: 2}
   - {fileID: 11400000, guid: ec2c18e1c9614d043b2bc4481cb0c364, type: 2}
   - {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
+  level_data: {fileID: 11400000, guid: e2cc49b0d95520f4abc0d9ab95de894f, type: 2}
 --- !u!1 &1371178463
 GameObject:
   m_ObjectHideFlags: 0

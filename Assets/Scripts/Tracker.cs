@@ -8,24 +8,33 @@ public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
 	public GameObject Desc, TimeslotContainer, ActionContainer, actionslotPrefab, timeslotPrefab, Execute;
-	private List<GameObject> timeslots;
-	private List<GameObject> actionslots;
-	private List<Action> currentSchedule;
-	private int selectedTimeslot;
-	public int days;
     public float influence;
     public float money;
 	public List<ActionData> levelOneActionData;
+    
+	private List<GameObject> timeslots;
+	private List<GameObject> actionslots;
+	private List<Action> currentSchedule;
+    private List<ActionData> actions;
+	private int selectedTimeslot;
+	private int days;
+    
+    public LevelData level_data;
 
 
 	// Start is called before the first frame update
 	void Start()
     {
+        level_data = DataPassedToMainGame.level_data;
+        
 		timeslots = new List<GameObject>();
-		actionslots = new List<GameObject>();
 		currentSchedule = new List<Action>();
+        actionslots = new List<GameObject>();
+        
+        actions = level_data.actionSlots;
+        Init(level_data.startTime, level_data.endTime);
+        
 		selectedTimeslot = -1;
-		Init(12, 16);
 		Reset();
 	}
 	
@@ -36,10 +45,11 @@ public class Tracker : MonoBehaviour
 			timeslots.Add(timeslot);
 			currentSchedule.Add(null);
 		}
-		for (int i = 0; i < levelOneActionData.Count; i++)
+        
+		for (int i = 0; i < actions.Count; i++)
 		{
 			GameObject actionslot = Instantiate(actionslotPrefab, ActionContainer.transform) as GameObject;
-			actionslot.GetComponent<ActionSlotter>().Init(levelOneActionData[i], this, Desc);
+			actionslot.GetComponent<ActionSlotter>().Init(actions[i], this, Desc);
 			actionslots.Add(actionslot);
 		}
         

@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Level", menuName = "ScriptableObjects/Level", order = 1)]
 public class LevelData : ScriptableObject
 {
+    public string position;
     public int startTime, endTime;
     public int days;
-    public List<GameObject> actionSlots;
+    public List<ActionData> actionSlots;
 }
