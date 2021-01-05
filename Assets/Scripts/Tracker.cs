@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
-	public GameObject Desc, Timetable, ActionTable, actionslotPrefab, timeslotPrefab, Execute;
+	public GameObject Desc, TimeslotContainer, ActionContainer, actionslotPrefab, timeslotPrefab, Execute;
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 	private List<Action> currentSchedule;
@@ -31,18 +31,19 @@ public class Tracker : MonoBehaviour
 	
 	void Init(int start_hour, int end_hour) {
 		for (int i = start_hour; i < end_hour; i++) {
-			GameObject timeslot = Instantiate(timeslotPrefab, Timetable.transform) as GameObject;
+			GameObject timeslot = Instantiate(timeslotPrefab, TimeslotContainer.transform) as GameObject;
 			timeslot.GetComponent<TimeSlotter>().Init(i - start_hour, i, this);
 			timeslots.Add(timeslot);
 			currentSchedule.Add(null);
 		}
 		for (int i = 0; i < levelOneActionData.Count; i++)
 		{
-			GameObject actionslot = Instantiate(actionslotPrefab, ActionTable.transform) as GameObject;
+			GameObject actionslot = Instantiate(actionslotPrefab, ActionContainer.transform) as GameObject;
 			actionslot.GetComponent<ActionSlotter>().Init(levelOneActionData[i], this, Desc);
 			actionslots.Add(actionslot);
 		}
-		LayoutRebuilder.ForceRebuildLayoutImmediate(Timetable.GetComponent<RectTransform>());
+        
+		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
 	}
 
 	public void SelectTimeslot(int index)
