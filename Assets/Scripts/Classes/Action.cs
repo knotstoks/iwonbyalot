@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Action
 {
     public enum ActionType
@@ -10,45 +11,45 @@ public class Action
         TradingVotes,
         Research,
     }
-    private string name;
-    private string description;
-    private int influenceGain;
-    private int moneyGain;
-    private ActionType actionType;
-    public int districtChosen;
+    public readonly string actionName;
+    public readonly string description;
+    public readonly int influenceGain;
+    public readonly int moneyGain;
+    public readonly ActionType actionType;
+    public readonly int districtChosen = -1;
 
     public Action(string name, string description, int influenceGain, 
         int moneyGain, ActionType actionType)
     {
-        this.name = name;
+        this.actionName = name;
         this.description = description;
         this.influenceGain = influenceGain;
         this.moneyGain = moneyGain;
         this.actionType = actionType;
     }
 
-    public string getName()
+    public Action(ActionData actionData)
     {
-        return name;
+        this.actionName = actionData.actionName;
+        this.description = actionData.description;
+        this.influenceGain = actionData.influenceGain;
+        this.moneyGain = actionData.moneyGain;
+        this.actionType = actionData.actionType;
+    } 
+
+    public Action CopyWithDistrict(int districtIndex)
+    {
+        return new Action(actionName, description, influenceGain, moneyGain, actionType, districtIndex);
     }
 
-    public string getDescription()
+    private Action(string name, string description, int influenceGain,
+        int moneyGain, ActionType actionType, int districtChosen)
     {
-        return description;
-    }
-
-    public int getInfluenceGain()
-    {
-        return influenceGain;
-    }
-
-    public int getMoneyGain()
-    {
-        return moneyGain;
-    }
-
-    public ActionType getActionType()
-    {
-        return actionType;
+        this.actionName = name;
+        this.description = description;
+        this.influenceGain = influenceGain;
+        this.moneyGain = moneyGain;
+        this.actionType = actionType;
+        this.districtChosen = districtChosen;
     }
 }
