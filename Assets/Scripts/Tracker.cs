@@ -8,8 +8,6 @@ public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
 	public GameObject Desc, Timetable, timeslot_prefab, Execute;
-	public delegate void TimeslotCallback(Action action);
-	private TimeslotCallback timeslotCallback;
 	private List<GameObject> timeslots;
 	private List<Action> currentSchedule;
 	private int selectedTimeslot;
@@ -38,15 +36,13 @@ public class Tracker : MonoBehaviour
 		LayoutRebuilder.ForceRebuildLayoutImmediate(Timetable.GetComponent<RectTransform>());
 	}
 
-	public void SelectTimeslot(int index, TimeslotCallback timeslotCallback)
+	public void SelectTimeslot(int index)
     {
 		if (selectedTimeslot != -1)
         {
-			this.timeslotCallback(null);
-
+			timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(null);
 		}
 		selectedTimeslot = index;
-		this.timeslotCallback = timeslotCallback;
 	}
 
 	public void SelectAction(Action action)
@@ -54,7 +50,7 @@ public class Tracker : MonoBehaviour
 		if (selectedTimeslot != -1)
 		{
 			currentSchedule[selectedTimeslot] = action;
-			this.timeslotCallback(action);
+			timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
 			selectedTimeslot = -1;
 		}
 	}

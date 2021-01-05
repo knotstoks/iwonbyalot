@@ -50,13 +50,13 @@ public class TimeSlotter : MonoBehaviour
         }
         else
         {
-            track.SelectTimeslot(slotIndex, SetActionCallback);
+            track.SelectTimeslot(slotIndex);
             Textfield.text = cancel;
             isTimeslotSelected = true;
         }
     }
 
-    public void SetActionCallback(Action action)
+    public void SetAction(Action action)
     {
         isTimeslotSelected = false;
         if (action == null)
