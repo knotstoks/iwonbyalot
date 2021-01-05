@@ -70,7 +70,7 @@ public class TimeSlotter : MonoBehaviour
             return;
         } 
         curAction = action;
-        Textfield.text = curAction.actionName
+        Textfield.text = curAction.actionName;
         track.UpdateExecute();
     }
 }
