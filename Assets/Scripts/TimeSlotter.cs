@@ -50,13 +50,13 @@ public class TimeSlotter : MonoBehaviour
         }
         else
         {
-            track.SelectTimeslot(slotIndex, SetActionCallback);
+            track.SelectTimeslot(slotIndex);
             Textfield.text = cancel;
             isTimeslotSelected = true;
         }
     }
 
-    public void SetActionCallback(Action action)
+    public void SetAction(Action action)
     {
         isTimeslotSelected = false;
         if (action == null)
@@ -67,11 +67,11 @@ public class TimeSlotter : MonoBehaviour
             }
             else
             {
-                Textfield.text = curAction.getName();
+                Textfield.text = curAction.actionName;
             }
             return;
         } 
         curAction = action;
-        Textfield.text = curAction.getName();
+        Textfield.text = curAction.actionName;
     }
 }
