@@ -67,11 +67,11 @@ public class TimeSlotter : MonoBehaviour
             }
             else
             {
-                Textfield.text = curAction.getName();
+                Textfield.text = curAction.actionName;
             }
             return;
         } 
         curAction = action;
-        Textfield.text = curAction.getName();
+        Textfield.text = curAction.actionName;
     }
 }

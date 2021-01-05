@@ -7,19 +7,22 @@ using UnityEngine.UI;
 public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
-	public GameObject Desc, Timetable, timeslot_prefab, Execute;
+	public GameObject Desc, Timetable, ActionTable, actionslotPrefab, timeslotPrefab, Execute;
 	private List<GameObject> timeslots;
+	private List<GameObject> actionslots;
 	private List<Action> currentSchedule;
 	private int selectedTimeslot;
 	public int days;
     public float influence;
     public float money;
-    
-    
-    // Start is called before the first frame update
-    void Start()
+	public List<ActionData> levelOneActionData;
+
+
+	// Start is called before the first frame update
+	void Start()
     {
 		timeslots = new List<GameObject>();
+		actionslots = new List<GameObject>();
 		currentSchedule = new List<Action>();
 		selectedTimeslot = -1;
 		Init(12, 16);
@@ -28,12 +31,17 @@ public class Tracker : MonoBehaviour
 	
 	void Init(int start_hour, int end_hour) {
 		for (int i = start_hour; i < end_hour; i++) {
-			GameObject timeslot = Instantiate(timeslot_prefab, Timetable.transform) as GameObject;
+			GameObject timeslot = Instantiate(timeslotPrefab, Timetable.transform) as GameObject;
 			timeslot.GetComponent<TimeSlotter>().Init(i - start_hour, i, this);
 			timeslots.Add(timeslot);
 			currentSchedule.Add(null);
 		}
-		
+		for (int i = 0; i < levelOneActionData.Count; i++)
+		{
+			GameObject actionslot = Instantiate(actionslotPrefab, ActionTable.transform) as GameObject;
+			actionslot.GetComponent<ActionSlotter>().Init(levelOneActionData[i], this, Desc);
+			actionslots.Add(actionslot);
+		}
 		LayoutRebuilder.ForceRebuildLayoutImmediate(Timetable.GetComponent<RectTransform>());
 	}
 
@@ -93,15 +101,15 @@ public class Tracker : MonoBehaviour
 		for (int i = 0; i < currentSchedule.Count; i++)
 		{
 			Action action = currentSchedule[i];
-			influence += action.getInfluenceGain();
-			money += action.getMoneyGain();
+			influence += action.influenceGain;
+			money += action.moneyGain;
 			//switch (action.getActionType())
 			//{
 			//    case Action.ActionType.Farming:
 
 			//}
 			string dialogue = String.Format("Did {0} to gain {1} influence and {2} money", 
-				action.getName(), action.getInfluenceGain(), action.getMoneyGain());
+				action.actionName, action.influenceGain, action.moneyGain);
 			dialogueList.Add(dialogue);
 		}
 		//run the actions but haven't coded them yet

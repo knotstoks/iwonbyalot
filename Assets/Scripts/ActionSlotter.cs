@@ -4,30 +4,30 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ActionSlotter : MonoBehaviour,IPointerExitHandler, IPointerEnterHandler
-{   
-    public GameObject track;
-    public string actionID;
-    public bool selected;
-    public GameObject bottom;
-    public string actionDescription;
+public class ActionSlotter : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
+{
+    public Text Textfield;
+    private Tracker track;
+    private GameObject bottom;
     private Action representedAction;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Init(ActionData actionData, Tracker track, GameObject bottom)
     {
-        representedAction = new Action(actionID, actionDescription, 0, 0, Action.ActionType.Farming);
+        representedAction = new Action(actionData);
+        this.track = track;
+        this.bottom = bottom;
+        Textfield.text = representedAction.actionName;
     }
 
     public void AssignAction()
     {
-        track.GetComponent<Tracker>().SelectAction(representedAction);
+        track.SelectAction(representedAction);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         
-        bottom.GetComponent<Description>().textfield.text = actionDescription;
+        bottom.GetComponent<Description>().textfield.text = representedAction.description;
         
     }
 

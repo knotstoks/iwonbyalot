@@ -45,8 +45,8 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < currentSchedule.Count; i++)
         {
             Action action = currentSchedule[i];
-            influence += action.getInfluenceGain();
-            money += action.getMoneyGain();
+            influence += action.influenceGain;
+            money += action.moneyGain;
             //switch (action.getActionType())
             //{
             //    case Action.ActionType.Farming:
