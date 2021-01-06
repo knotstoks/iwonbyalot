@@ -5,4 +5,5 @@ using UnityEngine;
 public static class DataPassedToMainGame
 {
     public static LevelData level_data;
+    public static int difficulty;
 }
