@@ -64,10 +64,12 @@ public class Tracker : MonoBehaviour
         
 		selectedTimeslot = -1;
 		Reset();
-        
-        if (DataPassedToMainGame.tutorial) {
-            tutorial = Instantiate(tutorialPrefab, this.transform) as GameObject;
-            tutorial.GetComponent<Tutorial>().Init(this);
+
+		if (DataPassedToMainGame.tutorial)
+		{
+			tutorial = Instantiate(tutorialPrefab, this.transform) as GameObject;
+			tutorial.GetComponent<Tutorial>().Init(this);
+		}
             
 		if (level_data.introductionDialogue != null)
         {

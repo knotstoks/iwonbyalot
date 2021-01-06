@@ -16,6 +16,8 @@ MonoBehaviour:
   startTime: 12
   endTime: 16
   days: 10
+  introductionDialogue: {fileID: 11400000, guid: 941bca309e807bf448504113b8f924b4,
+    type: 2}
   actionSlots:
   - {fileID: 11400000, guid: 5e4768265f64c744991933f59a55cc29, type: 2}
   - {fileID: 11400000, guid: 0b630f208eb5a964e86f80670e1edf22, type: 2}
