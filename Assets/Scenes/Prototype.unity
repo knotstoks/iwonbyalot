@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -446,6 +446,7 @@ MonoBehaviour:
   choiceSlotPrefab: {fileID: 216161761125971639, guid: 9939c92741bd47f478d32828be40fd8e,
     type: 3}
   choiceTable: {fileID: 1077991917}
+  background: {fileID: 136991861}
 --- !u!1 &218287904
 GameObject:
   m_ObjectHideFlags: 0
