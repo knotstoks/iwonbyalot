@@ -9,5 +9,7 @@ public class ActionData : ScriptableObject
     public string description;
     public int influenceGain;
     public int moneyGain;
+    public int stressGain;
+    public int charismaGain;
     public Action.ActionType actionType;
 }

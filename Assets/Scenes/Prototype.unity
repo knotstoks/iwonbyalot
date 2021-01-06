@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   days: 9
-  ratio: 10 / 90
+  ratio: 10/ 90
   textfield: {fileID: 813396056}
   isWaitingForUserInput: 0
 --- !u!114 &142369300
