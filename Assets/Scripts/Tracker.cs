@@ -23,6 +23,7 @@ public class Tracker : MonoBehaviour
     private List<ActionData> actions;
 	private List<GameObject> resourceslots;
 
+	private bool isUsingDistricts;
 	private List<District> districts;
 	private GameObject mapContainer;
 
@@ -62,12 +63,16 @@ public class Tracker : MonoBehaviour
         days = level_data.days;
 		resourceslots = level_data.resources;
 
-		mapContainer = level_data.mapContainer;
-		districts = new List<District>();
-		for (int i = 0; i < level_data.districtCount; i++)
+		isUsingDistricts = level_data.districtCount > 0;
+		if (isUsingDistricts)
         {
-			districts.Add(new District());
-		}
+			mapContainer = level_data.mapContainer;
+			districts = new List<District>();
+			for (int i = 0; i < level_data.districtCount; i++)
+			{
+				districts.Add(new District());
+			}
+        }
 		
         Init(level_data.startTime, level_data.endTime);
         
