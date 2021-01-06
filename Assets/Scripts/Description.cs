@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Description : MonoBehaviour
 {
     public int days;
-    public Text textfield;
     public string ratio;
+
+    public Text textfield;
     public delegate void ResumeGameCallback();
     private ResumeGameCallback resumeGameCallback;
     private bool isExecutingDialogue;
@@ -17,12 +18,6 @@ public class Description : MonoBehaviour
     private Coroutine speaking = null;
     private string targetSpeech = "";
     [HideInInspector] public bool isWaitingForUserInput = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     /// <summary>
     /// Say something and show it on the speech box.
@@ -67,7 +62,7 @@ public class Description : MonoBehaviour
         StopSpeaking();
     }
 
-    public void executeDialogue(List<string> dialogueList, ResumeGameCallback resumeGameCallback)
+    public void ExecuteActionsDialogue(List<string> dialogueList, ResumeGameCallback resumeGameCallback)
     {
         if (dialogueList.Count == 0)
         {

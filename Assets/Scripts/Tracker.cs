@@ -11,6 +11,7 @@ public class Tracker : MonoBehaviour
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, Execute;
     public GameObject InfluenceSlider, MoneySlider, TimeslotContainer, ActionContainer;
 	public Text InfluenceStat,MoneyStat;
+	public List<RandomDialogueEvent> randomDialogueEvents;
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 	private List<Action> currentSchedule;
@@ -126,15 +127,23 @@ public class Tracker : MonoBehaviour
 			{ 
 				influence += action.influenceGain;
 				money += action.moneyGain;
-				
-			//switch (action.getActionType())
-			//{
-			//    case Action.ActionType.Farming:
 
-			//}
-				dialogue = String.Format("Did {0} to gain {1} influence and {2} money", 
-				action.actionName, action.influenceGain, action.moneyGain);
+				//switch (action.getActionType())
+				//{
+				//    case Action.ActionType.Farming:
+
+				//}
+				dialogue = String.Format("Did {0} to gain", action.actionName);
+				if (action.influenceGain > 0)
+                {
+					dialogue += String.Format(" {0} influence", action.influenceGain);
+				}
+				if (action.moneyGain > 0)
+				{
+					dialogue += String.Format(" and {0} money", action.moneyGain);
+				}
 				if(action.actionType == Action.ActionType.TradingVotes) {
+					dialogue += " votes";
 					forVotesCount += 10;
 					againstVotesCount -= 10;
 				}
@@ -153,7 +162,6 @@ public class Tracker : MonoBehaviour
 			}
 			dialogueList.Add(dialogue);
 		}
-		//run the actions but haven't coded them yet
 		
 		if  (forVotesCount - 3 < 0)
 		{
@@ -180,7 +188,12 @@ public class Tracker : MonoBehaviour
 			dialogueList.Add(announcement);
 			//NextLevel();
 		}
-		Desc.GetComponent<Description>().executeDialogue(dialogueList, ResumeScheduling);
+		Desc.GetComponent<Description>().executeActionsDialogue(dialogueList, ResumeScheduling);
+	}
+
+	public void ExecuteRandomEvent()
+	{
+		
 	}
 
 	public void ResumeScheduling()

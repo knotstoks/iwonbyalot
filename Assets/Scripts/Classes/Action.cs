@@ -18,16 +18,6 @@ public class Action
     public readonly ActionType actionType;
     public readonly int districtChosen = -1;
 
-    public Action(string name, string description, int influenceGain, 
-        int moneyGain, ActionType actionType)
-    {
-        this.actionName = name;
-        this.description = description;
-        this.influenceGain = influenceGain;
-        this.moneyGain = moneyGain;
-        this.actionType = actionType;
-    }
-
     public Action(ActionData actionData)
     {
         this.actionName = actionData.actionName;
