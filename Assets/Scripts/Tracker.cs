@@ -30,13 +30,18 @@ public class Tracker : MonoBehaviour
 	private int selectedTimeslot;
 	private int days;
     
-    public LevelData level_data;
+    private LevelData level_data;
+	public LevelData testLevelData;
 
 
 	// Start is called before the first frame update
 	void Start()
     {
         level_data = DataPassedToMainGame.level_data;
+		if (level_data == null)
+        {
+			level_data = testLevelData;
+		}
         
 		timeslots = new List<GameObject>();
 		currentSchedule = new List<Action>();
@@ -63,6 +68,15 @@ public class Tracker : MonoBehaviour
         if (DataPassedToMainGame.tutorial) {
             tutorial = Instantiate(tutorialPrefab, this.transform) as GameObject;
             tutorial.GetComponent<Tutorial>().Init(this);
+            
+		if (level_data.introductionDialogue != null)
+        {
+			DisableSchedulingUi();
+			Desc.GetComponent<EventExecuter>().ExecuteEventDialogue(
+						level_data.introductionDialogue,
+						makeCurrentStatistics(),
+						ResumeScheduling
+						);
         }
 	}
 	
@@ -329,6 +343,15 @@ public class Tracker : MonoBehaviour
 
 	public void ResumeScheduling()
     {
+		foreach (GameObject ui in schedulingUi)
+		{
+			ui.SetActive(true);
+		}
+		Reset();
+	}
+
+	public void ResumeScheduling(string result)
+	{
 		foreach (GameObject ui in schedulingUi)
 		{
 			ui.SetActive(true);

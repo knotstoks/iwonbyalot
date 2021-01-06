@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
+  m_Name: LevelOneIntroducton
+  m_EditorClassIdentifier: 
+  dialogueLineTypes: 0000000000000000010000000000000007000000
+  dialogueLines:
+  - Huh?... Where am I?
+  - "Boy: Hey you, you\u2019re finally awake. You were trying to cross the border
+    right? Walked right into that Imperial ambush same as us and that thief over
+    there."
+  - School_gate_2
+  - Isn't this... the front of my school? What... was I doing here....
+  - 
+  dialogueLineLinks: 0100000002000000030000000400000000000000
