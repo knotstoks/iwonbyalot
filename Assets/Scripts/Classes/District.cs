@@ -1,4 +1,4 @@
-﻿using Sys_Random = System.Random;
+﻿using SysRandom = System.Random;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class District
 {
-    private static readonly Sys_Random rnd = new Sys_Random();
+    private static readonly SysRandom rnd = new SysRandom();
+    public string name;
     public List<int> likedMsgs;
     public List<int> dislikedMsgs;
     public int forVotesCount = 10;

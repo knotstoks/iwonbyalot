@@ -11,6 +11,8 @@ public class DialogueEvent : ScriptableObject
         Text,
         // Uses String Format.
         Formated,
+        // Gets a random district to use
+        RandomDistrict,
         // Jump to the line at the specified index
         Jump,
         // Line to display when making choice
@@ -21,5 +23,7 @@ public class DialogueEvent : ScriptableObject
         // Return with the string specified
         Return,
     }
-    public List<(DialogueLineType, string, int)> dialogueLines;
+    public List<DialogueLineType> dialogueLineTypes;
+    public List<string> dialogueLines;
+    public List<int> dialogueLineLinks;
 }
