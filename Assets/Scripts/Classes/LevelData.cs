@@ -10,6 +10,7 @@ public class LevelData : ScriptableObject
     public int startTime, endTime;
     public int days;
     public List<ActionData> actionSlots;
+    public List<GameObject> resources;
     public List<RandomDialogueEvent> NormalEvents;
     public List<RandomDialogueEvent> HardcoreEvents;
 }

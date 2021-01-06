@@ -21,6 +21,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b630f208eb5a964e86f80670e1edf22, type: 2}
   - {fileID: 11400000, guid: ec2c18e1c9614d043b2bc4481cb0c364, type: 2}
   - {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
+  resources:
+  - {fileID: 7312506179018901934, guid: b31f08b56231abf4a9e807079fcd7674, type: 3}
+  - {fileID: 5849451257297741405, guid: 801a1ce3e0888ad4cb1e6f8bb266d131, type: 3}
   NormalEvents:
   - {fileID: 11400000, guid: 7cb9370ecee2e34469f973a779843e9a, type: 2}
   - {fileID: 11400000, guid: b1482b646705771499d492bda60e2704, type: 2}

@@ -12,18 +12,17 @@ public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, Execute;
-    public GameObject InfluenceSlider, MoneySlider, TimeslotContainer, ActionContainer;
-	public Text InfluenceStat,MoneyStat;
-	
+    public GameObject InfluenceSlider, MoneySlider, StressSlider,CharismaSlider, TimeslotContainer, ActionContainer, ResourceContainer;
+	public List<RandomDialogueEvent> randomDialogueEvents;
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 	private List<Action> currentSchedule;
     private List<ActionData> actions;
-    private List<RandomDialogueEvent> randomDialogueEvents;
+	private List<GameObject> resourceslots;
+	
 
 	public float eventChance = 0.5f;
-    public float money;
-    public float influence;
+    public float money,influence,stress,charisma;
 	public int forVotesCount, againstVotesCount;
 	private int selectedTimeslot;
 	private int days;
@@ -51,6 +50,8 @@ public class Tracker : MonoBehaviour
         
         actions = level_data.actionSlots;
         days = level_data.days;
+		resourceslots = level_data.resources;
+		
         Init(level_data.startTime, level_data.endTime);
         
 		selectedTimeslot = -1;
@@ -71,8 +72,19 @@ public class Tracker : MonoBehaviour
 			actionslot.GetComponent<ActionSlotter>().Init(actions[i], this, Desc);
 			actionslots.Add(actionslot);
 		}
-        
+
+		for(int i = 0; i < resourceslots.Count; i++)
+		{
+			Instantiate(resourceslots[i],ResourceContainer.transform);
+			
+			 
+		}
+        MoneySlider = GameObject.FindWithTag("Money");
+		InfluenceSlider = GameObject.FindWithTag("Influence");
+		StressSlider = GameObject.FindWithTag("Stress");
+		CharismaSlider = GameObject.FindWithTag("Charisma");
 		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
+
 	}
 
 	void NextLevel() {
@@ -110,8 +122,8 @@ public class Tracker : MonoBehaviour
         Desc.GetComponent<Description>().days = days;
 		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount,againstVotesCount);
 		Desc.GetComponent<Description>().SetOriginalText();
-		MoneyStat.text = money.ToString() + "/ 100";
-		InfluenceStat.text = influence.ToString() + " /100";
+		MoneySlider.GetComponentInChildren<Text>().text = money.ToString() + "/ 100";
+		InfluenceSlider.GetComponentInChildren<Text>().text = influence.ToString() + " /100";
 		MoneySlider.GetComponent<Slider>().value = money;
 		InfluenceSlider.GetComponent<Slider>().value = influence; 
 		

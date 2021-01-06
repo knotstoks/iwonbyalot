@@ -17,3 +17,10 @@ MonoBehaviour:
   endTime: 16
   days: 14
   actionSlots: []
+  resources:
+  - {fileID: 7312506179018901934, guid: b31f08b56231abf4a9e807079fcd7674, type: 3}
+  - {fileID: 5849451257297741405, guid: 801a1ce3e0888ad4cb1e6f8bb266d131, type: 3}
+  - {fileID: 8411151617335405104, guid: 6a2fe775dfa2fbb48b6183c3aaaebb14, type: 3}
+  - {fileID: 118145672267169055, guid: c917cb5fd668c61408fa06f0300e3b1f, type: 3}
+  NormalEvents: []
+  HardcoreEvents: []
