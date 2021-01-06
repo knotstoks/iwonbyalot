@@ -69,7 +69,11 @@ public class EventExecuter : MonoBehaviour
     {
         if (isExecutingEvent && !isMakingChoice && !desc.isSpeaking)
         {
-            ExecuteDialogueLine();
+            if (!desc.isWaitingForUserInput) {
+                desc.FinishLine();
+            } else {
+                ExecuteDialogueLine();
+            }
         }
     }
 

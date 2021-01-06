@@ -58,7 +58,7 @@ public class Description : MonoBehaviour
         isWaitingForUserInput = true;
         while (isWaitingForUserInput)
             yield return new WaitForEndOfFrame();
-
+        
         StopSpeaking();
     }
 
@@ -94,9 +94,20 @@ public class Description : MonoBehaviour
                 gameObject.GetComponent<Button>().interactable = false;
                 return;
             }
-            Say(dialogueList[dialogueProgression]);
-            dialogueProgression += 1;
+            
+            if (!isWaitingForUserInput) {
+                FinishLine();
+            } else {
+                Say(dialogueList[dialogueProgression]);
+                dialogueProgression += 1;
+            }
         }
+    }
+    
+    public void FinishLine() {
+        isWaitingForUserInput = true;
+        StopSpeaking();
+        textfield.text = targetSpeech;
     }
 
     public void SetOriginalText(){

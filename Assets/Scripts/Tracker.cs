@@ -156,7 +156,10 @@ public class Tracker : MonoBehaviour
 				}
 				if (action.moneyGain > 0)
 				{
-					dialogue += String.Format(" and {0} money", action.moneyGain);
+                    if (action.influenceGain > 0)
+                        dialogue += " and";
+                    
+					dialogue += String.Format(" {0} money", action.moneyGain);
 				}
 				if(action.actionType == Action.ActionType.TradingVotes) {
 					dialogue += " votes";
