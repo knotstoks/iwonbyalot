@@ -6,4 +6,5 @@ public static class DataPassedToMainGame
 {
     public static LevelData level_data;
     public static int diff;
+    public static bool tutorial;
 }

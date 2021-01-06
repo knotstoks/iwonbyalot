@@ -11,9 +11,12 @@ using Random = UnityEngine.Random;
 public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
-	public GameObject Desc, actionslotPrefab, timeslotPrefab, Execute;
-    public GameObject InfluenceSlider, MoneySlider, StressSlider,CharismaSlider, TimeslotContainer, ActionContainer, ResourceContainer;
-	public List<RandomDialogueEvent> randomDialogueEvents;
+	public GameObject Desc, actionslotPrefab, timeslotPrefab, Execute, tutorialPrefab;
+    public GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider;
+    public GameObject TimeslotContainer, ActionContainer, ResourceContainer;
+    private GameObject tutorial;
+    
+	private List<RandomDialogueEvent> randomDialogueEvents;
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 	private List<Action> currentSchedule;
@@ -56,6 +59,11 @@ public class Tracker : MonoBehaviour
         
 		selectedTimeslot = -1;
 		Reset();
+        
+        if (DataPassedToMainGame.tutorial) {
+            tutorial = Instantiate(tutorialPrefab, this.transform) as GameObject;
+            tutorial.GetComponent<Tutorial>().Init(this);
+        }
 	}
 	
 	void Init(int start_hour, int end_hour) {
@@ -334,5 +342,9 @@ public class Tracker : MonoBehaviour
         {
 			ui.SetActive(false);
         }
+    }
+    
+    public void removeTutorial() {
+        Destroy(tutorial);   
     }
 }
