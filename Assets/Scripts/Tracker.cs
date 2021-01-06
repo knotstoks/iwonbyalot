@@ -156,11 +156,11 @@ public class Tracker : MonoBehaviour
 
     public void Reset()
     {
-  //      for (int i = 0; i < timeslots.Count; i++)
-  //      {
-		//	timeslots[i].GetComponent<TimeSlotter>().Reset();
-		//	currentSchedule[i] = null;
-		//}
+        for (int i = 0; i < timeslots.Count; i++)
+        {
+            timeslots[i].GetComponent<TimeSlotter>().Reset();
+            currentSchedule[i] = null;
+        }
 
         Desc.GetComponent<Description>().days = days;
 		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount,againstVotesCount);
