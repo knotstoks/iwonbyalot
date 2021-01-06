@@ -11,13 +11,16 @@ public class MainMenu : MonoBehaviour
 	public GameObject grey_BG, level_select, new_btn, continue_btn, days_text, position_text;
     
     public List<LevelData> level_datas;
-    public List<GameObject> level_btns;
-    private int selected;
+    public List<GameObject> diff_highlights;
+    
+    private int select_level;
+    private int select_diff;
     
     // Start is called before the first frame update
     void Start()
     {
-        selected = -1;
+        select_level = -1;
+        select_diff = 0;
     }
 
     // Update is called once per frame
@@ -26,11 +29,19 @@ public class MainMenu : MonoBehaviour
     }
     
     public void onLevelBtnClick(int level) {
-        if (level != selected) {
-            selected = level;
-            position_text.GetComponent<Text>().text = "Position: " + level_datas[selected].position;
-            days_text.GetComponent<Text>().text = "Days: " + level_datas[selected].days;
+        if (level != select_level) {
+            select_level = level;
+            position_text.GetComponent<Text>().text = "Position: " + level_datas[select_level].position;
+            days_text.GetComponent<Text>().text = "Days: " + level_datas[select_level].days;
             new_btn.GetComponent<Button>().interactable = true;
+        }
+    }
+    
+    public void onDiffBtnClick(int diff) {
+        if (diff != select_diff) {
+            select_diff = diff;
+            diff_highlights[select_diff].SetActive(true);
+            diff_highlights[(select_diff + 1) % 2].SetActive(false);
         }
     }
 	
@@ -49,7 +60,8 @@ public class MainMenu : MonoBehaviour
 	}
     
     public void SwitchToMainGame() {
+        DataPassedToMainGame.level_data = level_datas[select_level];
+        DataPassedToMainGame.difficulty = select_diff;
         SceneManager.LoadScene(MainGame);
-        DataPassedToMainGame.level_data = level_datas[selected];
     }
 }

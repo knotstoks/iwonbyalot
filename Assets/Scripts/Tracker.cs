@@ -21,6 +21,7 @@ public class Tracker : MonoBehaviour
 	public int forVotesCount, againstVotesCount;
 	private int selectedTimeslot;
 	private int days;
+    private int difficulty;
     
     public LevelData level_data;
 
@@ -29,6 +30,7 @@ public class Tracker : MonoBehaviour
 	void Start()
     {
         level_data = DataPassedToMainGame.level_data;
+        difficulty = DataPassedToMainGame.difficulty;
         
 		timeslots = new List<GameObject>();
 		currentSchedule = new List<Action>();
