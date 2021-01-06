@@ -79,10 +79,9 @@ public class Description : MonoBehaviour
 
     public void OnClick()
     {
-        if (isSpeaking)
+        if (!isWaitingForUserInput)
         {
-            StopSpeaking();
-            textfield.text = targetSpeech;
+            FinishLine();
             return;
         }
         if (isExecutingDialogue)
@@ -95,12 +94,8 @@ public class Description : MonoBehaviour
                 return;
             }
             
-            if (!isWaitingForUserInput) {
-                FinishLine();
-            } else {
-                Say(dialogueList[dialogueProgression]);
-                dialogueProgression += 1;
-            }
+            Say(dialogueList[dialogueProgression]);
+            dialogueProgression += 1;
         }
     }
     

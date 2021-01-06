@@ -67,13 +67,9 @@ public class EventExecuter : MonoBehaviour
 
     public void OnClick()
     {
-        if (isExecutingEvent && !isMakingChoice && !desc.isSpeaking)
+        if (isExecutingEvent && !isMakingChoice && desc.isWaitingForUserInput)
         {
-            if (!desc.isWaitingForUserInput) {
-                desc.FinishLine();
-            } else {
-                ExecuteDialogueLine();
-            }
+            ExecuteDialogueLine();
         }
     }
 
