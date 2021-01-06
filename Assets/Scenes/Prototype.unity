@@ -896,7 +896,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1278676113}
-        m_MethodName: ExecuteAction
+        m_MethodName: ExecuteRandomEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2113,7 +2113,8 @@ MonoBehaviour:
   ActionContainer: {fileID: 1371178463}
   InfluenceStat: {fileID: 228231820}
   MoneyStat: {fileID: 1502155774}
-  randomDialogueEvents: []
+  randomDialogueEvents:
+  - {fileID: 11400000, guid: 7cb9370ecee2e34469f973a779843e9a, type: 2}
   eventChance: 0.5
   money: 0
   influence: 0
