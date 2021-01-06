@@ -56,9 +56,6 @@ public class EventExecuter : MonoBehaviour
                 ));
                 NextLine();
                 break;
-            case DialogueEvent.DialogueLineType.Jump:
-                NextLine();
-                break;
             case DialogueEvent.DialogueLineType.StartChoice:
                 ParseChoice();
                 break;
@@ -70,7 +67,7 @@ public class EventExecuter : MonoBehaviour
 
     public void OnClick()
     {
-        if (isExecutingEvent && !isMakingChoice)
+        if (isExecutingEvent && !isMakingChoice && !desc.isSpeaking)
         {
             ExecuteDialogueLine();
         }

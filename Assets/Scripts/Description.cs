@@ -79,6 +79,12 @@ public class Description : MonoBehaviour
 
     public void OnClick()
     {
+        if (isSpeaking)
+        {
+            StopSpeaking();
+            textfield.text = targetSpeech;
+            return;
+        }
         if (isExecutingDialogue)
         {
             if (dialogueProgression == dialogueList.Count)

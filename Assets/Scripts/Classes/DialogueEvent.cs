@@ -9,12 +9,12 @@ public class DialogueEvent : ScriptableObject
     {
         // Normal Text
         Text,
-        // Uses String Format (not implemented yet).
-        Formated,
+        // Changes the background (not implemented yet)
+        Background,
         // Gets a random district to use
         RandomDistrict,
-        // Jump to the line at the specified index
-        Jump,
+        // Uses String Format (not implemented yet).
+        FormattedText,
         // Line to display when making choice
         // Links corresponding to Choice and ChoiceEnd will denote the index to jump to if selected
         // Choices will be displayed based on incrementing the index by 1 until ChoiceEnd is seen.
