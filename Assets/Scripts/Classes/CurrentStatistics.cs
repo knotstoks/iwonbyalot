@@ -7,5 +7,5 @@ public struct CurrentStatistics
 	public float money;
 	public float influence;
 	public List<District> districts;
-	private int days;
+	public int days;
 }

@@ -17,8 +17,9 @@ public class DialogueEvent : ScriptableObject
         Jump,
         // Line to display when making choice
         StartChoice,
+        // A choice which can be chosen
         Choice,
-        // Indicate that choice has been listed out
+        // The last choice which can be chosen
         ChoiceEnd,
         // Return with the string specified
         Return,

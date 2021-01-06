@@ -8,17 +8,21 @@ using String = System.String;
 public class EventExecuter : MonoBehaviour
 {
     public Description desc;
+    public GameObject choiceSlotPrefab;
+    public GameObject choiceTable;
 
     public delegate void EventFinishCallback(string eventReturn);
     private EventFinishCallback eventFinishCallback;
 
     private bool isExecutingEvent;
-    private bool isMakingChoice;
     private int lineIndex;
     private DialogueEvent diaEvent;
     private CurrentStatistics currentStats;
     private int randomDistrictIndex;
 
+    private bool isMakingChoice;
+    private List<GameObject> choiceSlots;
+    private List<int> choiceIndexes;
 
     public void ExecuteEventDialogue(DialogueEvent dialogueEvent,
         CurrentStatistics currentStats,
@@ -88,11 +92,39 @@ public class EventExecuter : MonoBehaviour
         SayLine();
         NextLine();
         List<string> choices = new List<String>();
-        while(diaEvent.dialogueLineTypes[lineIndex] != DialogueEvent.DialogueLineType.ChoiceEnd)
+        choiceIndexes = new List<int>();
+
+        while (diaEvent.dialogueLineTypes[lineIndex] != DialogueEvent.DialogueLineType.ChoiceEnd)
         {
             choices.Add(diaEvent.dialogueLines[lineIndex]);
+            choiceIndexes.Add(lineIndex);
             NextLine();
         }
+
+        choiceTable.SetActive(true);
+        choiceSlots = new List<GameObject>();
+        for (int i = 0; i < choices.Count; i++)
+        {
+            GameObject choiceSlot = Instantiate(choiceSlotPrefab, choiceTable.transform) as GameObject;
+            choiceSlot.GetComponent<ChoiceSlotter>().Init(i, choices[i], this);
+            choiceSlots.Add(choiceSlot);
+        }
+    }
+
+    public void SelectChoice(int index)
+    {
+        if (!isMakingChoice)
+        {
+            return;
+        }
+        isMakingChoice = false;
+        for (int i = 0; i < choiceSlots.Count; i++)
+        {
+            Destroy(choiceSlots[i]);
+        }
+        choiceTable.SetActive(false);
+        lineIndex = diaEvent.dialogueLineLinks[choiceIndexes[index]];
+        ExecuteDialogueLine();
     }
 
     public void EndEvent()

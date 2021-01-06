@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+using Random = UnityEngine.Random;
+
 public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
@@ -16,7 +18,8 @@ public class Tracker : MonoBehaviour
 	private List<GameObject> actionslots;
 	private List<Action> currentSchedule;
     private List<ActionData> actions;
-    
+
+	public float eventChance = 0.5f;
     public float money;
     public float influence;
 	public int forVotesCount, againstVotesCount;
@@ -188,13 +191,87 @@ public class Tracker : MonoBehaviour
 			dialogueList.Add(announcement);
 			//NextLevel();
 		}
-		Desc.GetComponent<Description>().executeActionsDialogue(dialogueList, ResumeScheduling);
+		Desc.GetComponent<Description>().ExecuteActionsDialogue(dialogueList, ResumeScheduling);
 	}
 
 	public void ExecuteRandomEvent()
 	{
-		
+		DisableSchedulingUi();
+		List<RandomDialogueEvent> available = new List<RandomDialogueEvent>();
+		foreach(RandomDialogueEvent randomEvent in randomDialogueEvents)
+        {
+			switch (randomEvent.triggerVarType)
+            {
+				case RandomDialogueEvent.TriggerVarType.None:
+					available.Add(randomEvent);
+					break;
+				case RandomDialogueEvent.TriggerVarType.Day:
+					if (randomEvent.CompareValue(days))
+                    {
+						available.Add(randomEvent);
+                    }
+					break;
+			}
+		}
+		if (available.Count == 0)
+        {
+			EndRandomEvent("");
+			return;
+		}
+
+		int totalChance = 0;
+		foreach (RandomDialogueEvent randomEvent in available)
+		{
+			if (randomEvent.triggerChance == 0)
+            {
+				Desc.GetComponent<EventExecuter>().ExecuteEventDialogue(
+					randomEvent.dialogueEvent,
+					makeCurrentStatistics(),
+					EndRandomEvent
+					);
+				return;
+			}
+			totalChance += randomEvent.triggerChance;
+		}
+		if (Random.Range(0.0f, 1.0f) > eventChance)
+        {
+			EndRandomEvent("");
+			return;
+        }
+		int choosenChance = Random.Range(0, totalChance);
+		foreach (RandomDialogueEvent randomEvent in available)
+		{
+			choosenChance -= randomEvent.triggerChance;
+			if (choosenChance < 0)
+			{
+				Desc.GetComponent<EventExecuter>().ExecuteEventDialogue(
+					randomEvent.dialogueEvent,
+					makeCurrentStatistics(),
+					EndRandomEvent
+					);
+				return;
+			}
+		}
+
 	}
+
+	public void EndRandomEvent(string result)
+    {
+		if (result.Equals(""))
+        {
+			ExecuteAction();
+        }
+    }
+
+	public CurrentStatistics makeCurrentStatistics()
+    {
+		CurrentStatistics result = new CurrentStatistics();
+		result.districts = new List<District>();
+		result.influence = influence;
+		result.money = money;
+		result.days = days;
+		return result;
+    }
 
 	public void ResumeScheduling()
     {
