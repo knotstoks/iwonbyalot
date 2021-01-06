@@ -9,6 +9,8 @@ public class DialogueEvent : ScriptableObject
     {
         // Normal Text
         Text,
+        // Changes the background (not implemented yet)
+        Background,
         // Uses String Format (not implemented yet).
         Formated,
         // Gets a random district to use
