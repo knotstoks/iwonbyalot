@@ -16,7 +16,6 @@ public class Action
     public readonly int influenceGain;
     public readonly int moneyGain;
     public readonly ActionType actionType;
-    public readonly int districtChosen = -1;
 
     public Action(ActionData actionData)
     {
@@ -26,20 +25,4 @@ public class Action
         this.moneyGain = actionData.moneyGain;
         this.actionType = actionData.actionType;
     } 
-
-    public Action CopyWithDistrict(int districtIndex)
-    {
-        return new Action(actionName, description, influenceGain, moneyGain, actionType, districtIndex);
-    }
-
-    private Action(string name, string description, int influenceGain,
-        int moneyGain, ActionType actionType, int districtChosen)
-    {
-        this.actionName = name;
-        this.description = description;
-        this.influenceGain = influenceGain;
-        this.moneyGain = moneyGain;
-        this.actionType = actionType;
-        this.districtChosen = districtChosen;
-    }
 }

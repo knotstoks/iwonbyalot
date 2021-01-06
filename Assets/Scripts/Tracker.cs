@@ -17,11 +17,14 @@ public class Tracker : MonoBehaviour
     private GameObject tutorial;
     
 	private List<RandomDialogueEvent> randomDialogueEvents;
-	private List<GameObject> timeslots;
-	private List<GameObject> actionslots;
-	private List<Action> currentSchedule;
     private List<ActionData> actions;
 	private List<GameObject> resourceslots;
+	private List<GameObject> timeslots;
+	private List<GameObject> actionslots;
+
+	private List<Action> currentSchedule;
+	private List<int> actionDistrictTarget;
+	private List<int> actionMessageTarget;
 
 	private bool isUsingDistricts;
 	private List<District> districts;
@@ -49,8 +52,11 @@ public class Tracker : MonoBehaviour
 		timeslots = new List<GameObject>();
 		currentSchedule = new List<Action>();
         actionslots = new List<GameObject>();
-        
-        switch (DataPassedToMainGame.diff) {
+
+		actionDistrictTarget = new List<int>();
+		actionMessageTarget = new List<int>();
+
+		switch (DataPassedToMainGame.diff) {
             case 0:
                 randomDialogueEvents = level_data.NormalEvents;
                 break;
@@ -111,6 +117,8 @@ public class Tracker : MonoBehaviour
 			timeslot.GetComponent<TimeSlotter>().Init(i - start_hour, i, this);
 			timeslots.Add(timeslot);
 			currentSchedule.Add(null);
+			actionDistrictTarget.Add(-1);
+			actionMessageTarget.Add(-1);
 		}
         
 		for (int i = 0; i < actions.Count; i++)
