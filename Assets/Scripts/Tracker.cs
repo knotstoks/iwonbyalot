@@ -14,11 +14,12 @@ public class Tracker : MonoBehaviour
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, Execute;
     public GameObject InfluenceSlider, MoneySlider, TimeslotContainer, ActionContainer;
 	public Text InfluenceStat,MoneyStat;
-	public List<RandomDialogueEvent> randomDialogueEvents;
+	
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 	private List<Action> currentSchedule;
     private List<ActionData> actions;
+    private List<RandomDialogueEvent> randomDialogueEvents;
 
 	public float eventChance = 0.5f;
     public float money;
@@ -26,7 +27,6 @@ public class Tracker : MonoBehaviour
 	public int forVotesCount, againstVotesCount;
 	private int selectedTimeslot;
 	private int days;
-    private int difficulty;
     
     public LevelData level_data;
 
@@ -35,11 +35,19 @@ public class Tracker : MonoBehaviour
 	void Start()
     {
         level_data = DataPassedToMainGame.level_data;
-        difficulty = DataPassedToMainGame.difficulty;
         
 		timeslots = new List<GameObject>();
 		currentSchedule = new List<Action>();
         actionslots = new List<GameObject>();
+        
+        switch (DataPassedToMainGame.diff) {
+            case 0:
+                randomDialogueEvents = level_data.NormalEvents;
+                break;
+            case 1:
+                randomDialogueEvents = level_data.HardcoreEvents;
+                break;
+        }
         
         actions = level_data.actionSlots;
         days = level_data.days;

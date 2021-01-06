@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
     
     public void SwitchToMainGame() {
         DataPassedToMainGame.level_data = level_datas[select_level];
-        DataPassedToMainGame.difficulty = select_diff;
+        DataPassedToMainGame.diff = select_diff;
         SceneManager.LoadScene(MainGame);
     }
 }
