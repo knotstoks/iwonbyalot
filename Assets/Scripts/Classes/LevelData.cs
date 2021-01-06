@@ -9,6 +9,8 @@ public class LevelData : ScriptableObject
     public string position;
     public int startTime, endTime;
     public int days;
+    public int districtCount;
+    public GameObject mapContainer;
     public DialogueEvent introductionDialogue;
     public List<ActionData> actionSlots;
     public List<GameObject> resources;

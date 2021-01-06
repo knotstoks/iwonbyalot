@@ -36,12 +36,6 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
         gameObject.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.4f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         mapDetailController.ShowDetails(curDistrict, transform.position);

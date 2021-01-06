@@ -22,7 +22,9 @@ public class Tracker : MonoBehaviour
 	private List<Action> currentSchedule;
     private List<ActionData> actions;
 	private List<GameObject> resourceslots;
-	
+
+	private List<District> districts;
+	private GameObject mapContainer;
 
 	public float eventChance = 0.5f;
     public float money,influence,stress,charisma;
@@ -59,6 +61,13 @@ public class Tracker : MonoBehaviour
         actions = level_data.actionSlots;
         days = level_data.days;
 		resourceslots = level_data.resources;
+
+		mapContainer = level_data.mapContainer;
+		districts = new List<District>();
+		for (int i = 0; i < level_data.districtCount; i++)
+        {
+			districts.Add(new District());
+		}
 		
         Init(level_data.startTime, level_data.endTime);
         
@@ -109,15 +118,12 @@ public class Tracker : MonoBehaviour
 		for(int i = 0; i < resourceslots.Count; i++)
 		{
 			Instantiate(resourceslots[i],ResourceContainer.transform);
-			
-			 
 		}
         MoneySlider = GameObject.FindWithTag("Money");
 		InfluenceSlider = GameObject.FindWithTag("Influence");
 		StressSlider = GameObject.FindWithTag("Stress");
 		CharismaSlider = GameObject.FindWithTag("Charisma");
 		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
-
 	}
 
 	void NextLevel() {
@@ -143,14 +149,13 @@ public class Tracker : MonoBehaviour
 		}
 	}
 
-    // Update is called once per frame
     public void Reset()
     {
-        for (int i = 0; i < timeslots.Count; i++)
-        {
-			timeslots[i].GetComponent<TimeSlotter>().Reset();
-			currentSchedule[i] = null;
-		}
+  //      for (int i = 0; i < timeslots.Count; i++)
+  //      {
+		//	timeslots[i].GetComponent<TimeSlotter>().Reset();
+		//	currentSchedule[i] = null;
+		//}
 
         Desc.GetComponent<Description>().days = days;
 		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount,againstVotesCount);
@@ -340,7 +345,6 @@ public class Tracker : MonoBehaviour
 			}
 		}
 	}
-
 
 	public CurrentStatistics makeCurrentStatistics()
     {
