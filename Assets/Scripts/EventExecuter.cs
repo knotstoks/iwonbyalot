@@ -98,8 +98,10 @@ public class EventExecuter : MonoBehaviour
         {
             choices.Add(diaEvent.dialogueLines[lineIndex]);
             choiceIndexes.Add(lineIndex);
-            NextLine();
+            lineIndex += 1;
         }
+        choices.Add(diaEvent.dialogueLines[lineIndex]);
+        choiceIndexes.Add(lineIndex);
 
         choiceTable.SetActive(true);
         choiceSlots = new List<GameObject>();

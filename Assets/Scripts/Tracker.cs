@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -259,11 +260,30 @@ public class Tracker : MonoBehaviour
 
 	public void EndRandomEvent(string result)
     {
-		if (result.Equals(""))
+		if (!result.Equals(""))
         {
-			ExecuteAction();
-        }
-    }
+			ParseRandomEventResult(result);
+		}
+		ExecuteAction();
+		
+	}
+
+	public void ParseRandomEventResult(string result)
+    {
+		List<string> effects = result.Split(',').ToList();
+		foreach (string effect in effects)
+		{
+			List<string> effectWords = effect.Split(' ').ToList();
+			switch (effectWords[0])
+			{
+				case "inf":
+					influence += int.Parse(effectWords[1]);
+					if (influence < 0) influence = 0;
+					break;
+			}
+		}
+	}
+
 
 	public CurrentStatistics makeCurrentStatistics()
     {
