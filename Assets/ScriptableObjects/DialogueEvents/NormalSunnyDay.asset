@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: NormalSunnyDay
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 000000000000000007000000
+  dialogueLineTypes: 01000000000000000000000007000000
   dialogueLines:
+  - Classroom_02_day
   - It was a normal sunny day.
   - Nothing in particular happened.
   - 
-  dialogueLineLinks: 010000000200000000000000
+  dialogueLineLinks: 01000000020000000300000000000000

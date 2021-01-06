@@ -129,7 +129,6 @@ public class Tracker : MonoBehaviour
     }
 	
 	public void ExecuteAction() {
-		Debug.Log("action");
 		Execute.GetComponent<Button>().interactable = true;
 		DisableSchedulingUi();
 		days -= 1;

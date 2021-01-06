@@ -7,9 +7,10 @@ using String = System.String;
 
 public class EventExecuter : MonoBehaviour
 {
+    private const string pathToBackgrounds = "Backgrounds/";
+
     public Description desc;
-    public GameObject choiceSlotPrefab;
-    public GameObject choiceTable;
+    public GameObject choiceSlotPrefab, choiceTable, background;
 
     public delegate void EventFinishCallback(string eventReturn);
     private EventFinishCallback eventFinishCallback;
@@ -19,6 +20,8 @@ public class EventExecuter : MonoBehaviour
     private DialogueEvent diaEvent;
     private CurrentStatistics currentStats;
     private int randomDistrictIndex;
+
+    private readonly Dictionary<string, Sprite> backgroundCache = new Dictionary<String, Sprite>();
 
     private bool isMakingChoice;
     private List<GameObject> choiceSlots;
@@ -46,6 +49,11 @@ public class EventExecuter : MonoBehaviour
             case DialogueEvent.DialogueLineType.Text:
                 SayLine();
                 NextLine();
+                break;
+            case DialogueEvent.DialogueLineType.Background:
+                LoadBackground();
+                NextLine();
+                ExecuteDialogueLine();
                 break;
             case DialogueEvent.DialogueLineType.RandomDistrict:
                 randomDistrictIndex = Random.Range(0, currentStats.districts.Count);
@@ -81,6 +89,17 @@ public class EventExecuter : MonoBehaviour
     private void SayLine()
     {
         desc.Say(diaEvent.dialogueLines[lineIndex]);
+    }
+
+    private void LoadBackground()
+    {
+        string fileName = diaEvent.dialogueLines[lineIndex];
+        if (!backgroundCache.TryGetValue(fileName, out Sprite sprite))
+        {
+            sprite = Resources.Load<Sprite>(pathToBackgrounds + fileName);
+            backgroundCache.Add(fileName, sprite);
+        }
+        background.GetComponent<Image>().sprite = sprite;
     }
 
     public void ParseChoice()
