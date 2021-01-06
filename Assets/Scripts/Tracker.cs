@@ -64,24 +64,33 @@ public class Tracker : MonoBehaviour
         
 		selectedTimeslot = -1;
 		Reset();
-
-		if (DataPassedToMainGame.tutorial)
-		{
-			tutorial = Instantiate(tutorialPrefab, this.transform) as GameObject;
-			tutorial.GetComponent<Tutorial>().Init(this);
-		}
-            
+    
 		if (level_data.introductionDialogue != null)
         {
 			DisableSchedulingUi();
 			Desc.GetComponent<EventExecuter>().ExecuteEventDialogue(
 						level_data.introductionDialogue,
 						makeCurrentStatistics(),
-						ResumeScheduling
+						ResumeGameStart
 						);
-        }
+        }	
 	}
-	
+
+	public void ResumeGameStart(string result)
+	{
+		foreach (GameObject ui in schedulingUi)
+		{
+			ui.SetActive(true);
+		}
+		Reset();
+
+		if (DataPassedToMainGame.tutorial)
+		{
+			tutorial = Instantiate(tutorialPrefab, this.transform) as GameObject;
+			tutorial.GetComponent<Tutorial>().Init(this);
+		}
+	}
+
 	void Init(int start_hour, int end_hour) {
 		for (int i = start_hour; i < end_hour; i++) {
 			GameObject timeslot = Instantiate(timeslotPrefab, TimeslotContainer.transform) as GameObject;
@@ -345,15 +354,6 @@ public class Tracker : MonoBehaviour
 
 	public void ResumeScheduling()
     {
-		foreach (GameObject ui in schedulingUi)
-		{
-			ui.SetActive(true);
-		}
-		Reset();
-	}
-
-	public void ResumeScheduling(string result)
-	{
 		foreach (GameObject ui in schedulingUi)
 		{
 			ui.SetActive(true);
