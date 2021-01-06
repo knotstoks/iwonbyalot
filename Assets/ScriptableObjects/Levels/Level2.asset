@@ -16,11 +16,40 @@ MonoBehaviour:
   startTime: 8
   endTime: 16
   days: 14
-  actionSlots: []
+  districtCount: 0
+  mapContainer: {fileID: 0}
+  introductionDialogue: {fileID: 0}
+  actionSlots:
+  - {fileID: 11400000, guid: 5e4768265f64c744991933f59a55cc29, type: 2}
+  - {fileID: 11400000, guid: 0b630f208eb5a964e86f80670e1edf22, type: 2}
+  - {fileID: 11400000, guid: ec2c18e1c9614d043b2bc4481cb0c364, type: 2}
+  - {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
+  - {fileID: 11400000, guid: 966a05ea52cd9b046ab3737084e45df6, type: 2}
+  - {fileID: 11400000, guid: ac0e346acde448241b59db5b3ee07a46, type: 2}
   resources:
   - {fileID: 7312506179018901934, guid: b31f08b56231abf4a9e807079fcd7674, type: 3}
   - {fileID: 5849451257297741405, guid: 801a1ce3e0888ad4cb1e6f8bb266d131, type: 3}
   - {fileID: 8411151617335405104, guid: 6a2fe775dfa2fbb48b6183c3aaaebb14, type: 3}
   - {fileID: 118145672267169055, guid: c917cb5fd668c61408fa06f0300e3b1f, type: 3}
-  NormalEvents: []
-  HardcoreEvents: []
+  NormalEvents:
+  - {fileID: 11400000, guid: efe4141514d5a234c84a8cf2840fa725, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  HardcoreEvents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
