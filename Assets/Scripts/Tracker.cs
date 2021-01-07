@@ -233,7 +233,23 @@ public class Tracker : MonoBehaviour
                             Math.Abs(amnt),
                             resource_name);
     }
-	
+
+	private string ResearchDisliked(District district)
+    {
+		int foundMsg = district.dislikedMsgs[district.dislikedMsgsFound];
+		district.dislikedMsgsFound += 1;
+		return String.Format(" You found that {0} did not like it if {1} was implemented",
+			district.name, campaignMessages[foundMsg]);
+	}
+
+	private string ResearchNeutral(District district)
+	{
+		int foundMsg = district.neutralMsgs[district.neutralMsgsFound];
+		district.neutralMsgsFound += 1;
+		return String.Format(" You found that {0} did not care if {1} was implemented",
+			district.name, campaignMessages[foundMsg]);
+	}
+
 	public void ExecuteAction() {
 		executeButton.GetComponent<Button>().interactable = false;
 		DisableSchedulingUi();
@@ -303,7 +319,34 @@ public class Tracker : MonoBehaviour
 						break;
 
 					case ActionData.ActionType.Research:
-						break;
+                        {
+							District district = districts[actionDistrictTarget[i]];
+							if (district.neutralMsgsFound == district.neutralMsgs.Count)
+                            {
+								if (district.dislikedMsgsFound == district.dislikedMsgs.Count)
+                                {
+									dialogue = "It seems like you already know this districts tastes.";
+								}
+								else
+                                {
+									dialogue = ResearchDisliked(district);
+								}
+                            }
+							else if (district.dislikedMsgsFound == district.dislikedMsgs.Count)
+                            {
+								dialogue = ResearchNeutral(district);
+							}
+							else if (Random.Range(0.0f, 1.0f) > 0.8)
+							{
+								// is dislike
+								dialogue = ResearchDisliked(district);
+							}
+							else
+							{
+								dialogue = ResearchNeutral(district);
+							}
+							break;
+                        }
 				}
 			}
 			else if (money + action.moneyGain < 0 && influence + action.influenceGain >= 0)
@@ -332,7 +375,6 @@ public class Tracker : MonoBehaviour
 
 		if (days == 0) 
 		{
-			string announcement;
 			if(forVotesCount >= totalVotesCount / 2) 
 			{
 				dialogueList.Add(String.Format(" Congratulations! You have won the election with a result of {0} against {1}", 
