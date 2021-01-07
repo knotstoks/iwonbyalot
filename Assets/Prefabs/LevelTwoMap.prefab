@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 7299384823837880056}
   - component: {fileID: 7299384823837880058}
   m_Layer: 5
-  m_Name: LevelThreeMap
+  m_Name: LevelTwoMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,14 +604,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a953592fc4442a0448b64c1ce0fd3ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapContainer: {fileID: 7299384823837880006}
-  mapOutline: {fileID: 0}
   districtScripts:
   - {fileID: 7299384823120901455}
   - {fileID: 7299384824475446818}
   - {fileID: 7299384824585957908}
   - {fileID: 7299384824238925106}
   - {fileID: 7299384823478007817}
+  mapDetailController: {fileID: 7299384822827225476}
 --- !u!1 &7299384824238925104
 GameObject:
   m_ObjectHideFlags: 0

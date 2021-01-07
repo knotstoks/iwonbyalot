@@ -5,30 +5,27 @@ using UnityEngine;
 public class MapController : MonoBehaviour
 {
     public List<MapDistrictController> districtScripts;
+    public GameObject mapDetailController;
     //public List<District> testDistricts;
 
     //private bool isShowing = false;
 
-    public void ShowMap(List<District> districts)
+    public void UpdateDistricts(List<District> districts)
     {
-        gameObject.SetActive(true);
         for (int i = 0; i < districtScripts.Count; i++)
         {
-            districtScripts[i].ShowDistrict(districts[i]);
+            districtScripts[i].UpdateDistrict(districts[i]);
         }
     }
 
-    //public void DisplayMap() 
-    //{
-    //    gameObject.SetActive(true);
-    //}
+    public void DisplayMap()
+    {
+        gameObject.SetActive(true);
+    }
 
     public void HideMap()
     {
-        for (int i = 0; i < districtScripts.Count; i++)
-        {
-            districtScripts[i].HideDistrict();
-        }
+        mapDetailController.SetActive(false);
         gameObject.SetActive(false);
     }
 
