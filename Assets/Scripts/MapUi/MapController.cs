@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    public GameObject mapContainer; // Assign in inspector
-    public GameObject mapOutline; // Assign in inspector
     public List<MapDistrictController> districtScripts;
-    public List<District> testDistricts;
+    public GameObject mapDetailController;
+    public bool mapDisplayed;
+    //public List<District> testDistricts;
 
-    private bool isShowing = false;
+    //private bool isShowing = false;
 
-    public void ShowMap(List<District> districts)
+    public void UpdateDistricts(List<District> districts)
     {
-        //mapContainer.SetActive(true);
-        mapOutline.SetActive(true);
         for (int i = 0; i < districtScripts.Count; i++)
         {
-            districtScripts[i].ShowDistrict(districts[i]);
+            districtScripts[i].UpdateDistrict(districts[i]);
         }
     }
 
-    public void DisplayMap() 
-    {
-        mapContainer.SetActive(true);
-        mapOutline.SetActive(true);
-    }
-
-    public void HideMap()
-    {
-        mapContainer.SetActive(false);
-        mapOutline.SetActive(false);
-        for (int i = 0; i < districtScripts.Count; i++)
+    public void InteractMap() {
+        if(mapDisplayed)
         {
-            districtScripts[i].HideDistrict();
+            mapDetailController.SetActive(false);
+            gameObject.SetActive(false);
+            mapDisplayed = false;
+        }
+        else
+        {
+            gameObject.SetActive(true);
+            mapDisplayed = true;
         }
     }
 
-    //void Start()
+
+    void Start()
+    {
+        mapDisplayed = false;
+    }
     //{
     //    testDistricts = new List<District>();
     //    District dist1 = new District();

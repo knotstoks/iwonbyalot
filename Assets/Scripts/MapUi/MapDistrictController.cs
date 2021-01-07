@@ -11,9 +11,13 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
     private static Color32 red = new Color32(255, 51, 51, 200);
     public MapDetailController mapDetailController;
 
-    public void ShowDistrict(District district)
+    public void ShowDistrict()
     {
         gameObject.SetActive(true);
+    }
+
+    public void UpdateDistrict(District district)
+    {
         if (district.forVotesCount >= district.againstVotesCount)
         {
             gameObject.GetComponent<Image>().color = blue;
