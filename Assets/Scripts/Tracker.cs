@@ -10,10 +10,10 @@ using Random = UnityEngine.Random;
 
 public class Tracker : MonoBehaviour
 {
-	public List<GameObject> schedulingUi;
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, 
 		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial;
+	private List<GameObject> schedulingUi;
     
 	private List<RandomDialogueEvent> randomDialogueEvents;
     private List<ActionData> actions;
@@ -42,7 +42,10 @@ public class Tracker : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        levelData = DataPassedToMainGame.level_data;
+		schedulingUi = new List<GameObject>() { ResourceContainer, TimeslotContainer, 
+			ActionContainer, executeButton };
+
+		levelData = DataPassedToMainGame.level_data;
 		if (levelData == null)
         {
 			levelData = testLevelData;
