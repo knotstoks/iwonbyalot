@@ -14,7 +14,8 @@ public class Tracker : MonoBehaviour
 		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial;
 	private List<GameObject> schedulingUi;
-    
+
+	private List<CampaignMessage> campaignMessages;
 	private List<RandomDialogueEvent> randomDialogueEvents;
     private List<ActionData> actions;
 	private List<GameObject> resourceslots;
@@ -30,8 +31,9 @@ public class Tracker : MonoBehaviour
 	private GameObject mapContainer;
 
 	public float eventChance = 0.5f;
+	public int likeVoteGain, neutralVoteGain, dislikeVoteGain;
     private float money, influence, stress, charisma;
-	private int forVotesCount, againstVotesCount;
+	private int forVotesCount, totalVotesCount;
 	private int selectedTimeslot;
 	private int days;
     
@@ -71,7 +73,7 @@ public class Tracker : MonoBehaviour
         days = levelData.days;
 		resourceslots = levelData.resources;
         forVotesCount = levelData.forVotesStart;
-        againstVotesCount = levelData.againstVotesStart;
+        totalVotesCount = levelData.forVotesStart + levelData.againstVotesStart;
 
 		isUsingDistricts = levelData.districtCount > 0;
 		if (isUsingDistricts)
@@ -183,7 +185,7 @@ public class Tracker : MonoBehaviour
         }
 
         Desc.GetComponent<Description>().days = days;
-		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount,againstVotesCount);
+		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount, totalVotesCount - forVotesCount);
 		Desc.GetComponent<Description>().SetOriginalText();
 		MoneySlider.GetComponentInChildren<Text>().text = money.ToString() + "/ 100";
 		InfluenceSlider.GetComponentInChildren<Text>().text = influence.ToString() + " /100";
@@ -249,11 +251,39 @@ public class Tracker : MonoBehaviour
                         break;
                         
                     case ActionData.ActionType.TradingVotes:
-                        dialogue += String.Format(" trade {0} influence in order to gain 10 votes",
-                                                  Math.Abs(action.influenceGain));
-                        forVotesCount += 10;
-                        againstVotesCount -= 10;
-                        break;
+						if (isUsingDistricts)
+                        {
+                            District selectedDistrict = districts[actionDistrictTarget[i]];
+                            int selectedMsg = actionMessageTarget[i];
+                            if (selectedDistrict.likedMsgs.Contains(selectedMsg))
+                            {
+                                dialogue = campaignMessages[selectedMsg].like;
+								selectedDistrict.forVotesCount += likeVoteGain;
+								forVotesCount += likeVoteGain;
+							}
+                            else if (selectedDistrict.dislikedMsgs.Contains(selectedMsg))
+                            {
+                                dialogue = campaignMessages[selectedMsg].dislike;
+								selectedDistrict.forVotesCount += dislikeVoteGain;
+								forVotesCount += dislikeVoteGain;
+							}
+                            else
+                            {
+                                dialogue = campaignMessages[selectedMsg].neutral;
+								selectedDistrict.forVotesCount += neutralVoteGain;
+								forVotesCount += neutralVoteGain;
+							}
+                        }
+                        else
+                        {
+							dialogue += String.Format(" trade {0} influence in order to gain 10 votes",
+														Math.Abs(action.influenceGain));
+							forVotesCount += 10;
+                        }
+						break;
+
+					case ActionData.ActionType.Research:
+						break;
 				}
 			}
 			else if (money + action.moneyGain < 0 && influence + action.influenceGain >= 0)
@@ -273,25 +303,25 @@ public class Tracker : MonoBehaviour
 		
 		if  (forVotesCount - 3 < 0)
 		{
-			againstVotesCount += forVotesCount;
 			forVotesCount = 0;
 		} 
 		else 
 		{
 			forVotesCount -= 3;
-			againstVotesCount += 3;
 		}
 
 		if (days == 0) 
 		{
 			string announcement;
-			if(forVotesCount >= againstVotesCount) 
+			if(forVotesCount >= totalVotesCount / 2) 
 			{
-				announcement = String.Format(" Congratulations! You have won the election with a result of {0} against {1}",forVotesCount,againstVotesCount); 
+				announcement = String.Format(" Congratulations! You have won the election with a result of {0} against {1}", 
+					forVotesCount, totalVotesCount - forVotesCount); 
 			}
 			else 
 			{
-				announcement = String.Format("You have lost the election with a result of {0} against {1}. Try harder next time.",forVotesCount,againstVotesCount);
+				announcement = String.Format("You have lost the election with a result of {0} against {1}. Try harder next time.",
+					forVotesCount, totalVotesCount - forVotesCount);
 			}
 			dialogueList.Add(announcement);
 			//NextLevel();

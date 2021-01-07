@@ -18,7 +18,7 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
 
     public void UpdateDistrict(District district)
     {
-        if (district.forVotesCount >= district.againstVotesCount)
+        if (district.forVotesCount >= district.totalVotesCount / 2)
         {
             gameObject.GetComponent<Image>().color = blue;
         }

@@ -18,4 +18,5 @@ public class LevelData : ScriptableObject
     public List<GameObject> resources;
     public List<RandomDialogueEvent> NormalEvents;
     public List<RandomDialogueEvent> HardcoreEvents;
+    public List<CampaignMessage> campaignMessages;
 }
