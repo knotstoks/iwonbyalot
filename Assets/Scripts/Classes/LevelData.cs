@@ -7,6 +7,7 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     public string position;
+    public string defaultBackground;
     public int startTime, endTime;
     public int days;
     public int districtCount;

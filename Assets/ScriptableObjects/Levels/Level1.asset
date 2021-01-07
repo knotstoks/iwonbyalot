@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   position: Class President
+  defaultBackground: School_gate_2
   startTime: 12
   endTime: 16
   days: 10
@@ -38,3 +39,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7cb9370ecee2e34469f973a779843e9a, type: 2}
   - {fileID: 11400000, guid: 5acbfa65271aabd4985e3ba2a0a22185, type: 2}
   - {fileID: 11400000, guid: 27f9c6ae076601445b820897e5e0b336, type: 2}
+  campaignMessages: []

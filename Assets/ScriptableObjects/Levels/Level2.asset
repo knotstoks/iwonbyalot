@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   position: School President
+  defaultBackground: School_gate_2
   startTime: 8
   endTime: 16
   days: 14
   districtCount: 5
+  forVotesStart: 0
+  againstVotesStart: 0
   mapContainer: {fileID: 7299384823837880006, guid: 7c5792764974a12478b5dcdc95bbf773,
     type: 3}
   introductionDialogue: {fileID: 0}
@@ -54,3 +57,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  campaignMessages: []

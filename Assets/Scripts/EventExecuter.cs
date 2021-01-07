@@ -51,7 +51,7 @@ public class EventExecuter : MonoBehaviour
                 NextLine();
                 break;
             case DialogueEvent.DialogueLineType.Background:
-                LoadBackground();
+                LoadBackground(diaEvent.dialogueLines[lineIndex]);
                 NextLine();
                 ExecuteDialogueLine();
                 break;
@@ -91,9 +91,9 @@ public class EventExecuter : MonoBehaviour
         desc.Say(diaEvent.dialogueLines[lineIndex]);
     }
 
-    private void LoadBackground()
+    public void LoadBackground(string fileName)
     {
-        string fileName = diaEvent.dialogueLines[lineIndex];
+        if (fileName == "") return;
         if (!backgroundCache.TryGetValue(fileName, out Sprite sprite))
         {
             sprite = Resources.Load<Sprite>(pathToBackgrounds + fileName);
