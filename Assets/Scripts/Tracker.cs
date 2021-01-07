@@ -76,21 +76,23 @@ public class Tracker : MonoBehaviour
         totalVotesCount = levelData.totalVotes;
 		defaultBackground = levelData.defaultBackground;
 
-		isUsingDistricts = levelData.districtCount > 0;
+		int districtCount = levelData.districtNames.Count;
+		isUsingDistricts = levelData.districtNames.Count > 0;
 		if (isUsingDistricts)
         {
 			mapContainer = levelData.mapContainer;
 			schedulingUi.Add(MapUi);
 			districts = new List<District>();
 			List<int> msgIndexes = Enumerable.Range(0, levelData.campaignMessages.Count).ToList();
-			for (int i = 0; i < levelData.districtCount; i++)
+			for (int i = 0; i < districtCount; i++)
 			{
 				districts.Add(new District(msgIndexes, 1, 1));
+				districts[i].name = levelData.districtNames[i];
 				districts[i].forVotesCount = forVotesCount;
 				districts[i].totalVotesCount = totalVotesCount;
 			}
-			forVotesCount *= levelData.districtCount;
-			totalVotesCount *= levelData.districtCount;
+			forVotesCount *= districtCount;
+			totalVotesCount *= districtCount;
 		}
         Init(levelData.startTime, levelData.endTime);
 		
