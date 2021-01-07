@@ -18,9 +18,8 @@ MonoBehaviour:
   endTime: 16
   days: 14
   districtCount: 5
-  forVotesStart: 5
-  againstVotesStart: 0
-  totalVotes: 31
+  forVotesStart: 0
+  totalVotes: 30
   mapContainer: {fileID: 7299384823837880006, guid: 7c5792764974a12478b5dcdc95bbf773,
     type: 3}
   introductionDialogue: {fileID: 0}
@@ -58,4 +57,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  campaignMessages: []
+  campaignMessages:
+  - {fileID: 11400000, guid: 0d49ab6556cecee4d884c8322b7e3af5, type: 2}
+  - {fileID: 11400000, guid: 6a7fa4c753d216f43aa0deb9b1d51d5a, type: 2}
+  - {fileID: 11400000, guid: 31d79c275ce3b8240be84a958890ab96, type: 2}
+  - {fileID: 11400000, guid: 518f76159f15a28409af339ab6eb6651, type: 2}
+  - {fileID: 11400000, guid: 8304bf624f3bf2346bc66e24ca44d019, type: 2}
