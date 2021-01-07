@@ -11,8 +11,9 @@ public class LevelData : ScriptableObject
     public int startTime, endTime;
     public int days;
     public int districtCount;
-    public int forVotesStartPerDistrict;
-    public int totalVotesPerDistrict;
+    public int forVotesStart;
+    public int totalVotes;
+    public bool messageEnabled;
     public GameObject mapContainer;
     public DialogueEvent introductionDialogue;
     public List<ActionData> actionSlots;

@@ -10,8 +10,8 @@ using Random = UnityEngine.Random;
 
 public class Tracker : MonoBehaviour
 {
-	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, 
-		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi;
+	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, messageslotPrefab, 
+		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi, SpeechUi,SpeechContainer, Confirm;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial,
 		miniMap, bigMap;
 	public List<GameObject> schedulingUi;
@@ -22,10 +22,12 @@ public class Tracker : MonoBehaviour
 	private List<GameObject> resourceslots;
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
+	public List<GameObject> messageslots;
 
-	private List<ActionData> currentSchedule;
-	private List<int> actionDistrictTarget;
-	private List<int> actionMessageTarget;
+	public List<ActionData> currentSchedule;
+	public ActionData speech;
+	public List<int> actionDistrictTarget;
+	public List<int> actionMessageTarget;
 
 	private bool isUsingDistricts;
 	private List<District> districts;
@@ -57,6 +59,7 @@ public class Tracker : MonoBehaviour
 		timeslots = new List<GameObject>();
 		currentSchedule = new List<ActionData>();
         actionslots = new List<GameObject>();
+		campaignMessages = new List<CampaignMessage>();
 
 		actionDistrictTarget = new List<int>();
 		actionMessageTarget = new List<int>();
@@ -72,6 +75,7 @@ public class Tracker : MonoBehaviour
         
         actions = levelData.actionSlots;
         days = levelData.days;
+		campaignMessages = levelData.campaignMessages;
 		resourceslots = levelData.resources;
         forVotesCount = levelData.forVotesStart;
         totalVotesCount = levelData.totalVotes;
@@ -80,8 +84,6 @@ public class Tracker : MonoBehaviour
 		isUsingDistricts = levelData.districtCount > 0;
 		if (isUsingDistricts)
         {
-			forVotesCount = levelData.forVotesStartPerDistrict * levelData.districtCount;
-        	totalVotesCount = levelData.totalVotesPerDistrict * levelData.districtCount;
 			mapContainer = levelData.mapContainer;
 			schedulingUi.Add(MapUi);
 			districts = new List<District>();
@@ -163,6 +165,21 @@ public class Tracker : MonoBehaviour
 			bigMap.GetComponent<MapController>().UpdateDistricts(districts);
 			MapUi.SetActive(true);
 			MapUi.GetComponentInChildren<MapButton>().Init(bigMap);
+			SpeechUi.SetActive(true);
+			
+			for (int i = 0; i < campaignMessages.Count; i++ )
+			{
+				GameObject messageslot = Instantiate(messageslotPrefab,SpeechContainer.transform) as GameObject;
+				
+				messageslot.GetComponent<MessageSlotter>().Init(campaignMessages[i],this,Desc,i);
+				messageslots.Add(messageslot);
+				
+			}
+			GameObject speechMap = Instantiate(mapContainer,SpeechUi.transform.Find("SpeechMap"));
+			speechMap.GetComponent<MapController>().DisableDistricts(this);
+			speechMap.GetComponent<MapController>().Buttonify();
+			SpeechUi.SetActive(false);
+			
 		}
 	}
 
@@ -183,10 +200,42 @@ public class Tracker : MonoBehaviour
 	{
 		if (selectedTimeslot != -1)
 		{
+			if(action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled){
+				SpeechUi.SetActive(true);
+				Confirm.GetComponent<Button>().interactable = false;
+
+			} else {
 			currentSchedule[selectedTimeslot] = action;
 			timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
 			selectedTimeslot = -1;
+			}
 		}
+	}
+
+	public void SpeechSelectAction()
+	{
+		currentSchedule[selectedTimeslot] = speech ;
+		timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(speech);
+		selectedTimeslot = -1;
+	}
+
+	public void SelectDistrict(int districtIndex) 
+	{
+		actionDistrictTarget[selectedTimeslot] = districtIndex;
+		if(actionMessageTarget[selectedTimeslot] != -1)
+		{
+			Confirm.GetComponent<Button>().interactable = true;
+		}
+	}
+
+	public void SelectMessage(int messageIndex)
+	{
+		actionMessageTarget[selectedTimeslot] = messageIndex;
+		if(actionDistrictTarget[selectedTimeslot] != -1)
+		{
+			Confirm.GetComponent<Button>().interactable = true;
+		}
+		
 	}
 
     public void Reset()
@@ -327,6 +376,7 @@ public class Tracker : MonoBehaviour
 			}
             dialogue += ".";
 			dialogueList.Add(dialogue);
+			print(i);
 		}
 		
 		if  (forVotesCount - 3 < 0)

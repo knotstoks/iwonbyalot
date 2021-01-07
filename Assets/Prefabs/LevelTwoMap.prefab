@@ -335,8 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae77e909b4ab46489f50347c21a65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  districtIndex: 0
   mapDetailController: {fileID: 7299384822827225528}
+  popoutEnable: 1
 --- !u!1 &7299384823478007831
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,8 +424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae77e909b4ab46489f50347c21a65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  districtIndex: 3
   mapDetailController: {fileID: 7299384822827225528}
+  popoutEnable: 1
 --- !u!1 &7299384823726402003
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +612,12 @@ MonoBehaviour:
   - {fileID: 7299384824585957908}
   - {fileID: 7299384824238925106}
   - {fileID: 7299384823478007817}
+  districts:
+  - {fileID: 7299384823120901453}
+  - {fileID: 7299384824475446830}
+  - {fileID: 7299384824585957906}
+  - {fileID: 7299384823478007831}
+  - {fileID: 7299384824238925104}
   mapDetailController: {fileID: 7299384822827225476}
   isMapDisplayed: 1
 --- !u!1 &7299384824238925104
@@ -701,8 +707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae77e909b4ab46489f50347c21a65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  districtIndex: 4
   mapDetailController: {fileID: 7299384822827225528}
+  popoutEnable: 1
 --- !u!1 &7299384824475446830
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,8 +796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae77e909b4ab46489f50347c21a65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  districtIndex: 1
   mapDetailController: {fileID: 7299384822827225528}
+  popoutEnable: 1
 --- !u!1 &7299384824585957906
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,5 +885,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae77e909b4ab46489f50347c21a65a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  districtIndex: 2
   mapDetailController: {fileID: 7299384822827225528}
+  popoutEnable: 1

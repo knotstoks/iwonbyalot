@@ -20,6 +20,7 @@ MonoBehaviour:
   districtCount: 5
   forVotesStart: 0
   totalVotes: 30
+  messageEnabled: 1
   mapContainer: {fileID: 7299384823837880006, guid: 7c5792764974a12478b5dcdc95bbf773,
     type: 3}
   introductionDialogue: {fileID: 0}
@@ -37,25 +38,7 @@ MonoBehaviour:
   - {fileID: 118145672267169055, guid: c917cb5fd668c61408fa06f0300e3b1f, type: 3}
   NormalEvents:
   - {fileID: 11400000, guid: efe4141514d5a234c84a8cf2840fa725, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   HardcoreEvents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   campaignMessages:
   - {fileID: 11400000, guid: 0d49ab6556cecee4d884c8322b7e3af5, type: 2}

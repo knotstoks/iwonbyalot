@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Level3
   m_EditorClassIdentifier: 
   position: President
+  defaultBackground: 
   startTime: 8
   endTime: 20
   days: 21
   districtCount: 9
   forVotesStart: 0
-  againstVotesStart: 0
+  totalVotes: 0
+  messageEnabled: 1
   mapContainer: {fileID: 0}
   introductionDialogue: {fileID: 0}
   actionSlots: []
@@ -49,3 +51,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  campaignMessages: []

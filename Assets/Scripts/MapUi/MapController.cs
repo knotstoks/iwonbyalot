@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MapController : MonoBehaviour
 {
     public List<MapDistrictController> districtScripts;
+    public List<GameObject> districts;
     public GameObject mapDetailController;
     public bool isMapDisplayed = true;
+    public Tracker track;
+    private int timeslotIndex;
     //public List<District> testDistricts;
 
     //private bool isShowing = false;
@@ -21,10 +26,35 @@ public class MapController : MonoBehaviour
 
     public void UpdateDistricts(List<District> districts)
     {
+
         for (int i = 0; i < districtScripts.Count; i++)
         {
             districtScripts[i].UpdateDistrict(districts[i]);
         }
+    }
+
+    
+
+    public void DisableDistricts(Tracker track) 
+    {
+        for(int i = 0; i < districtScripts.Count;i++)
+        {
+            districtScripts[i].popoutEnable = false;
+        }
+        this.track = track;
+    }
+
+    public void Buttonify(){
+        for(int i = 0; i < districtScripts.Count; i++)
+        {
+            Button but = districts[i].AddComponent<Button>() as Button;
+            but.onClick.AddListener(delegate{AssignDistrict(i);});
+        }
+    }
+
+    public void AssignDistrict(int districtIndex) {
+        
+        track.SelectDistrict(districtIndex);
     }
 
     public void InteractMap() {
