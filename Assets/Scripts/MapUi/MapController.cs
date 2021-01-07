@@ -6,10 +6,18 @@ public class MapController : MonoBehaviour
 {
     public List<MapDistrictController> districtScripts;
     public GameObject mapDetailController;
-    public bool mapDisplayed;
+    public bool isMapDisplayed = true;
     //public List<District> testDistricts;
 
     //private bool isShowing = false;
+
+    public void setMini()
+    {
+        for (int i = 0; i < districtScripts.Count; i++)
+        {
+            districtScripts[i].setMini();
+        }
+    }
 
     public void UpdateDistricts(List<District> districts)
     {
@@ -20,24 +28,25 @@ public class MapController : MonoBehaviour
     }
 
     public void InteractMap() {
-        if(mapDisplayed)
+        if(isMapDisplayed)
         {
             mapDetailController.SetActive(false);
             gameObject.SetActive(false);
-            mapDisplayed = false;
+            isMapDisplayed = false;
         }
         else
         {
             gameObject.SetActive(true);
-            mapDisplayed = true;
+            isMapDisplayed = true;
         }
     }
 
-
-    void Start()
-    {
-        mapDisplayed = false;
+    public void HideMap() {
+        mapDetailController.SetActive(false);
+        gameObject.SetActive(false);
+        isMapDisplayed = false;
     }
+
     //{
     //    testDistricts = new List<District>();
     //    District dist1 = new District();

@@ -11,6 +11,11 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
     private static Color32 red = new Color32(255, 51, 51, 200);
     public MapDetailController mapDetailController;
 
+    public void setMini()
+    {
+        gameObject.GetComponent<Image>().raycastTarget = false;
+    }
+
     public void ShowDistrict()
     {
         gameObject.SetActive(true);

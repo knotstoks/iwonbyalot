@@ -315,7 +315,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 4a59438e925495e4994f8be0dc1f9db2, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -611,7 +611,7 @@ MonoBehaviour:
   - {fileID: 7299384824238925106}
   - {fileID: 7299384823478007817}
   mapDetailController: {fileID: 7299384822827225476}
-  mapDisplayed: 0
+  isMapDisplayed: 1
 --- !u!1 &7299384824238925104
 GameObject:
   m_ObjectHideFlags: 0

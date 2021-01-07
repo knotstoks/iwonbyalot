@@ -12,7 +12,7 @@ public class LevelData : ScriptableObject
     public int days;
     public int districtCount;
     public int forVotesStart;
-    public int againstVotesStart;
+    public int totalVotes;
     public GameObject mapContainer;
     public DialogueEvent introductionDialogue;
     public List<ActionData> actionSlots;

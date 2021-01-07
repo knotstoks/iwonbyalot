@@ -5,9 +5,11 @@ using UnityEngine;
 public class MapButton : MonoBehaviour
 {
     public GameObject map;
-    public void Start() {
-        map = GameObject.FindWithTag("Map");
-        Activate();
+
+    public void Init(GameObject map)
+    {
+        this.map = map;
+        map.GetComponent<MapController>().HideMap();
     }
 
     public void Activate() {
