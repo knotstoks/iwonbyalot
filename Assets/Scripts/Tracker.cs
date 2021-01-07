@@ -35,7 +35,7 @@ public class Tracker : MonoBehaviour
     private float money, influence, stress, charisma;
 	private int forVotesCount, totalVotesCount;
 	private int selectedTimeslot;
-	private int days;
+	public int days;
     
     private LevelData levelData;
 	public LevelData testLevelData;
@@ -193,6 +193,9 @@ public class Tracker : MonoBehaviour
 		InfluenceSlider.GetComponent<Slider>().value = influence; 
 		
         executeButton.GetComponent<Button>().interactable = false;
+		if(days == 0){
+			SceneManager.LoadScene(0);
+		}
     }
 
     public void UpdateExecute() {
@@ -315,15 +318,29 @@ public class Tracker : MonoBehaviour
 			string announcement;
 			if(forVotesCount >= totalVotesCount / 2) 
 			{
-				announcement = String.Format(" Congratulations! You have won the election with a result of {0} against {1}", 
-					forVotesCount, totalVotesCount - forVotesCount); 
+				dialogueList.Add(String.Format(" Congratulations! You have won the election with a result of {0} against {1}", 
+					forVotesCount, totalVotesCount - forVotesCount)); 
+				dialogueList.Add("(On your social account......)");
+				dialogueList.Add("'Guys!");
+				dialogueList.Add("I won this election, by a lot!'");
+
+
 			}
 			else 
 			{
-				announcement = String.Format("You have lost the election with a result of {0} against {1}. Try harder next time.",
-					forVotesCount, totalVotesCount - forVotesCount);
+				dialogueList.Add(String.Format("You have lost the election with a result of {0} against {1}.",
+					forVotesCount, totalVotesCount - forVotesCount));
+				dialogueList.Add("(On your social account....)");
+				dialogueList.Add("'Guys!");
+				dialogueList.Add("I won this election, by a lot!'");
+				dialogueList.Add("Wait...");
+				dialogueList.Add("I lost? That can't be!");
+				dialogueList.Add("This is FRAUD!");
+					
+					
 			}
-			dialogueList.Add(announcement);
+			
+			
 			//NextLevel();
 		}
 		Desc.GetComponent<Description>().ExecuteActionsDialogue(dialogueList, ResumeScheduling);
