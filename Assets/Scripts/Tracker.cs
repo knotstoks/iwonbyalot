@@ -219,7 +219,7 @@ public class Tracker : MonoBehaviour
 
 				switch (action.actionType)
 				{
-				    case Action.ActionType.Farming:
+				    case ActionData.ActionType.Farming:
                         string[] resourceName = {"influence", "money", "stress", "charisma"};
                         int[] amnts = {action.influenceGain, action.moneyGain, action.stressGain, action.charismaGain};
                         bool previousResource = false;
@@ -237,7 +237,7 @@ public class Tracker : MonoBehaviour
                         
                         break;
                         
-                    case Action.ActionType.TradingVotes:
+                    case ActionData.ActionType.TradingVotes:
                         dialogue += String.Format(" trade {0} influence in order to gain 10 votes",
                                                   Math.Abs(action.influenceGain));
                         forVotesCount += 10;
