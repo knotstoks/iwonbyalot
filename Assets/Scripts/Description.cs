@@ -106,6 +106,6 @@ public class Description : MonoBehaviour
     }
 
     public void SetOriginalText(){
-        textfield.text = "The class is split: " + ratio +"\n\n" + days +" days till election day";
+        textfield.text = "The class is split: " + ratio + "\n" + days + " days till election day";
     }
 }
