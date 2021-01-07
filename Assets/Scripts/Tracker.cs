@@ -425,6 +425,14 @@ public class Tracker : MonoBehaviour
                 case "stress":
                     stress = Math.Max(0, stress + effectVal); 
                     break;
+
+				case "district":
+					int districtIndex = int.Parse(effectWords[2]);
+					
+					districts[districtIndex].forVotesCount += effectVal;
+					break;
+					
+
 			}
 		}
 	}

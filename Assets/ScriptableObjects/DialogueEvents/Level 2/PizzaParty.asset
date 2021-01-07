@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: PizzaParty
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 00000000000000000200000000000000
+  dialogueLineTypes: 020000000200000007000000
   dialogueLines:
-  - Your Opponent hosts a Pizza Party for the school!
-  - 
-  - 
-  - 
-  dialogueLineLinks: 00000000000000000000000000000000
+  - Your Opponent hosts a Pizza Party for Class {0}!
+  - 5 Votes from Class {0} went to your Opponent!
+  - district +10 {0}
+  dialogueLineLinks: 010000000200000003000000
