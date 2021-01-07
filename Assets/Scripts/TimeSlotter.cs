@@ -43,7 +43,7 @@ public class TimeSlotter : MonoBehaviour
     {
         if (isTimeslotSelected)
         {
-            Textfield.text = time;
+            Textfield.text = curAction == null ? time : curAction.actionName;
             isTimeslotSelected = false;
         }
         else
@@ -59,14 +59,7 @@ public class TimeSlotter : MonoBehaviour
         isTimeslotSelected = false;
         if (action == null)
         {
-            if (curAction == null)
-            {
-                Textfield.text = time;
-            }
-            else
-            {
-                Textfield.text = curAction.actionName;
-            }
+            Textfield.text = curAction == null ? time : curAction.actionName;
             return;
         } 
         curAction = action;
