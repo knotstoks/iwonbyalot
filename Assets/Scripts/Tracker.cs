@@ -213,11 +213,6 @@ public class Tracker : MonoBehaviour
 		if(days == 0){
 			SceneManager.LoadScene(0);
 		}
-		
-
-		
-
-		
     }
 
     public void UpdateExecute() {
