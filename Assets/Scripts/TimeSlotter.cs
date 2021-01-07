@@ -14,7 +14,7 @@ public class TimeSlotter : MonoBehaviour
     string time;
     //bool otherButtonsPressed;
     //string action;
-    private Action curAction;
+    private ActionData curAction;
     private int slotIndex;
 
     public void Start() {
@@ -54,7 +54,7 @@ public class TimeSlotter : MonoBehaviour
         }
     }
 
-    public void SetAction(Action action)
+    public void SetAction(ActionData action)
     {
         isTimeslotSelected = false;
         if (action == null)

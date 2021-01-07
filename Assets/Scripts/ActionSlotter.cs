@@ -9,11 +9,11 @@ public class ActionSlotter : MonoBehaviour, IPointerExitHandler, IPointerEnterHa
     public Text Textfield;
     private Tracker track;
     private GameObject bottom;
-    private Action representedAction;
+    private ActionData representedAction;
 
     public void Init(ActionData actionData, Tracker track, GameObject bottom)
     {
-        representedAction = new Action(actionData);
+        representedAction = actionData;
         this.track = track;
         this.bottom = bottom;
         Textfield.text = representedAction.actionName;

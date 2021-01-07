@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: FindMoney
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 0000000007000000
+  dialogueLineTypes: 000000000000000007000000
   dialogueLines:
-  - 'Must be your lucky day! You found 8 dollars on the ground: +8 Money'
-  - money +8
-  dialogueLineLinks: 0100000002000000
+  - You found some change lying on the floor. Today must be your lucky day!
+  - Gained 5 money.
+  - money +5
+  dialogueLineLinks: 010000000200000003000000

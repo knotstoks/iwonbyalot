@@ -21,7 +21,7 @@ public class Tracker : MonoBehaviour
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 
-	private List<Action> currentSchedule;
+	private List<ActionData> currentSchedule;
 	private List<int> actionDistrictTarget;
 	private List<int> actionMessageTarget;
 
@@ -49,7 +49,7 @@ public class Tracker : MonoBehaviour
 		}
         
 		timeslots = new List<GameObject>();
-		currentSchedule = new List<Action>();
+		currentSchedule = new List<ActionData>();
         actionslots = new List<GameObject>();
 
 		actionDistrictTarget = new List<int>();
@@ -153,7 +153,7 @@ public class Tracker : MonoBehaviour
 		selectedTimeslot = index;
 	}
 
-	public void SelectAction(Action action)
+	public void SelectAction(ActionData action)
 	{
 		if (selectedTimeslot != -1)
 		{
@@ -191,6 +191,15 @@ public class Tracker : MonoBehaviour
 		
         executeButton.GetComponent<Button>().interactable = true;
     }
+    
+    public string MakeGainDialogue(int amnt, string resource_name) {
+        return amnt == 0
+            ? ""
+            : String.Format("{0} {1} {2}",
+                            amnt > 0 ? "gain" : "lose",
+                            Math.Abs(amnt),
+                            resource_name);
+    }
 	
 	public void ExecuteAction() {
 		executeButton.GetComponent<Button>().interactable = false;
@@ -201,35 +210,40 @@ public class Tracker : MonoBehaviour
 		for (int i = 0; i < currentSchedule.Count; i++)
 		{	
 			string dialogue;
-			Action action = currentSchedule[i];
+			ActionData action = currentSchedule[i];
 			if( money + action.moneyGain >= 0 && influence + action.influenceGain >= 0) 
-			{ 
-				influence += action.influenceGain;
-				money += action.moneyGain;
+			{
+                influence += action.influenceGain;
+                money += action.moneyGain;
+                dialogue = String.Format("Did {0} to", action.actionName);
 
-				//switch (action.getActionType())
-				//{
-				//    case Action.ActionType.Farming:
-
-				//}
-				dialogue = String.Format("Did {0} to gain", action.actionName);
-				if (action.influenceGain > 0)
-                {
-					dialogue += String.Format(" {0} influence", action.influenceGain);
-				}
-				if (action.moneyGain > 0)
+				switch (action.actionType)
 				{
-                    if (action.influenceGain > 0)
-                        dialogue += " and";
-                    
-					dialogue += String.Format(" {0} money", action.moneyGain);
+				    case Action.ActionType.Farming:
+                        string[] resourceName = {"influence", "money", "stress", "charisma"};
+                        int[] amnts = {action.influenceGain, action.moneyGain, action.stressGain, action.charismaGain};
+                        bool previousResource = false;
+                        
+                        for (int j = 0; j < 4; j++) {
+                            if (amnts[j] == 0)
+                                continue;
+                            
+                            if (previousResource)
+                                dialogue += " and";
+                            
+                            dialogue += " " + MakeGainDialogue(amnts[j], resourceName[j]);
+                            previousResource = true;
+                        }
+                        
+                        break;
+                        
+                    case Action.ActionType.TradingVotes:
+                        dialogue += String.Format(" trade {0} influence in order to gain 10 votes",
+                                                  Math.Abs(action.influenceGain));
+                        forVotesCount += 10;
+                        againstVotesCount -= 10;
+                        break;
 				}
-				if(action.actionType == Action.ActionType.TradingVotes) {
-					dialogue += " votes";
-					forVotesCount += 10;
-					againstVotesCount -= 10;
-				}
-				
 			}
 			else if (money + action.moneyGain < 0 && influence + action.influenceGain >= 0)
 			{
@@ -242,6 +256,7 @@ public class Tracker : MonoBehaviour
 			{
 				dialogue = String.Format("You do not have enough money nor influence to do {0}",action.actionName);
 			}
+            dialogue += ".";
 			dialogueList.Add(dialogue);
 		}
 		
