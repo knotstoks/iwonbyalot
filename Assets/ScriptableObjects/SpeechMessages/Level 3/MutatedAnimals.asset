@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20938de84fc73544b55df24945ea8f0, type: 3}
+  m_Name: MutatedAnimals
+  m_EditorClassIdentifier: 
+  messageName: Stop the increase of mutated animals in the area
+  speech: "\u201CThe new nuclear power plant has caused a few...complications with
+    the wildlife in the area. I will personally lead a team to exterminate these
+    troubles plaguing this District.\u201D "
+  like: "\u201CGood riddance to those pesky animals!\u201D The District liked your
+    speech: +10 Votes"
+  neutral: "\u201COkay I guess?\u201D The District was neutral to your speech: +5
+    Votes"
+  dislike: "\u201CThey didn\u2019t choose this life! Save the animals!\u201D The
+    District disliked your speech: -5 Votes"
