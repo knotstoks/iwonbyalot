@@ -13,7 +13,7 @@ public class MapDetailController : MonoBehaviour
         gameObject.SetActive(true);
         gameObject.transform.position = pos;
         forVotesDisplay.text = district.forVotesCount.ToString();
-        againstVotesDisplay.text = district.againstVotesCount.ToString();
+        againstVotesDisplay.text = (district.totalVotesCount - district.forVotesCount).ToString();
     }
 
     public void HideDetails()

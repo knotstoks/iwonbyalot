@@ -11,7 +11,7 @@ public class District
     public List<int> likedMsgs;
     public List<int> dislikedMsgs;
     public int forVotesCount = 10;
-    public int againstVotesCount = 9;
+    public int totalVotesCount = 20;
 
     public District(List<int> possible_msgs, int liked_msg_count, int disliked_msg_count)
     {
