@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20938de84fc73544b55df24945ea8f0, type: 3}
+  m_Name: NappingSchool
+  m_EditorClassIdentifier: 
+  messageName: All schools will now have a compulsory napping period in the day
+  speech: "\u201CI would like to spread this idea that was rather popular and effective
+    in my very own school!\u201D"
+  like: 'Burnouts all over the District raise their thumbs. Nice. The District liked
+    your speech: +10 Votes'
+  neutral: "\u201CMore sleep is good but not VERY good\u2026\u201D The District was
+    neutral to your speech: +5 Votes"
+  dislike: "\u201CThat\u2019s ridiculous! How do we finish our work at that rate!\u201D
+    The District disliked your speech: -5 Votes"

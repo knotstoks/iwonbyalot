@@ -17,7 +17,16 @@ MonoBehaviour:
   startTime: 8
   endTime: 20
   days: 21
-  districtCount: 9
+  districtNames:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
   forVotesStart: 0
   totalVotes: 0
   messageEnabled: 1

@@ -81,21 +81,23 @@ public class Tracker : MonoBehaviour
         totalVotesCount = levelData.totalVotes;
 		defaultBackground = levelData.defaultBackground;
 
-		isUsingDistricts = levelData.districtCount > 0;
+		int districtCount = levelData.districtNames.Count;
+		isUsingDistricts = levelData.districtNames.Count > 0;
 		if (isUsingDistricts)
         {
 			mapContainer = levelData.mapContainer;
 			schedulingUi.Add(MapUi);
 			districts = new List<District>();
 			List<int> msgIndexes = Enumerable.Range(0, levelData.campaignMessages.Count).ToList();
-			for (int i = 0; i < levelData.districtCount; i++)
+			for (int i = 0; i < districtCount; i++)
 			{
 				districts.Add(new District(msgIndexes, 1, 1));
+				districts[i].name = levelData.districtNames[i];
 				districts[i].forVotesCount = forVotesCount;
 				districts[i].totalVotesCount = totalVotesCount;
 			}
-			forVotesCount *= levelData.districtCount;
-			totalVotesCount *= levelData.districtCount;
+			forVotesCount *= districtCount;
+			totalVotesCount *= districtCount;
 		}
         Init(levelData.startTime, levelData.endTime);
 		
@@ -265,11 +267,6 @@ public class Tracker : MonoBehaviour
 		if(days == 0){
 			SceneManager.LoadScene(0);
 		}
-		
-
-		
-
-		
     }
 
     public void UpdateExecute() {
@@ -290,7 +287,23 @@ public class Tracker : MonoBehaviour
                             Math.Abs(amnt),
                             resource_name);
     }
-	
+
+	private string ResearchDisliked(District district)
+    {
+		int foundMsg = district.dislikedMsgs[district.dislikedMsgsFound];
+		district.dislikedMsgsFound += 1;
+		return String.Format(" You found that {0} did not like it if {1} was implemented",
+			district.name, campaignMessages[foundMsg]);
+	}
+
+	private string ResearchNeutral(District district)
+	{
+		int foundMsg = district.neutralMsgs[district.neutralMsgsFound];
+		district.neutralMsgsFound += 1;
+		return String.Format(" You found that {0} did not care if {1} was implemented",
+			district.name, campaignMessages[foundMsg]);
+	}
+
 	public void ExecuteAction() {
 		executeButton.GetComponent<Button>().interactable = false;
 		DisableSchedulingUi();
@@ -360,7 +373,34 @@ public class Tracker : MonoBehaviour
 						break;
 
 					case ActionData.ActionType.Research:
-						break;
+                        {
+							District district = districts[actionDistrictTarget[i]];
+							if (district.neutralMsgsFound == district.neutralMsgs.Count)
+                            {
+								if (district.dislikedMsgsFound == district.dislikedMsgs.Count)
+                                {
+									dialogue = "It seems like you already know this districts tastes.";
+								}
+								else
+                                {
+									dialogue = ResearchDisliked(district);
+								}
+                            }
+							else if (district.dislikedMsgsFound == district.dislikedMsgs.Count)
+                            {
+								dialogue = ResearchNeutral(district);
+							}
+							else if (Random.Range(0.0f, 1.0f) > 0.8)
+							{
+								// is dislike
+								dialogue = ResearchDisliked(district);
+							}
+							else
+							{
+								dialogue = ResearchNeutral(district);
+							}
+							break;
+                        }
 				}
 			}
 			else if (money + action.moneyGain < 0 && influence + action.influenceGain >= 0)
