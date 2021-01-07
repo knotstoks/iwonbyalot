@@ -12,7 +12,8 @@ public class Tracker : MonoBehaviour
 {
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, 
 		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi;
-    private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial;
+    private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial,
+		miniMap, bigMap;
 	public List<GameObject> schedulingUi;
 
 	private List<CampaignMessage> campaignMessages;
@@ -72,8 +73,8 @@ public class Tracker : MonoBehaviour
         actions = levelData.actionSlots;
         days = levelData.days;
 		resourceslots = levelData.resources;
-		
-        
+        forVotesCount = levelData.forVotesStart;
+        totalVotesCount = levelData.totalVotes;
 		defaultBackground = levelData.defaultBackground;
 
 		isUsingDistricts = levelData.districtCount > 0;
@@ -84,15 +85,15 @@ public class Tracker : MonoBehaviour
 			mapContainer = levelData.mapContainer;
 			schedulingUi.Add(MapUi);
 			districts = new List<District>();
+			List<int> msgIndexes = Enumerable.Range(0, levelData.campaignMessages.Count).ToList();
 			for (int i = 0; i < levelData.districtCount; i++)
 			{
-				districts.Add(new District());
+				districts.Add(new District(msgIndexes, 1, 1));
+				districts[i].forVotesCount = forVotesCount;
+				districts[i].totalVotesCount = totalVotesCount;
 			}
-        } 
-		else 
-		{
-			forVotesCount = levelData.forVotesStartPerDistrict;
-        	totalVotesCount = levelData.totalVotesPerDistrict;
+			forVotesCount *= levelData.districtCount;
+			totalVotesCount *= levelData.districtCount;
 		}
         Init(levelData.startTime, levelData.endTime);
 		
@@ -121,7 +122,7 @@ public class Tracker : MonoBehaviour
 
 		if (DataPassedToMainGame.tutorial)
 		{
-			tutorial = Instantiate(tutorialPrefab, this.transform) as GameObject;
+			tutorial = Instantiate(tutorialPrefab, this.transform);
 			tutorial.GetComponent<Tutorial>().Init(this);
 		}
 	}
@@ -129,7 +130,7 @@ public class Tracker : MonoBehaviour
 	void Init(int start_hour, int end_hour) {
 		selectedTimeslot = -1;
 		for (int i = start_hour; i < end_hour; i++) {
-			GameObject timeslot = Instantiate(timeslotPrefab, TimeslotContainer.transform) as GameObject;
+			GameObject timeslot = Instantiate(timeslotPrefab, TimeslotContainer.transform);
 			timeslot.GetComponent<TimeSlotter>().Init(i - start_hour, i, this);
 			timeslots.Add(timeslot);
 			currentSchedule.Add(null);
@@ -139,7 +140,7 @@ public class Tracker : MonoBehaviour
         
 		for (int i = 0; i < actions.Count; i++)
 		{
-			GameObject actionslot = Instantiate(actionslotPrefab, ActionContainer.transform) as GameObject;
+			GameObject actionslot = Instantiate(actionslotPrefab, ActionContainer.transform);
 			actionslot.GetComponent<ActionSlotter>().Init(actions[i], this, Desc);
 			actionslots.Add(actionslot);
 		}
@@ -155,10 +156,13 @@ public class Tracker : MonoBehaviour
 		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
 		if(isUsingDistricts)
 		{
-			GameObject mapCon = Instantiate(mapContainer,MapUi.transform.Find("Map Container")) as GameObject;
+			miniMap = Instantiate(mapContainer, MapUi.transform.Find("Button"));
+			bigMap = Instantiate(mapContainer, MapUi.transform.Find("Map Container"));
+			miniMap.GetComponent<MapController>().setMini();
+			miniMap.GetComponent<MapController>().UpdateDistricts(districts);
+			bigMap.GetComponent<MapController>().UpdateDistricts(districts);
 			MapUi.SetActive(true);
-			MapUi.GetComponentInChildren<MapButton>().Start();
-			
+			MapUi.GetComponentInChildren<MapButton>().Init(bigMap);
 		}
 	}
 
@@ -199,7 +203,13 @@ public class Tracker : MonoBehaviour
 		MoneySlider.GetComponentInChildren<Text>().text = money.ToString() + "/ 100";
 		InfluenceSlider.GetComponentInChildren<Text>().text = influence.ToString() + " /100";
 		MoneySlider.GetComponent<Slider>().value = money;
-		InfluenceSlider.GetComponent<Slider>().value = influence; 
+		InfluenceSlider.GetComponent<Slider>().value = influence;
+
+		if (isUsingDistricts)
+        {
+			miniMap.GetComponent<MapController>().UpdateDistricts(districts);
+			bigMap.GetComponent<MapController>().UpdateDistricts(districts);
+        }
 		
         executeButton.GetComponent<Button>().interactable = false;
 		Desc.GetComponent<EventExecuter>().LoadBackground(defaultBackground);
