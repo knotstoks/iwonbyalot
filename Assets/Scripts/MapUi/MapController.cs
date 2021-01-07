@@ -21,9 +21,15 @@ public class MapController : MonoBehaviour
         }
     }
 
+    public void DisplayMap() 
+    {
+        mapContainer.SetActive(true);
+        mapOutline.SetActive(true);
+    }
+
     public void HideMap()
     {
-        //mapContainer.SetActive(false);
+        mapContainer.SetActive(false);
         mapOutline.SetActive(false);
         for (int i = 0; i < districtScripts.Count; i++)
         {

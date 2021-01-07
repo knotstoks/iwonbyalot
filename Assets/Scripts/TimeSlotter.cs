@@ -49,7 +49,7 @@ public class TimeSlotter : MonoBehaviour
         else
         {
             track.SelectTimeslot(slotIndex);
-            Textfield.text = "cancel";
+            Textfield.text = "Cancel";
             isTimeslotSelected = true;
         }
     }
