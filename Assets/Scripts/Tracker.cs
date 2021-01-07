@@ -402,6 +402,8 @@ public class Tracker : MonoBehaviour
 
 	public void ParseRandomEventResult(string result)
     {
+		// basically the return string will be something like:
+		// "inf 10, money 10" which means influence +=10, money += 10
 		List<string> effects = result.Split(',').ToList();
 		foreach (string effect in effects)
 		{
