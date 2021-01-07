@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: Rumors
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 0000000000000000
+  dialogueLineTypes: 0000000007000000
   dialogueLines:
   - 'Your Opponent spreads a rumor of how you like to drink expired milk: -5 Influence'
   - inf -5
