@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20938de84fc73544b55df24945ea8f0, type: 3}
+  m_Name: UniformBan
+  m_EditorClassIdentifier: 
+  messageName: Ban on Standardised Uniforms
+  speech: "\u201CWhy do we have to be limited to the exact same clothing choice!
+    We are students, not prisoners!\u201D"
+  like: "\u201CFinally we can express ourselves and not only in our homework!\u201D
+    The Class liked your speech: +10 Votes"
+  neutral: "\u201CWe\u2019re not really fashionistas but sure\u2026\u201D The Class
+    was neutral to your speech: +5 Votes"
+  dislike: "\u201CIt\u2019s our identity!\u201D The Class disliked your speech: -5
+    Votes"

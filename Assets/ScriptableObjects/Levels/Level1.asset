@@ -17,8 +17,8 @@ MonoBehaviour:
   endTime: 16
   days: 10
   districtCount: 0
-  forVotesStart: 10
-  againstVotesStart: 90
+  forVotesStart: 1
+  againstVotesStart: 29
   mapContainer: {fileID: 0}
   introductionDialogue: {fileID: 11400000, guid: 941bca309e807bf448504113b8f924b4,
     type: 2}
