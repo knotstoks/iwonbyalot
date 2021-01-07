@@ -1536,23 +1536,13 @@ MonoBehaviour:
     type: 3}
   timeslotPrefab: {fileID: 216161761125971639, guid: cdb9487636f13ab428ced4678dca226d,
     type: 3}
-  Execute: {fileID: 244992406}
+  executeButton: {fileID: 244992406}
   tutorialPrefab: {fileID: 603981436859465494, guid: 9a7021d6053efad4ebf397fecb994b33,
     type: 3}
-  InfluenceSlider: {fileID: 0}
-  MoneySlider: {fileID: 0}
-  StressSlider: {fileID: 0}
-  CharismaSlider: {fileID: 0}
   TimeslotContainer: {fileID: 2055498144}
   ActionContainer: {fileID: 1371178463}
   ResourceContainer: {fileID: 1448644652}
   eventChance: 1
-  money: 0
-  influence: 0
-  stress: 0
-  charisma: 0
-  forVotesCount: 0
-  againstVotesCount: 100
   testLevelData: {fileID: 11400000, guid: e2cc49b0d95520f4abc0d9ab95de894f, type: 2}
 --- !u!1 &1371178463
 GameObject:

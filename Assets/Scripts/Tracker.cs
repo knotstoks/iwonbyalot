@@ -11,10 +11,9 @@ using Random = UnityEngine.Random;
 public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
-	public GameObject Desc, actionslotPrefab, timeslotPrefab, Execute, tutorialPrefab;
-    public GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider;
-    public GameObject TimeslotContainer, ActionContainer, ResourceContainer;
-    private GameObject tutorial;
+	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, 
+		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer;
+    private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial;
     
 	private List<RandomDialogueEvent> randomDialogueEvents;
     private List<ActionData> actions;
@@ -31,22 +30,22 @@ public class Tracker : MonoBehaviour
 	private GameObject mapContainer;
 
 	public float eventChance = 0.5f;
-    public float money,influence,stress,charisma;
-	public int forVotesCount, againstVotesCount;
+    private float money, influence, stress, charisma;
+	private int forVotesCount, againstVotesCount;
 	private int selectedTimeslot;
 	private int days;
     
-    private LevelData level_data;
+    private LevelData levelData;
 	public LevelData testLevelData;
 
 
 	// Start is called before the first frame update
 	void Start()
     {
-        level_data = DataPassedToMainGame.level_data;
-		if (level_data == null)
+        levelData = DataPassedToMainGame.level_data;
+		if (levelData == null)
         {
-			level_data = testLevelData;
+			levelData = testLevelData;
 		}
         
 		timeslots = new List<GameObject>();
@@ -58,38 +57,38 @@ public class Tracker : MonoBehaviour
 
 		switch (DataPassedToMainGame.diff) {
             case 0:
-                randomDialogueEvents = level_data.NormalEvents;
+                randomDialogueEvents = levelData.NormalEvents;
                 break;
             case 1:
-                randomDialogueEvents = level_data.HardcoreEvents;
+                randomDialogueEvents = levelData.HardcoreEvents;
                 break;
         }
         
-        actions = level_data.actionSlots;
-        days = level_data.days;
-		resourceslots = level_data.resources;
+        actions = levelData.actionSlots;
+        days = levelData.days;
+		resourceslots = levelData.resources;
 
-		isUsingDistricts = level_data.districtCount > 0;
+		isUsingDistricts = levelData.districtCount > 0;
 		if (isUsingDistricts)
         {
-			mapContainer = level_data.mapContainer;
+			mapContainer = levelData.mapContainer;
 			districts = new List<District>();
-			for (int i = 0; i < level_data.districtCount; i++)
+			for (int i = 0; i < levelData.districtCount; i++)
 			{
 				districts.Add(new District());
 			}
         }
 		
-        Init(level_data.startTime, level_data.endTime);
+        Init(levelData.startTime, levelData.endTime);
         
 		selectedTimeslot = -1;
 		Reset();
     
-		if (level_data.introductionDialogue != null)
+		if (levelData.introductionDialogue != null)
         {
 			DisableSchedulingUi();
 			Desc.GetComponent<EventExecuter>().ExecuteEventDialogue(
-						level_data.introductionDialogue,
+						levelData.introductionDialogue,
 						makeCurrentStatistics(),
 						ResumeGameStart
 						);
@@ -178,7 +177,7 @@ public class Tracker : MonoBehaviour
 		MoneySlider.GetComponent<Slider>().value = money;
 		InfluenceSlider.GetComponent<Slider>().value = influence; 
 		
-        Execute.GetComponent<Button>().interactable = false;
+        executeButton.GetComponent<Button>().interactable = false;
     }
 
     public void UpdateExecute() {
@@ -188,11 +187,11 @@ public class Tracker : MonoBehaviour
 				return;
 		}
 		
-        Execute.GetComponent<Button>().interactable = true;
+        executeButton.GetComponent<Button>().interactable = true;
     }
 	
 	public void ExecuteAction() {
-		Execute.GetComponent<Button>().interactable = true;
+		executeButton.GetComponent<Button>().interactable = false;
 		DisableSchedulingUi();
 		days -= 1;
 
