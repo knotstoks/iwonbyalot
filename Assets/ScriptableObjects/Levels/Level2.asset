@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   position: School President
+  defaultBackground: School_gate_2
   startTime: 8
   endTime: 16
   days: 14

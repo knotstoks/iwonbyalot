@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
+  m_Name: PizzaParty
+  m_EditorClassIdentifier: 
+  dialogueLineTypes: 020000000200000007000000
+  dialogueLines:
+  - Your Opponent hosts a Pizza Party for Class {0}!
+  - 5 Votes from Class {0} went to your Opponent!
+  - district +10 {0}
+  dialogueLineLinks: 010000000200000003000000

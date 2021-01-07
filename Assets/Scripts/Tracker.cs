@@ -13,7 +13,7 @@ public class Tracker : MonoBehaviour
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, 
 		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial;
-	private List<GameObject> schedulingUi;
+	public List<GameObject> schedulingUi;
 
 	private List<CampaignMessage> campaignMessages;
 	private List<RandomDialogueEvent> randomDialogueEvents;
@@ -35,7 +35,9 @@ public class Tracker : MonoBehaviour
     private float money, influence, stress, charisma;
 	private int forVotesCount, totalVotesCount;
 	private int selectedTimeslot;
-	public int days;
+	private int days;
+
+	private string defaultBackground;
     
     private LevelData levelData;
 	public LevelData testLevelData;
@@ -44,9 +46,6 @@ public class Tracker : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		schedulingUi = new List<GameObject>() { ResourceContainer, TimeslotContainer, 
-			ActionContainer, executeButton };
-
 		levelData = DataPassedToMainGame.level_data;
 		if (levelData == null)
         {
@@ -74,6 +73,7 @@ public class Tracker : MonoBehaviour
 		resourceslots = levelData.resources;
         forVotesCount = levelData.forVotesStart;
         totalVotesCount = levelData.forVotesStart + levelData.againstVotesStart;
+		defaultBackground = levelData.defaultBackground;
 
 		isUsingDistricts = levelData.districtCount > 0;
 		if (isUsingDistricts)
@@ -86,12 +86,8 @@ public class Tracker : MonoBehaviour
 				districts.Add(new District());
 			}
         }
-		
         Init(levelData.startTime, levelData.endTime);
-        
-		selectedTimeslot = -1;
-		Reset();
-    
+		
 		if (levelData.introductionDialogue != null)
         {
 			DisableSchedulingUi();
@@ -101,6 +97,10 @@ public class Tracker : MonoBehaviour
 						ResumeGameStart
 						);
         }	
+		else
+        {
+			Reset();
+		}
 	}
 
 	public void ResumeGameStart(string result)
@@ -119,6 +119,7 @@ public class Tracker : MonoBehaviour
 	}
 
 	void Init(int start_hour, int end_hour) {
+		selectedTimeslot = -1;
 		for (int i = start_hour; i < end_hour; i++) {
 			GameObject timeslot = Instantiate(timeslotPrefab, TimeslotContainer.transform) as GameObject;
 			timeslot.GetComponent<TimeSlotter>().Init(i - start_hour, i, this);
@@ -193,9 +194,15 @@ public class Tracker : MonoBehaviour
 		InfluenceSlider.GetComponent<Slider>().value = influence; 
 		
         executeButton.GetComponent<Button>().interactable = false;
+		Desc.GetComponent<EventExecuter>().LoadBackground(defaultBackground);
 		if(days == 0){
 			SceneManager.LoadScene(0);
 		}
+		
+
+		
+
+		
     }
 
     public void UpdateExecute() {
@@ -419,6 +426,8 @@ public class Tracker : MonoBehaviour
 
 	public void ParseRandomEventResult(string result)
     {
+		// basically the return string will be something like:
+		// "inf 10, money 10" which means influence +=10, money += 10
 		List<string> effects = result.Split(',').ToList();
 		foreach (string effect in effects)
 		{
@@ -442,6 +451,14 @@ public class Tracker : MonoBehaviour
                 case "stress":
                     stress = Math.Max(0, stress + effectVal); 
                     break;
+
+				case "district":
+					int districtIndex = int.Parse(effectWords[2]);
+					
+					districts[districtIndex].forVotesCount += effectVal;
+					break;
+					
+
 			}
 		}
 	}

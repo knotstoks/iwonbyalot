@@ -1903,6 +1903,11 @@ MonoBehaviour:
   ActionContainer: {fileID: 1371178463}
   ResourceContainer: {fileID: 1448644652}
   MapUi: {fileID: 682773514}
+  schedulingUi:
+  - {fileID: 86952198}
+  - {fileID: 1515069321}
+  - {fileID: 543586524}
+  - {fileID: 244992406}
   eventChance: 1
   likeVoteGain: 0
   neutralVoteGain: 0
