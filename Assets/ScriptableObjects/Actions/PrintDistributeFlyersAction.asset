@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe870a1bd8ea674d887f315e0abd3ee, type: 3}
   m_Name: PrintDistributeFlyersAction
   m_EditorClassIdentifier: 
-  actionName: Print and Distribute Flyers
+  actionName: Print and Post Flyers
   description: -10 Money, +14 Influence
   influenceGain: 14
   moneyGain: -10
+  stressGain: 0
+  charismaGain: 0
   actionType: 0
