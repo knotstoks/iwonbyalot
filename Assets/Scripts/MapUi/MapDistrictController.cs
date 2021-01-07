@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public int districtIndex;
     private District curDistrict;
     private static Color32 blue = new Color32(0, 128, 225, 200);
     private static Color32 red = new Color32(255, 51, 51, 200);

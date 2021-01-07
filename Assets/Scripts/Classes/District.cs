@@ -10,8 +10,8 @@ public class District
     public string name;
     public List<int> likedMsgs;
     public List<int> dislikedMsgs;
-    public int forVotesCount = 10;
-    public int totalVotesCount = 20;
+    public int forVotesCount ;
+    public int totalVotesCount ;
 
     public District(List<int> possible_msgs, int liked_msg_count, int disliked_msg_count)
     {

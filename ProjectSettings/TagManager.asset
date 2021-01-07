@@ -10,6 +10,7 @@ TagManager:
   - Charisma
   - Stress
   - Map
+  - District
   layers:
   - Default
   - TransparentFX

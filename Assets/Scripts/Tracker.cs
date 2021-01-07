@@ -31,6 +31,7 @@ public class Tracker : MonoBehaviour
 	private GameObject mapContainer;
 
 	public float eventChance = 0.5f;
+	public int totalVotesPerDistrict;
 	public int likeVoteGain, neutralVoteGain, dislikeVoteGain;
     private float money, influence, stress, charisma;
 	private int forVotesCount, totalVotesCount;
@@ -71,13 +72,15 @@ public class Tracker : MonoBehaviour
         actions = levelData.actionSlots;
         days = levelData.days;
 		resourceslots = levelData.resources;
-        forVotesCount = levelData.forVotesStart;
-        totalVotesCount = levelData.forVotesStart + levelData.againstVotesStart;
+		
+        
 		defaultBackground = levelData.defaultBackground;
 
 		isUsingDistricts = levelData.districtCount > 0;
 		if (isUsingDistricts)
         {
+			forVotesCount = levelData.forVotesStartPerDistrict * levelData.districtCount;
+        	totalVotesCount = levelData.totalVotesPerDistrict * levelData.districtCount;
 			mapContainer = levelData.mapContainer;
 			schedulingUi.Add(MapUi);
 			districts = new List<District>();
@@ -85,7 +88,12 @@ public class Tracker : MonoBehaviour
 			{
 				districts.Add(new District());
 			}
-        }
+        } 
+		else 
+		{
+			forVotesCount = levelData.forVotesStartPerDistrict;
+        	totalVotesCount = levelData.totalVotesPerDistrict;
+		}
         Init(levelData.startTime, levelData.endTime);
 		
 		if (levelData.introductionDialogue != null)
@@ -322,7 +330,7 @@ public class Tracker : MonoBehaviour
 
 		if (days == 0) 
 		{
-			string announcement;
+		
 			if(forVotesCount >= totalVotesCount / 2) 
 			{
 				dialogueList.Add(String.Format(" Congratulations! You have won the election with a result of {0} against {1}", 
