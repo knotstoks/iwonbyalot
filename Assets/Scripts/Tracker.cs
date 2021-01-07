@@ -67,6 +67,8 @@ public class Tracker : MonoBehaviour
         actions = levelData.actionSlots;
         days = levelData.days;
 		resourceslots = levelData.resources;
+        forVotesCount = levelData.forVotesStart;
+        againstVotesCount = levelData.againstVotesStart;
 
 		isUsingDistricts = levelData.districtCount > 0;
 		if (isUsingDistricts)
@@ -348,12 +350,25 @@ public class Tracker : MonoBehaviour
 		foreach (string effect in effects)
 		{
 			List<string> effectWords = effect.Split(' ').ToList();
+            int effectVal = int.Parse(effectWords[1]);
+            
 			switch (effectWords[0])
 			{
 				case "inf":
-					influence += int.Parse(effectWords[1]);
-					if (influence < 0) influence = 0;
+					influence = Math.Max(0, influence + effectVal);
 					break;
+                    
+                case "money":
+                    money = Math.Max(0, money + effectVal); 
+                    break;
+                    
+                case "charisma":
+                    charisma = Math.Max(0, charisma + effectVal); 
+                    break;
+                    
+                case "stress":
+                    stress = Math.Max(0, stress + effectVal); 
+                    break;
 			}
 		}
 	}

@@ -17,6 +17,8 @@ MonoBehaviour:
   endTime: 16
   days: 10
   districtCount: 0
+  forVotesStart: 10
+  againstVotesStart: 90
   mapContainer: {fileID: 0}
   introductionDialogue: {fileID: 11400000, guid: 941bca309e807bf448504113b8f924b4,
     type: 2}
@@ -30,7 +32,9 @@ MonoBehaviour:
   - {fileID: 5849451257297741405, guid: 801a1ce3e0888ad4cb1e6f8bb266d131, type: 3}
   NormalEvents:
   - {fileID: 11400000, guid: 7cb9370ecee2e34469f973a779843e9a, type: 2}
-  - {fileID: 11400000, guid: b1482b646705771499d492bda60e2704, type: 2}
+  - {fileID: 11400000, guid: 5acbfa65271aabd4985e3ba2a0a22185, type: 2}
+  - {fileID: 11400000, guid: 27f9c6ae076601445b820897e5e0b336, type: 2}
   HardcoreEvents:
   - {fileID: 11400000, guid: 7cb9370ecee2e34469f973a779843e9a, type: 2}
-  - {fileID: 11400000, guid: b1482b646705771499d492bda60e2704, type: 2}
+  - {fileID: 11400000, guid: 5acbfa65271aabd4985e3ba2a0a22185, type: 2}
+  - {fileID: 11400000, guid: 27f9c6ae076601445b820897e5e0b336, type: 2}
