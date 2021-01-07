@@ -12,7 +12,7 @@ public class Tracker : MonoBehaviour
 {
 	public List<GameObject> schedulingUi;
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, 
-		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer;
+		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial;
     
 	private List<RandomDialogueEvent> randomDialogueEvents;
@@ -74,6 +74,7 @@ public class Tracker : MonoBehaviour
 		if (isUsingDistricts)
         {
 			mapContainer = levelData.mapContainer;
+			schedulingUi.Add(MapUi);
 			districts = new List<District>();
 			for (int i = 0; i < levelData.districtCount; i++)
 			{
@@ -138,6 +139,13 @@ public class Tracker : MonoBehaviour
 		StressSlider = GameObject.FindWithTag("Stress");
 		CharismaSlider = GameObject.FindWithTag("Charisma");
 		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
+		if(isUsingDistricts)
+		{
+			GameObject mapCon = Instantiate(mapContainer,MapUi.transform.Find("Map Container")) as GameObject;
+			MapUi.SetActive(true);
+			MapUi.GetComponentInChildren<MapButton>().Start();
+			
+		}
 	}
 
 	void NextLevel() {

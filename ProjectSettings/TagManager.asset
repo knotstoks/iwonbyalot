@@ -9,6 +9,7 @@ TagManager:
   - Influence
   - Charisma
   - Stress
+  - Map
   layers:
   - Default
   - TransparentFX
