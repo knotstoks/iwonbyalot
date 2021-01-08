@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ActionSlotter : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
 {
     public Text Textfield;
+    public Image img;
     private Tracker track;
     private GameObject bottom;
     private ActionData representedAction;
@@ -17,6 +18,7 @@ public class ActionSlotter : MonoBehaviour, IPointerExitHandler, IPointerEnterHa
         this.track = track;
         this.bottom = bottom;
         Textfield.text = representedAction.actionName;
+        img.sprite = representedAction.icon;
     }
 
     public void AssignAction()

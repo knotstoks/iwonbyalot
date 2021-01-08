@@ -12,6 +12,7 @@ public class MessageSlotter : MonoBehaviour,IPointerExitHandler, IPointerEnterHa
     public CampaignMessage representedMessage;
     private District curDistrict;
     private int slotIndex; 
+    public Image img;
     // Start is called before the first frame update
     public void Init(CampaignMessage campaignMessage,Tracker track,GameObject bottom,int index)
     {
@@ -20,6 +21,7 @@ public class MessageSlotter : MonoBehaviour,IPointerExitHandler, IPointerEnterHa
         representedMessage = campaignMessage;
         Textfield.text = representedMessage.messageName;
         slotIndex = index;
+        img.sprite = campaignMessage.icon;
     }
 
     public void AssignMessage()

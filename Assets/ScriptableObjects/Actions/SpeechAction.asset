@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe870a1bd8ea674d887f315e0abd3ee, type: 3}
   m_Name: SpeechAction
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 1e65ef1fb1b988441a5fe0d2821f4f3d, type: 3}
   actionName: Speech
   description: -10 Influence, +10 Votes
   influenceGain: -10
   moneyGain: 0
+  stressGain: 5
+  charismaGain: 0
   actionType: 1

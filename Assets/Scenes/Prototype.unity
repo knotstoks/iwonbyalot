@@ -2297,13 +2297,16 @@ MonoBehaviour:
   messageslots: []
   currentSchedule: []
   speech: {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
-  actionDistrictTarget: 
-  actionMessageTarget: 
   eventChance: 1
-  totalVotesPerDistrict: 0
-  likeVoteGain: 0
-  neutralVoteGain: 0
-  dislikeVoteGain: 0
+  likeVoteGain: 10
+  neutralVoteGain: 5
+  dislikeVoteGain: -5
+  money: 0
+  influence: 0
+  stress: 0
+  charisma: 0
+  forVotesCount: 0
+  totalVotesCount: 0
   testLevelData: {fileID: 11400000, guid: 283aed72f677b8c42a343a4f9ed5ea78, type: 2}
 --- !u!1 &1289509586
 GameObject:
@@ -2519,7 +2522,7 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 5
   m_ChildAlignment: 0
-  m_Spacing: 10
+  m_Spacing: 20
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1

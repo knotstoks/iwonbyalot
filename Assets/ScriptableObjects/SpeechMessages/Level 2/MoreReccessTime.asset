@@ -21,3 +21,4 @@ MonoBehaviour:
     to your speech: +5 Votes"
   dislike: "\u201CWe don\u2019t want to end school later than usual!\u201D The Class
     disliked your speech: -5 Votes"
+  icon: {fileID: 21300000, guid: cb5a9d6fc947edb488a4cffd1f854d8e, type: 3}

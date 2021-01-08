@@ -21,3 +21,4 @@ MonoBehaviour:
     was neutral to your speech: +5 Votes"
   dislike: "\u201CIt\u2019s our identity!\u201D The Class disliked your speech: -5
     Votes"
+  icon: {fileID: 21300000, guid: 70b734f35934ee448b0d15e4e84b21df, type: 3}

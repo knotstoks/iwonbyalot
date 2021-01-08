@@ -19,3 +19,4 @@ MonoBehaviour:
   neutral: "\u201CSome of us have allergies\u2026\u201D The Class was neutral to
     your speech: +5 Votes"
   dislike: "\u201CI hate furries.\u201D The Class disliked your speech: -5 Votes "
+  icon: {fileID: 21300000, guid: 39a3911d93e35e2458b50729c75ed97c, type: 3}

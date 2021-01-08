@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe870a1bd8ea674d887f315e0abd3ee, type: 3}
   m_Name: PartTimeJobAction
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 41d3b2714ba163b48b6d485864cf3562, type: 3}
   actionName: Part-Time Job
   description: +5 Money
   influenceGain: 0
   moneyGain: 5
+  stressGain: 5
+  charismaGain: 0
   actionType: 0

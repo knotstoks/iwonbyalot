@@ -26,8 +26,8 @@ public class Tracker : MonoBehaviour
 
 	public List<ActionData> currentSchedule;
 	public ActionData speech;
-	public List<int> actionDistrictTarget;
-	public List<int> actionMessageTarget;
+	private List<int> actionDistrictTarget;
+	private List<int> actionMessageTarget;
 
 	private bool isUsingDistricts;
 	private List<District> districts;
@@ -35,7 +35,7 @@ public class Tracker : MonoBehaviour
 
 	public float eventChance = 0.5f;
 	public int likeVoteGain, neutralVoteGain, dislikeVoteGain;
-    private float money, influence, stress, charisma;
+    public float money, influence, stress, charisma;
 	public int forVotesCount, totalVotesCount;
 	private int selectedTimeslot;
 	private int days;
@@ -246,15 +246,18 @@ public class Tracker : MonoBehaviour
             timeslots[i].GetComponent<TimeSlotter>().Reset();
             currentSchedule[i] = null;
         }
-		print(forVotesCount);
 
         Desc.GetComponent<Description>().days = days;
 		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount, totalVotesCount - forVotesCount);
 		Desc.GetComponent<Description>().SetOriginalText();
-		MoneySlider.GetComponentInChildren<Text>().text = money.ToString() + "/ 100";
 		InfluenceSlider.GetComponentInChildren<Text>().text = influence.ToString() + " /100";
-		MoneySlider.GetComponent<Slider>().value = money;
 		InfluenceSlider.GetComponent<Slider>().value = influence;
+		MoneySlider.GetComponentInChildren<Text>().text = money.ToString() + "/ 100";
+		MoneySlider.GetComponent<Slider>().value = money;
+		StressSlider.GetComponentInChildren<Text>().text = stress.ToString() + "/ 100";
+		StressSlider.GetComponent<Slider>().value = stress;
+		CharismaSlider.GetComponentInChildren<Text>().text = charisma.ToString() + "/ 100";
+		CharismaSlider.GetComponent<Slider>().value = charisma;
 
 		if (isUsingDistricts)
         {
@@ -314,11 +317,15 @@ public class Tracker : MonoBehaviour
 		{	
 			string dialogue;
 			ActionData action = currentSchedule[i];
-			if( money + action.moneyGain >= 0 && influence + action.influenceGain >= 0) 
+			if( money + action.moneyGain >= 0 && influence + action.influenceGain >= 0 && stress + action.stressGain < 100 && charisma + action.charismaGain >= 0) 
 			{
+				
                 influence += action.influenceGain;
                 money += action.moneyGain;
+				stress += action.stressGain;
+				charisma += action.stressGain;
                 dialogue = String.Format("Did {0} to", action.actionName);
+				
 
 				switch (action.actionType)
 				{
@@ -354,8 +361,15 @@ public class Tracker : MonoBehaviour
                             else if (selectedDistrict.dislikedMsgs.Contains(selectedMsg))
                             {
                                 dialogue = campaignMessages[selectedMsg].dislike;
+								if(selectedDistrict.forVotesCount + dislikeVoteGain >= 0) {
 								selectedDistrict.forVotesCount += dislikeVoteGain;
 								forVotesCount += dislikeVoteGain;
+								} 
+								else {
+									forVotesCount -= selectedDistrict.forVotesCount;
+									selectedDistrict.forVotesCount = 0;
+								}
+								
 							}
                             else
                             {
@@ -405,7 +419,22 @@ public class Tracker : MonoBehaviour
                         }
 				}
 			}
-			else if (money + action.moneyGain < 0 && influence + action.influenceGain >= 0)
+			else if (stress + action.stressGain >= 100) {
+				dialogue = String.Format("...");
+				dialogueList.Add(dialogue);
+				dialogueList.Add("Where is this place...");
+				dialogueList.Add("Oh... It's my room");
+				dialogueList.Add("(You exit your room and see your mom)");
+				dialogueList.Add("(You feel sluggish)");
+				dialogueList.Add("Mom: Oh dear, you're awake, you've been out for two days!");
+				dialogueList.Add("Two days?");
+				dialogueList.Add("Feeling tired, you drag yourself out of house");
+				i = currentSchedule.Count;
+				stress = 0;
+				days -= 1;
+				CalculateVoteChange();
+
+			} else if (money + action.moneyGain < 0 && influence + action.influenceGain >= 0)
 			{
 				dialogue = String.Format("You do not have enough money to do {0}",action.actionName);
 			}
@@ -419,17 +448,24 @@ public class Tracker : MonoBehaviour
             dialogue += ".";
 			dialogueList.Add(dialogue);
 		}
-		
-		if  (forVotesCount - 3 < 0)
+		if(isUsingDistricts)
 		{
-			forVotesCount = 0;
-		} 
+			CalculateVoteChange();
+		}		 
 		else 
 		{
-			forVotesCount -= 3;
+			if  (forVotesCount - levelData.opponentGainPerRound < 0)
+			{
+				forVotesCount = 0;
+			}	 
+			else 
+			{
+				forVotesCount -= levelData.opponentGainPerRound;
+			}
 		}
+		
 
-		if (days == 0) 
+		if (days <= 0) 
 		{
 		
 			if(forVotesCount >= totalVotesCount / 2) 
@@ -460,6 +496,24 @@ public class Tracker : MonoBehaviour
 			//NextLevel();
 		}
 		Desc.GetComponent<Description>().ExecuteActionsDialogue(dialogueList, ResumeScheduling);
+	}
+
+	public void CalculateVoteChange()
+	{
+		int votesSum = 0;
+			for(int i = 0; i < districts.Count;i++)
+			{
+				if( districts[i].forVotesCount - levelData.opponentGainPerRound >= 0) 
+				{
+					districts[i].forVotesCount -= levelData.opponentGainPerRound;
+				}
+				 else
+				{
+					districts[i].forVotesCount = 0;
+				}
+				votesSum += districts[i].forVotesCount;
+			}
+			forVotesCount = votesSum;
 	}
 
 	public void ExecuteRandomEvent()

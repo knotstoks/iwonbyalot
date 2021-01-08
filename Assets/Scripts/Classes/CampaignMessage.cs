@@ -10,4 +10,5 @@ public class CampaignMessage : ScriptableObject
     public string like;
     public string neutral;
     public string dislike;
+    public Sprite icon;
 }

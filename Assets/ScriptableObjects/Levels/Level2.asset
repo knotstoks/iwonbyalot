@@ -23,6 +23,7 @@ MonoBehaviour:
   - Class C
   - Class D
   - Class E
+  opponentGainPerRound: 2
   forVotesStart: 0
   totalVotes: 30
   messageEnabled: 1

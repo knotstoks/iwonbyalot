@@ -11,6 +11,7 @@ public class LevelData : ScriptableObject
     public int startTime, endTime;
     public int days;
     public List<string> districtNames;
+    public int opponentGainPerRound;
     public int forVotesStart;
     public int totalVotes;
     public bool messageEnabled;

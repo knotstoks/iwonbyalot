@@ -15,6 +15,7 @@ public class District
     public List<int> neutralMsgs;
     public int dislikedMsgsFound = 0;
     public int neutralMsgsFound = 0;
+    public int opponentGainPerRound;
 
     public District(List<int> possibleMsgs, int likedMsgCount, int dislikedMsgCount)
     {

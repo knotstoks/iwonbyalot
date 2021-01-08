@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe870a1bd8ea674d887f315e0abd3ee, type: 3}
   m_Name: ActiveCampaigningAction
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 2262f419b2edef2418649b1731eaf92c, type: 3}
   actionName: Active Campaigning
   description: +4 Influence
   influenceGain: 4
   moneyGain: 0
+  stressGain: 5
+  charismaGain: 0
   actionType: 0

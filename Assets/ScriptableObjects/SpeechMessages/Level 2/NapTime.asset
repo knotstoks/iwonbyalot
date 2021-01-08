@@ -20,3 +20,4 @@ MonoBehaviour:
     neutral to your speech: +5 Votes"
   dislike: 'The Class seems too distracted with their homework to pay you any attention.
     Wrong audience. The Class disliked your speech: -5 Votes'
+  icon: {fileID: 21300000, guid: 12279da87f670f54fa490f7321774a1b, type: 3}
