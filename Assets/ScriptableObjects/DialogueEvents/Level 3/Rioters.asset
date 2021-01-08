@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: Rioters
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 
-  dialogueLines: []
-  dialogueLineLinks: 
+  dialogueLineTypes: 0000000000000000000000000000000007000000
+  dialogueLines:
+  - Breaking News! Riots have broken out all over the Country!
+  - Some say its due to stress levels reaching an all time high...
+  - Others say it was over a pot of curry
+  - Lost 20 Influence
+  - inf -20
+  dialogueLineLinks: 01000000020000000300000004000000

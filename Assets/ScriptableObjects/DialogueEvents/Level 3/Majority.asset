@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLineTypes: 0000000000000000000000000000000007000000
   dialogueLines:
-  - 
-  - 
-  - 
-  - 
+  - With the influx of meat into the Districts, more and more people develop some
+    sort of 'Herd Mentality'
+  - As you walk through the Districts while campaigning you start to see more and
+    more people choosing to stand around grass patches and eat grass
+  - Not the weirdest thing you've seen but alright
+  - The Majority Winner in each District gains 2 more Votes!
   - 
   dialogueLineLinks: 01000000020000000300000004000000
