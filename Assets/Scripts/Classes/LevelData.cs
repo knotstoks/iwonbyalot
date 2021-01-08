@@ -18,6 +18,7 @@ public class LevelData : ScriptableObject
     public int forVotesStart;
     public int totalVotes;
     public bool messageEnabled;
+    public bool advancedResourcesEnabled;
     public GameObject mapContainer;
     public DialogueEvent introductionDialogue;
     

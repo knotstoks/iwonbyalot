@@ -250,10 +250,12 @@ public class Tracker : MonoBehaviour
 		InfluenceSlider.GetComponent<Slider>().value = influence;
 		MoneySlider.GetComponentInChildren<Text>().text = money.ToString() + "/ 100";
 		MoneySlider.GetComponent<Slider>().value = money;
+		if(levelData.advancedResourcesEnabled){
 		StressSlider.GetComponentInChildren<Text>().text = stress.ToString() + "/ 100";
 		StressSlider.GetComponent<Slider>().value = stress;
 		CharismaSlider.GetComponentInChildren<Text>().text = charisma.ToString() + "/ 100";
 		CharismaSlider.GetComponent<Slider>().value = charisma;
+		}
 
 		if (isUsingDistricts)
         {
@@ -319,7 +321,7 @@ public class Tracker : MonoBehaviour
                 influence += action.influenceGain;
                 money += action.moneyGain;
 				stress += action.stressGain;
-				charisma += action.stressGain;
+				charisma += action.charismaGain;
                 dialogue = String.Format("Did {0} to", action.actionName);
 				
 
