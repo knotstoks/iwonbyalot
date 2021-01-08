@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 3
   position: President
-  defaultBackground: 
+  defaultBackground: District
   likeVoteGain: 0
   neutralVoteGain: 0
   dislikeVoteGain: 0
@@ -31,14 +31,21 @@ MonoBehaviour:
   - g
   - h
   - i
-  opponentGainPerRound: 0
+  opponentGainPerRound: 2
   forVotesStart: 0
-  totalVotes: 0
+  totalVotes: 30
   messageEnabled: 1
   advancedResourcesEnabled: 1
   mapContainer: {fileID: 0}
   introductionDialogue: {fileID: 0}
-  actionSlots: []
+  actionSlots:
+  - {fileID: 11400000, guid: 5e4768265f64c744991933f59a55cc29, type: 2}
+  - {fileID: 11400000, guid: 0b630f208eb5a964e86f80670e1edf22, type: 2}
+  - {fileID: 11400000, guid: ec2c18e1c9614d043b2bc4481cb0c364, type: 2}
+  - {fileID: 11400000, guid: ac0e346acde448241b59db5b3ee07a46, type: 2}
+  - {fileID: 11400000, guid: 966a05ea52cd9b046ab3737084e45df6, type: 2}
+  - {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
+  - {fileID: 11400000, guid: 80fa59203b567224c82a61277bcb1c67, type: 2}
   resources:
   - {fileID: 7312506179018901934, guid: b31f08b56231abf4a9e807079fcd7674, type: 3}
   - {fileID: 5849451257297741405, guid: 801a1ce3e0888ad4cb1e6f8bb266d131, type: 3}
@@ -65,4 +72,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  campaignMessages: []
+  campaignMessages:
+  - {fileID: 11400000, guid: c9270457d60b72648b5d4ea068fa51ac, type: 2}
+  - {fileID: 11400000, guid: b03bdf0a01bbd4c4e9c490b562e38bda, type: 2}
+  - {fileID: 11400000, guid: 29700d7be2a60b740b862ee0024c2f1a, type: 2}
+  - {fileID: 11400000, guid: 5e09ef88c81e4c64d9155c6baadbc208, type: 2}
+  - {fileID: 11400000, guid: 352eac0ce1633334491702843269347e, type: 2}
+  - {fileID: 11400000, guid: 615925dc1b9cd3c44835c0c75e28d108, type: 2}
+  - {fileID: 11400000, guid: 4c665a2951104624da8253000f48bca0, type: 2}
+  - {fileID: 11400000, guid: 0d726b64e0295a94fa91fba88bd8a23f, type: 2}
+  - {fileID: 11400000, guid: ee41ff5f4d7c51c45ad9dd829047993a, type: 2}
