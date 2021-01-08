@@ -222,12 +222,14 @@ public class Tracker : MonoBehaviour
 			{
 				isSpeech = true;
 				SpeechUi.SetActive(true);
+				SpeechUi.GetComponentInChildren<Text>().text = "Speech";
 				Confirm.GetComponent<Button>().interactable = false;
 			} 
 			else if(action.actionType == ActionData.ActionType.Research) 
 			{
 				isSpeech = false;
 				SpeechUi.SetActive(true);
+				SpeechUi.GetComponentInChildren<Text>().text = "Talk to the Masses";
 				Confirm.GetComponent<Button>().interactable = false;
 				SpeechContainer.SetActive(false);
 				actionMessageTarget[selectedTimeslot] = -2;
@@ -587,6 +589,7 @@ public class Tracker : MonoBehaviour
 				{
 					districts[i].forVotesCount = 0;
 				}
+			
 				votesSum += districts[i].forVotesCount;
 			}
 			forVotesCount = votesSum;

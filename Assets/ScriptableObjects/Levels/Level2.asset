@@ -15,9 +15,9 @@ MonoBehaviour:
   level: 2
   position: School President
   defaultBackground: School_gate_2
-  likeVoteGain: 0
-  neutralVoteGain: 0
-  dislikeVoteGain: 0
+  likeVoteGain: 10
+  neutralVoteGain: 5
+  dislikeVoteGain: -5
   startTime: 8
   endTime: 16
   days: 14
