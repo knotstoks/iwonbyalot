@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MapDetailController : MonoBehaviour
 {
+    public Text districtName;
     public Text forVotesDisplay;
     public Text againstVotesDisplay;
 
@@ -14,6 +15,7 @@ public class MapDetailController : MonoBehaviour
         gameObject.transform.position = pos;
         forVotesDisplay.text = district.forVotesCount.ToString();
         againstVotesDisplay.text = (district.totalVotesCount - district.forVotesCount).ToString();
+        districtName.text = district.name;
     }
 
     public void HideDetails()
