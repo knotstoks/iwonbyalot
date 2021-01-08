@@ -28,7 +28,7 @@ MonoBehaviour:
   - Class D
   - Class E
   opponentGainPerRound: 2
-  forVotesStart: 0
+  forVotesStart: 10
   totalVotes: 30
   messageEnabled: 1
   advancedResourcesEnabled: 1
@@ -49,7 +49,13 @@ MonoBehaviour:
   - {fileID: 8411151617335405104, guid: 6a2fe775dfa2fbb48b6183c3aaaebb14, type: 3}
   - {fileID: 118145672267169055, guid: c917cb5fd668c61408fa06f0300e3b1f, type: 3}
   NormalEvents:
+  - {fileID: 11400000, guid: 04ad3af04a42b52498dda14efb6b2b00, type: 2}
+  - {fileID: 11400000, guid: 795a334eb2c36e04caa34316e883fb63, type: 2}
+  - {fileID: 11400000, guid: db1ef3bdd90c73a4ca52a6357d8ead6c, type: 2}
+  - {fileID: 11400000, guid: 39b3b467d55416849bf29e03247ab31b, type: 2}
   - {fileID: 11400000, guid: efe4141514d5a234c84a8cf2840fa725, type: 2}
+  - {fileID: 11400000, guid: d91fa81d34d9da54e85ab7f6c046813e, type: 2}
+  - {fileID: 11400000, guid: a0ae8d6e1600cf34d9c517c4082908f6, type: 2}
   HardcoreEvents:
   - {fileID: 0}
   campaignMessages:
