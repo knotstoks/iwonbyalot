@@ -36,10 +36,9 @@ public class Tracker : MonoBehaviour
 	private GameObject mapContainer;
 
 	public float eventChance = 0.5f;
-	public int totalVotesPerDistrict;
 	public int likeVoteGain, neutralVoteGain, dislikeVoteGain;
     private float money, influence, stress, charisma;
-	private int forVotesCount, totalVotesCount;
+	public int forVotesCount, totalVotesCount;
 	private int selectedTimeslot;
 	private int days;
 
@@ -359,6 +358,8 @@ public class Tracker : MonoBehaviour
 								selectedDistrict.forVotesCount += neutralVoteGain;
 								forVotesCount += neutralVoteGain;
 							}
+							actionDistrictTarget[i] = -1;
+							actionMessageTarget[i] = -1;
                         }
                         else
                         {
