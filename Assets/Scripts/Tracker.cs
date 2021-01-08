@@ -28,7 +28,7 @@ public class Tracker : MonoBehaviour
 
 	public List<ActionData> currentSchedule;
 	public ActionData speech;
-	private List<int> actionDistrictTarget;
+	public List<int> actionDistrictTarget;
 	private List<int> actionMessageTarget;
 
 	public bool isUsingDistricts;
@@ -151,8 +151,10 @@ public class Tracker : MonoBehaviour
 		}
         MoneySlider = GameObject.FindWithTag("Money");
 		InfluenceSlider = GameObject.FindWithTag("Influence");
+		if(levelData.advancedResourcesEnabled) {
 		StressSlider = GameObject.FindWithTag("Stress");
 		CharismaSlider = GameObject.FindWithTag("Charisma");
+		}
 		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
         
 		if(isUsingDistricts)
@@ -201,7 +203,8 @@ public class Tracker : MonoBehaviour
 			if (action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled){
 				SpeechUi.SetActive(true);
 				Confirm.GetComponent<Button>().interactable = false;
-			} else {
+			} else
+			{
                 currentSchedule[selectedTimeslot] = action;
                 timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
                 selectedTimeslot = -1;
@@ -312,7 +315,7 @@ public class Tracker : MonoBehaviour
 
 		List<string> dialogueList = new List<string>();
 		for (int i = 0; i < currentSchedule.Count; i++)
-		{	
+		{	print(actionDistrictTarget[i]);
 			string dialogue;
 			ActionData action = currentSchedule[i];
 			if( money + action.moneyGain >= 0 && influence + action.influenceGain >= 0 && stress + action.stressGain < 100 && charisma + action.charismaGain >= 0) 
@@ -320,8 +323,10 @@ public class Tracker : MonoBehaviour
 				
                 influence += action.influenceGain;
                 money += action.moneyGain;
+				if(levelData.advancedResourcesEnabled) {
 				stress += action.stressGain;
 				charisma += action.charismaGain;
+				}
                 dialogue = String.Format("Did {0} to", action.actionName);
 				
 
@@ -388,6 +393,7 @@ public class Tracker : MonoBehaviour
 
 					case ActionData.ActionType.Research:
                         {
+							
 							District district = districts[actionDistrictTarget[i]];
 							if (district.neutralMsgsFound == district.neutralMsgs.Count)
                             {
@@ -432,16 +438,9 @@ public class Tracker : MonoBehaviour
 				days -= 1;
 				CalculateVoteChange();
 
-			} else if (money + action.moneyGain < 0 && influence + action.influenceGain >= 0)
-			{
-				dialogue = String.Format("You do not have enough money to do {0}",action.actionName);
-			}
-			else if (money + action.moneyGain >= 0 && influence + action.influenceGain < 0)
-			{
-				dialogue = String.Format("You do not have enough influence to do {0}",action.actionName);
 			} else 
 			{
-				dialogue = String.Format("You do not have enough money nor influence to do {0}",action.actionName);
+				dialogue = String.Format("You do not have enough resources to do {0}",action.actionName);
 			}
             dialogue += ".";
 			dialogueList.Add(dialogue);
