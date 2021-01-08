@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe870a1bd8ea674d887f315e0abd3ee, type: 3}
   m_Name: RallyAction
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bcd8a4befde7c3d46b3dfb869afd9071, type: 3}
   actionName: Rally
   description: +5 Charisma
   influenceGain: 0

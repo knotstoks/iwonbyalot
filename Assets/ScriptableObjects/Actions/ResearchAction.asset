@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe870a1bd8ea674d887f315e0abd3ee, type: 3}
   m_Name: ResearchAction
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 8de54bed05776ae4b93a1de104c39e72, type: 3}
   actionName: Talk to the Masses
   description: Find a Disliked/Neutral statement from a District
   influenceGain: 0
