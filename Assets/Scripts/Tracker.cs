@@ -28,15 +28,17 @@ public class Tracker : MonoBehaviour
 
 	public List<ActionData> currentSchedule;
 	public ActionData speech;
+	public ActionData research;
 	public List<int> actionDistrictTarget;
 	private List<int> actionMessageTarget;
+
 
 	public bool isUsingDistricts;
 	private List<District> districts;
 	private GameObject mapContainer;
-
+	public bool isSpeech;
 	public float eventChance = 0.5f;
-	public int likeVoteGain, neutralVoteGain, dislikeVoteGain;
+	private int likeVoteGain, neutralVoteGain, dislikeVoteGain;
     public float money, influence, stress, charisma;
 	public int forVotesCount, totalVotesCount;
 	private int selectedTimeslot;
@@ -73,7 +75,9 @@ public class Tracker : MonoBehaviour
                 randomDialogueEvents = levelData.HardcoreEvents;
                 break;
         }
-        
+        likeVoteGain = levelData.likeVoteGain;
+		dislikeVoteGain = levelData.dislikeVoteGain;
+		neutralVoteGain = levelData.neutralVoteGain;
         actions = levelData.actionSlots;
         days = levelData.days;
 		campaignMessages = levelData.campaignMessages;
@@ -200,10 +204,21 @@ public class Tracker : MonoBehaviour
 	{
 		if (selectedTimeslot != -1)
 		{
-			if (action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled){
+			if (action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled)
+			{
+				isSpeech = true;
 				SpeechUi.SetActive(true);
 				Confirm.GetComponent<Button>().interactable = false;
-			} else
+			} 
+			else if(action.actionType == ActionData.ActionType.Research) 
+			{
+				isSpeech = false;
+				SpeechUi.SetActive(true);
+				Confirm.GetComponent<Button>().interactable = false;
+				SpeechContainer.SetActive(false);
+				actionMessageTarget[selectedTimeslot] = -2;
+			} 
+			else
 			{
                 currentSchedule[selectedTimeslot] = action;
                 timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
@@ -216,6 +231,13 @@ public class Tracker : MonoBehaviour
 	{
 		currentSchedule[selectedTimeslot] = speech ;
 		timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(speech);
+		selectedTimeslot = -1;
+	}
+
+	public void ResearchSelectAction()
+	{
+		currentSchedule[selectedTimeslot] = research;
+		timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(research);
 		selectedTimeslot = -1;
 	}
 
@@ -315,10 +337,10 @@ public class Tracker : MonoBehaviour
 
 		List<string> dialogueList = new List<string>();
 		for (int i = 0; i < currentSchedule.Count; i++)
-		{	print(actionDistrictTarget[i]);
+		{	
 			string dialogue;
 			ActionData action = currentSchedule[i];
-			if( money + action.moneyGain >= 0 && influence + action.influenceGain >= 0 && stress + action.stressGain < 100 && charisma + action.charismaGain >= 0) 
+			if( ResourceWithinRange(money + action.moneyGain) && ResourceWithinRange(influence + action.influenceGain) && ResourceWithinRange(stress + action.stressGain)&&ResourceWithinRange(charisma + action.stressGain) ) 
 			{
 				
                 influence += action.influenceGain;
@@ -327,6 +349,7 @@ public class Tracker : MonoBehaviour
 				stress += action.stressGain;
 				charisma += action.charismaGain;
 				}
+
                 dialogue = String.Format("Did {0} to", action.actionName);
 				
 
@@ -358,8 +381,17 @@ public class Tracker : MonoBehaviour
                             if (selectedDistrict.likedMsgs.Contains(selectedMsg))
                             {
                                 dialogue = campaignMessages[selectedMsg].like;
+								if(selectedDistrict.forVotesCount+likeVoteGain > selectedDistrict.totalVotesCount)
+								{
+									forVotesCount += selectedDistrict.totalVotesCount - selectedDistrict.forVotesCount;
+									selectedDistrict.forVotesCount = selectedDistrict.totalVotesCount;
+								}
+								else 
+								{
 								selectedDistrict.forVotesCount += likeVoteGain;
 								forVotesCount += likeVoteGain;
+								}
+
 							}
                             else if (selectedDistrict.dislikedMsgs.Contains(selectedMsg))
                             {
@@ -377,8 +409,16 @@ public class Tracker : MonoBehaviour
                             else
                             {
                                 dialogue = campaignMessages[selectedMsg].neutral;
-								selectedDistrict.forVotesCount += neutralVoteGain;
-								forVotesCount += neutralVoteGain;
+								if(selectedDistrict.forVotesCount+likeVoteGain > selectedDistrict.totalVotesCount)
+								{
+									forVotesCount += selectedDistrict.totalVotesCount - selectedDistrict.forVotesCount;
+									selectedDistrict.forVotesCount = selectedDistrict.totalVotesCount;
+								}
+								else 
+								{
+								selectedDistrict.forVotesCount += likeVoteGain;
+								forVotesCount += likeVoteGain;
+								}
 							}
 							actionDistrictTarget[i] = -1;
 							actionMessageTarget[i] = -1;
@@ -387,7 +427,11 @@ public class Tracker : MonoBehaviour
                         {
 							dialogue += String.Format(" trade {0} influence in order to gain 10 votes",
 														Math.Abs(action.influenceGain));
+							if(forVotesCount + likeVoteGain > totalVotesCount) {
+								forVotesCount = totalVotesCount;
+							} else {
 							forVotesCount += 10;
+							}
                         }
 						break;
 
@@ -422,6 +466,25 @@ public class Tracker : MonoBehaviour
 							break;
                         }
 				}
+				if( money > 100) {
+					dialogueList.Add("Seems like your wallet couldn't hanlde too much money...");
+					dialogueList.Add("You dropped some cash on your way");
+					dialogueList.Add("Well, you still have a hundred left...");
+					dialogueList.Add("Oh Well");
+					money = 100;
+				}
+				if(influence > 100) {
+					dialogueList.Add("Woah woah woah Mr Influential");
+					dialogueList.Add("There's no use being influential without anybody voting for you right?");
+					dialogueList.Add("I mean what's the point of having max influence with no power?");
+					influence = 100;
+				}
+				if(charisma > 100) {
+					dialogueList.Add("Hey there Mr Funny");
+					dialogueList.Add("Getting the looks wherever you walk, huh?");
+					dialogueList.Add("But, we're not aiming to be a superstar, are we?");
+					charisma = 100;
+				}
 			}
 			else if (stress + action.stressGain >= 100) {
 				dialogue = String.Format("...");
@@ -438,7 +501,7 @@ public class Tracker : MonoBehaviour
 				days -= 1;
 				CalculateVoteChange();
 
-			} else 
+			} else
 			{
 				dialogue = String.Format("You do not have enough resources to do {0}",action.actionName);
 			}
@@ -493,6 +556,10 @@ public class Tracker : MonoBehaviour
 			//NextLevel();
 		}
 		Desc.GetComponent<Description>().ExecuteActionsDialogue(dialogueList, ResumeScheduling);
+	}
+
+	public bool ResourceWithinRange(float i) {
+		return i >= 0;
 	}
 
 	public void CalculateVoteChange()
@@ -657,4 +724,10 @@ public class Tracker : MonoBehaviour
     public void removeTutorial() {
         Destroy(tutorial);
     }
+
+	public void reAssignDistrictAndMessage() {
+	actionDistrictTarget[selectedTimeslot] = -1;
+	actionMessageTarget[selectedTimeslot] = -1;
+	}
 }
+

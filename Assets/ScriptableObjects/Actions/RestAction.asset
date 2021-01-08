@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fe870a1bd8ea674d887f315e0abd3ee, type: 3}
-  m_Name: lvl1Speech
+  m_Name: RestAction
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 1e65ef1fb1b988441a5fe0d2821f4f3d, type: 3}
-  actionName: Speech
-  description: -20 Influence, +5 Votes
-  influenceGain: -20
+  icon: {fileID: 21300000, guid: 12279da87f670f54fa490f7321774a1b, type: 3}
+  actionName: Rest
+  description: It's time to take a break man. Look at you! You look like you're going
+    nuts! Stress - 15
+  influenceGain: 0
   moneyGain: 0
-  stressGain: 0
+  stressGain: -15
   charismaGain: 0
-  actionType: 1
+  actionType: 0
