@@ -15,6 +15,9 @@ MonoBehaviour:
   level: 2
   position: School President
   defaultBackground: School_gate_2
+  likeVoteGain: 0
+  neutralVoteGain: 0
+  dislikeVoteGain: 0
   startTime: 8
   endTime: 16
   days: 14
@@ -39,6 +42,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
   - {fileID: 11400000, guid: 966a05ea52cd9b046ab3737084e45df6, type: 2}
   - {fileID: 11400000, guid: ac0e346acde448241b59db5b3ee07a46, type: 2}
+  - {fileID: 11400000, guid: 80fa59203b567224c82a61277bcb1c67, type: 2}
   resources:
   - {fileID: 7312506179018901934, guid: b31f08b56231abf4a9e807079fcd7674, type: 3}
   - {fileID: 5849451257297741405, guid: 801a1ce3e0888ad4cb1e6f8bb266d131, type: 3}

@@ -10,6 +10,7 @@ public class LevelData : ScriptableObject
     
     public string position;
     public string defaultBackground;
+    public int likeVoteGain,neutralVoteGain,dislikeVoteGain;
     
     public int startTime, endTime;
     public int days;

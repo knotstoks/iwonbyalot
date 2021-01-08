@@ -2818,11 +2818,11 @@ MonoBehaviour:
   - {fileID: 0}
   currentSchedule: []
   speech: {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
+  research: {fileID: 11400000, guid: ac0e346acde448241b59db5b3ee07a46, type: 2}
+  actionDistrictTarget: 
   isUsingDistricts: 0
+  isSpeech: 0
   eventChance: 1
-  likeVoteGain: 10
-  neutralVoteGain: 5
-  dislikeVoteGain: -5
   money: 0
   influence: 0
   stress: 0
@@ -2865,6 +2865,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeechUi: {fileID: 106476654}
   Main: {fileID: 1278676108}
+  SpeechContainer: {fileID: 614756622}
+  isSpeech: 0
 --- !u!114 &1289509588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3698,6 +3700,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 106476654}
+  speechContainer: {fileID: 614756622}
+  track: {fileID: 0}
 --- !u!114 &2034646649
 MonoBehaviour:
   m_ObjectHideFlags: 0
