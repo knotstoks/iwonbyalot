@@ -21,3 +21,4 @@ MonoBehaviour:
     was neutral to your speech: +5 Votes"
   dislike: "\u201CToo much sugar and such a useless skill!\u201D The District disliked
     your speech: -5 Votes"
+  icon: {fileID: 21300000, guid: 7ee5fb45f3a242840a62e1c0cec53b8b, type: 3}

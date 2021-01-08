@@ -235,8 +235,8 @@ public class Tracker : MonoBehaviour
 		
 	}
 
-    public void Reset()
-    {
+    public void Reset() 
+	{
         for (int i = 0; i < timeslots.Count; i++)
         {
             timeslots[i].GetComponent<TimeSlotter>().Reset();
