@@ -11,6 +11,7 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
     public int districtIndex;
     private static Color32 blue = new Color32(0, 128, 225, 200);
     private static Color32 red = new Color32(255, 51, 51, 200);
+    private static Color32 hover = new Color32(0, 200, 0, 200);
     public MapDetailController mapDetailController;
     public bool popoutEnable = true;
 
@@ -73,6 +74,9 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         this.track = track;
         gameObject.GetComponent<Button>().onClick.AddListener(AssignDistrict);
+        ColorBlock colorVar = gameObject.GetComponent<Button>().colors;
+        colorVar.highlightedColor = hover;
+        gameObject.GetComponent<Button>().colors = colorVar;
     }
 
 }
