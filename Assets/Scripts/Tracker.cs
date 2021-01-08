@@ -179,7 +179,7 @@ public class Tracker : MonoBehaviour
 			}
 			GameObject speechMap = Instantiate(mapContainer,SpeechUi.transform.Find("SpeechMap"));
 			speechMap.GetComponent<MapController>().DisableDistricts(this);
-			speechMap.GetComponent<MapController>().Buttonify();
+			speechMap.GetComponent<MapController>().Buttonify(this);
 			SpeechUi.SetActive(false);
 			
 		}
@@ -247,6 +247,7 @@ public class Tracker : MonoBehaviour
             timeslots[i].GetComponent<TimeSlotter>().Reset();
             currentSchedule[i] = null;
         }
+		print(forVotesCount);
 
         Desc.GetComponent<Description>().days = days;
 		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount, totalVotesCount - forVotesCount);
@@ -416,7 +417,6 @@ public class Tracker : MonoBehaviour
 			}
             dialogue += ".";
 			dialogueList.Add(dialogue);
-			print(i);
 		}
 		
 		if  (forVotesCount - 3 < 0)

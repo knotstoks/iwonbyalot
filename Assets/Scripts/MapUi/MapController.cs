@@ -11,7 +11,6 @@ public class MapController : MonoBehaviour
     public GameObject mapDetailController;
     public bool isMapDisplayed = true;
     public Tracker track;
-    private int timeslotIndex;
     //public List<District> testDistricts;
 
     //private bool isShowing = false;
@@ -44,18 +43,20 @@ public class MapController : MonoBehaviour
         this.track = track;
     }
 
-    public void Buttonify(){
+    public void Buttonify(Tracker track){
         for(int i = 0; i < districtScripts.Count; i++)
         {
             Button but = districts[i].AddComponent<Button>() as Button;
-            but.onClick.AddListener(delegate{AssignDistrict(i);});
+            districtScripts[i].AssignTrack(track);
+            //but.onClick.AddListener(districtScripts[0].AssignDistrict);
         }
     }
-
-    public void AssignDistrict(int districtIndex) {
+    /*
+    public void AssignDistrict() {
         
-        track.SelectDistrict(districtIndex);
+        track.SelectDistrict(1);
     }
+    */
 
     public void InteractMap() {
         if(isMapDisplayed)

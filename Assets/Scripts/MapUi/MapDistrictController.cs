@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private District curDistrict;
+    public Tracker track;
+    public int districtIndex;
     private static Color32 blue = new Color32(0, 128, 225, 200);
     private static Color32 red = new Color32(255, 51, 51, 200);
     public MapDetailController mapDetailController;
@@ -60,6 +62,17 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
         {
             mapDetailController.HideDetails();
         }
+    }
+
+    public void AssignDistrict()
+    {
+        track.SelectDistrict(districtIndex);
+    }
+
+    public void AssignTrack(Tracker track)
+    {
+        this.track = track;
+        gameObject.GetComponent<Button>().onClick.AddListener(AssignDistrict);
     }
 
 }
