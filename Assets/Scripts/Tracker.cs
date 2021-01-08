@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 public class Tracker : MonoBehaviour
 {
-	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, messageslotPrefab, 
+	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, messageslotPrefab, greyBG, options,
 		TimeslotContainer, ActionContainer, ResourceContainer,MapUi, SpeechUi,SpeechContainer, Confirm;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial,
 		miniMap, bigMap;
@@ -45,6 +45,7 @@ public class Tracker : MonoBehaviour
 	private int days;
 
 	private string defaultBackground;
+    public Transform tutorialBox;
     
     private LevelData levelData;
 	public LevelData testLevelData;
@@ -53,6 +54,8 @@ public class Tracker : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+        options.GetComponent<Options>().Start();
+        
 		levelData = DataPassedToMainGame.level_data;
 		if (levelData == null)
         {
@@ -119,18 +122,29 @@ public class Tracker : MonoBehaviour
 		}
         
         if (DataPassedToMainGame.tutorial) {
-			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], this.transform);
+			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], tutorialBox);
             switch (levelData.level) {
                 case 1:
-                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this);
+                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG);
                     break;
                 case 2:
-                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
+                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG,
+                                                           MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
                     break;
             }
 		} 
 	}
 
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            setOptions(!greyBG.activeSelf);
+    }
+    
+    public void setOptions(bool state) {
+        greyBG.SetActive(state);
+        options.SetActive(state);
+    }
+    
 	void Init(int start_hour, int end_hour) {
 		selectedTimeslot = -1;
 		for (int i = start_hour; i < end_hour; i++) {
