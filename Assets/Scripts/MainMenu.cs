@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
     public string MainGame;
     
 	public GameObject grey_BG, level_select, new_btn, continue_btn, days_text, position_text;
+    public Toggle skip_tutorial;
+    public Options options;
     
     public List<LevelData> level_datas;
     public List<GameObject> diff_highlights;
@@ -21,6 +23,7 @@ public class MainMenu : MonoBehaviour
     {
         select_level = -1;
         select_diff = 0;
+        options.Start();
     }
 
     // Update is called once per frame
@@ -62,7 +65,7 @@ public class MainMenu : MonoBehaviour
     public void SwitchToMainGame() {
         DataPassedToMainGame.level_data = level_datas[select_level];
         DataPassedToMainGame.diff = select_diff;
-        DataPassedToMainGame.tutorial = (select_diff == 0);
+        DataPassedToMainGame.tutorial = !skip_tutorial.isOn;
         SceneManager.LoadScene(MainGame);
     }
 }

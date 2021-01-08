@@ -9,24 +9,26 @@ public class Tutorial : MonoBehaviour
     private Tracker tracker;
     private MapButton mapButton;
     private GameObject speechUI;
+    private GameObject greyBG;
     
     public void Start() {
         next = 1;
     }
     
-    public void Init(int level, Tracker tracker) {
+    public void Init(int level, Tracker tracker, GameObject greyBG) {
         this.level = level;
         this.tracker = tracker;
+        this.greyBG = greyBG;
     }
     
-    public void Init(int level, Tracker tracker, MapButton mapButton, GameObject speechUI) {
-        Init(level, tracker);
+    public void Init(int level, Tracker tracker, GameObject greyBG, MapButton mapButton, GameObject speechUI) {
+        Init(level, tracker, greyBG);
         this.mapButton = mapButton;
         this.speechUI = speechUI;
     }
     
     public void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !greyBG.activeSelf) {
             tutorials[next - 1].SetActive(false);
             
             if (next < tutorials.Count) {
@@ -51,11 +53,6 @@ public class Tutorial : MonoBehaviour
             } else {
                 tracker.removeTutorial();
             }
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            tutorials[next - 1].SetActive(false);
-            tracker.removeTutorial();
         }
     }
 }
