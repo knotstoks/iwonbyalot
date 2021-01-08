@@ -16,12 +16,13 @@ public class District
     public int dislikedMsgsFound = 0;
     public int neutralMsgsFound = 0;
 
-    public District(List<int> possible_msgs, int liked_msg_count, int disliked_msg_count)
+    public District(List<int> possibleMsgs, int likedMsgCount, int dislikedMsgCount)
     {
-        List<int> shuffled = possible_msgs.OrderBy(x => rnd.Next()).ToList();
-        likedMsgs = shuffled.GetRange(0, liked_msg_count);
-        dislikedMsgs = shuffled.GetRange(liked_msg_count, disliked_msg_count);
-        neutralMsgs = shuffled.GetRange(disliked_msg_count, possible_msgs.Count);
+        List<int> shuffled = possibleMsgs.OrderBy(x => rnd.Next()).ToList();
+        likedMsgs = shuffled.GetRange(0, likedMsgCount);
+        dislikedMsgs = shuffled.GetRange(likedMsgCount, dislikedMsgCount);
+        int likedDislikedCount = likedMsgCount + dislikedMsgCount;
+        neutralMsgs = shuffled.GetRange(likedDislikedCount, possibleMsgs.Count - likedDislikedCount);
     }
 
     public District()
