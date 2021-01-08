@@ -115,7 +115,7 @@ public class Tracker : MonoBehaviour
 			Reset();
 		}
         
-        if (true) {//(DataPassedToMainGame.tutorial) {
+        if (DataPassedToMainGame.tutorial) {
 			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], this.transform);
             switch (levelData.level) {
                 case 1:
