@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Cancel : MonoBehaviour
 {
-    public GameObject menu,speechContainer;
-    public Tracker track;
+    public GameObject menu,speechContainer,track;
     // Start is called before the first frame update
     public void Close(){
         
         speechContainer.SetActive(true);
         menu.SetActive(false);
-        track.reAssignDistrictAndMessage();
+        track.GetComponent<Tracker>().reAssignDistrictAndMessage();
     }
 }

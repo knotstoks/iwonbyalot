@@ -354,7 +354,7 @@ public class Tracker : MonoBehaviour
 		{	
 			string dialogue;
 			ActionData action = currentSchedule[i];
-			if( ResourceWithinRange(money + action.moneyGain) && ResourceWithinRange(influence + action.influenceGain) && ResourceWithinRange(stress + action.stressGain)&&ResourceWithinRange(charisma + action.stressGain) ) 
+			if( money + action.moneyGain >= 0 && influence + action.influenceGain >= 0 && stress + action.stressGain >= 0 && charisma + action.charismaGain >= 0 && stress+action.stressGain < 100) 
 			{
 				
                 influence += action.influenceGain;
@@ -515,7 +515,8 @@ public class Tracker : MonoBehaviour
 				days -= 1;
 				CalculateVoteChange();
 
-			} else
+			}
+			else
 			{
 				dialogue = String.Format("You do not have enough resources to do {0}",action.actionName);
 			}
@@ -572,9 +573,6 @@ public class Tracker : MonoBehaviour
 		Desc.GetComponent<Description>().ExecuteActionsDialogue(dialogueList, ResumeScheduling);
 	}
 
-	public bool ResourceWithinRange(float i) {
-		return i >= 0;
-	}
 
 	public void CalculateVoteChange()
 	{
