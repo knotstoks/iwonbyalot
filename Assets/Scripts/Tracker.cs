@@ -29,7 +29,7 @@ public class Tracker : MonoBehaviour
 	public List<int> actionDistrictTarget;
 	public List<int> actionMessageTarget;
 
-	private bool isUsingDistricts;
+	public bool isUsingDistricts;
 	private List<District> districts;
 	private GameObject mapContainer;
 
@@ -107,28 +107,16 @@ public class Tracker : MonoBehaviour
 			Desc.GetComponent<EventExecuter>().ExecuteEventDialogue(
 						levelData.introductionDialogue,
 						makeCurrentStatistics(),
-						ResumeGameStart
+						ResumeSchedulingRedirect
 						);
-        }	
-		else
-        {
+        } else {
 			Reset();
 		}
-	}
-
-	public void ResumeGameStart(string result)
-	{
-		foreach (GameObject ui in schedulingUi)
-		{
-			ui.SetActive(true);
-		}
-		Reset();
-
-		if (DataPassedToMainGame.tutorial)
-		{
+        
+        if (true) {//(DataPassedToMainGame.tutorial) {
 			tutorial = Instantiate(tutorialPrefab, this.transform);
-			tutorial.GetComponent<Tutorial>().Init(this);
-		}
+			tutorial.GetComponent<Tutorial>().Init(2, this, MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
+		} 
 	}
 
 	void Init(int start_hour, int end_hour) {
@@ -158,6 +146,7 @@ public class Tracker : MonoBehaviour
 		StressSlider = GameObject.FindWithTag("Stress");
 		CharismaSlider = GameObject.FindWithTag("Charisma");
 		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
+        
 		if(isUsingDistricts)
 		{
 			miniMap = Instantiate(mapContainer, MapUi.transform.Find("Button"));
@@ -168,7 +157,6 @@ public class Tracker : MonoBehaviour
 			MapUi.SetActive(true);
 			MapUi.GetComponentInChildren<MapButton>().Init(bigMap);
 			SpeechUi.SetActive(true);
-			
 			for (int i = 0; i < campaignMessages.Count; i++ )
 			{
 				GameObject messageslot = Instantiate(messageslotPrefab,SpeechContainer.transform) as GameObject;
@@ -580,6 +568,10 @@ public class Tracker : MonoBehaviour
 		result.days = days;
 		return result;
     }
+    
+    public void ResumeSchedulingRedirect(string result) { // used for EventCallBack
+        ResumeScheduling();
+    }
 
 	public void ResumeScheduling()
     {
@@ -599,6 +591,6 @@ public class Tracker : MonoBehaviour
     }
     
     public void removeTutorial() {
-        Destroy(tutorial);   
+        Destroy(tutorial);
     }
 }
