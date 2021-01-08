@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5f888780e2bb942981724a80d57b6b, type: 3}
   m_Name: FireAlarm
   m_EditorClassIdentifier: 
-  dialogueEvent: {fileID: 0}
+  dialogueEvent: {fileID: 11400000, guid: f7b426b875e8a58428d82efd54c09ce2, type: 2}
   triggerVarType: 0
   comparisonType: 0
   triggerValue: 0

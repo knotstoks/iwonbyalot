@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5f888780e2bb942981724a80d57b6b, type: 3}
   m_Name: OppPizzaParty
   m_EditorClassIdentifier: 
-  dialogueEvent: {fileID: 0}
+  dialogueEvent: {fileID: 11400000, guid: 5546621bd0c11da4784824c35f8af56f, type: 2}
   triggerVarType: 0
   comparisonType: 0
   triggerValue: 0

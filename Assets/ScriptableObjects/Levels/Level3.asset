@@ -15,6 +15,9 @@ MonoBehaviour:
   level: 3
   position: President
   defaultBackground: 
+  likeVoteGain: 0
+  neutralVoteGain: 0
+  dislikeVoteGain: 0
   startTime: 8
   endTime: 20
   days: 21
@@ -42,16 +45,15 @@ MonoBehaviour:
   - {fileID: 8411151617335405104, guid: 6a2fe775dfa2fbb48b6183c3aaaebb14, type: 3}
   - {fileID: 118145672267169055, guid: c917cb5fd668c61408fa06f0300e3b1f, type: 3}
   NormalEvents:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f74fc18fb0a6ee04f944d5336dd4501b, type: 2}
+  - {fileID: 11400000, guid: aaadc61d507ec1c4796013a66b7aa6f3, type: 2}
+  - {fileID: 11400000, guid: f7b88042269000d49b5536e639eb4c7a, type: 2}
+  - {fileID: 11400000, guid: 58a3dd930bd10e1438de3096e621ac63, type: 2}
+  - {fileID: 11400000, guid: 6e34f7fcc094631489d17c98c2d12580, type: 2}
+  - {fileID: 11400000, guid: f46dfdb7f6a90d14e911c6fba71247da, type: 2}
+  - {fileID: 11400000, guid: be99162f5b326ad4e9d638e1c9a68662, type: 2}
+  - {fileID: 11400000, guid: 7cdccf1591103e14e831c25669d6461d, type: 2}
+  - {fileID: 11400000, guid: 97baad3e7906f1b46b3cb733a6718298, type: 2}
   HardcoreEvents:
   - {fileID: 0}
   - {fileID: 0}
