@@ -432,9 +432,10 @@ public class Tracker : MonoBehaviour
 								}
 								else 
 								{
-								selectedDistrict.forVotesCount += likeVoteGain;
-								forVotesCount += likeVoteGain;
+								selectedDistrict.forVotesCount += neutralVoteGain;
+								forVotesCount +=  neutralVoteGain;
 								}
+								
 							}
 							actionDistrictTarget[i] = -1;
 							actionMessageTarget[i] = -1;
