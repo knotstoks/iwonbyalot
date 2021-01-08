@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 public class Tracker : MonoBehaviour
 {
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, messageslotPrefab, 
-		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi, SpeechUi,SpeechContainer, Confirm;
+		TimeslotContainer, ActionContainer, ResourceContainer,MapUi, SpeechUi,SpeechContainer, Confirm;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial,
 		miniMap, bigMap;
 	public List<GameObject> schedulingUi;
@@ -23,13 +23,15 @@ public class Tracker : MonoBehaviour
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 	public List<GameObject> messageslots;
+    
+    public List<GameObject> tutorialPrefabs;
 
 	public List<ActionData> currentSchedule;
 	public ActionData speech;
 	private List<int> actionDistrictTarget;
 	private List<int> actionMessageTarget;
 
-	private bool isUsingDistricts;
+	public bool isUsingDistricts;
 	private List<District> districts;
 	private GameObject mapContainer;
 
@@ -106,28 +108,23 @@ public class Tracker : MonoBehaviour
 			Desc.GetComponent<EventExecuter>().ExecuteEventDialogue(
 						levelData.introductionDialogue,
 						makeCurrentStatistics(),
-						ResumeGameStart
+						ResumeSchedulingRedirect
 						);
-        }	
-		else
-        {
+        } else {
 			Reset();
 		}
-	}
-
-	public void ResumeGameStart(string result)
-	{
-		foreach (GameObject ui in schedulingUi)
-		{
-			ui.SetActive(true);
-		}
-		Reset();
-
-		if (DataPassedToMainGame.tutorial)
-		{
-			tutorial = Instantiate(tutorialPrefab, this.transform);
-			tutorial.GetComponent<Tutorial>().Init(this);
-		}
+        
+        if (DataPassedToMainGame.tutorial) {
+			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], this.transform);
+            switch (levelData.level) {
+                case 1:
+                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this);
+                    break;
+                case 2:
+                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
+                    break;
+            }
+		} 
 	}
 
 	void Init(int start_hour, int end_hour) {
@@ -157,6 +154,7 @@ public class Tracker : MonoBehaviour
 		StressSlider = GameObject.FindWithTag("Stress");
 		CharismaSlider = GameObject.FindWithTag("Charisma");
 		LayoutRebuilder.ForceRebuildLayoutImmediate(ActionContainer.GetComponent<RectTransform>());
+        
 		if(isUsingDistricts)
 		{
 			miniMap = Instantiate(mapContainer, MapUi.transform.Find("Button"));
@@ -167,7 +165,6 @@ public class Tracker : MonoBehaviour
 			MapUi.SetActive(true);
 			MapUi.GetComponentInChildren<MapButton>().Init(bigMap);
 			SpeechUi.SetActive(true);
-			
 			for (int i = 0; i < campaignMessages.Count; i++ )
 			{
 				GameObject messageslot = Instantiate(messageslotPrefab,SpeechContainer.transform) as GameObject;
@@ -201,14 +198,13 @@ public class Tracker : MonoBehaviour
 	{
 		if (selectedTimeslot != -1)
 		{
-			if(action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled){
+			if (action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled){
 				SpeechUi.SetActive(true);
 				Confirm.GetComponent<Button>().interactable = false;
-
 			} else {
-			currentSchedule[selectedTimeslot] = action;
-			timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
-			selectedTimeslot = -1;
+                currentSchedule[selectedTimeslot] = action;
+                timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
+                selectedTimeslot = -1;
 			}
 		}
 	}
@@ -635,6 +631,10 @@ public class Tracker : MonoBehaviour
 		result.days = days;
 		return result;
     }
+    
+    public void ResumeSchedulingRedirect(string result) { // used for EventCallBack
+        ResumeScheduling();
+    }
 
 	public void ResumeScheduling()
     {
@@ -654,6 +654,6 @@ public class Tracker : MonoBehaviour
     }
     
     public void removeTutorial() {
-        Destroy(tutorial);   
+        Destroy(tutorial);
     }
 }

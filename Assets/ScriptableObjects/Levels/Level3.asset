@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558df1454344cfb47b7fe6e4e5b26a7e, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
+  level: 3
   position: President
   defaultBackground: 
   startTime: 8
