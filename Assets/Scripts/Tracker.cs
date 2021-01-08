@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 public class Tracker : MonoBehaviour
 {
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, messageslotPrefab, 
-		tutorialPrefab, TimeslotContainer, ActionContainer, ResourceContainer,MapUi, SpeechUi,SpeechContainer, Confirm;
+		TimeslotContainer, ActionContainer, ResourceContainer,MapUi, SpeechUi,SpeechContainer, Confirm;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial,
 		miniMap, bigMap;
 	public List<GameObject> schedulingUi;
@@ -23,6 +23,8 @@ public class Tracker : MonoBehaviour
 	private List<GameObject> timeslots;
 	private List<GameObject> actionslots;
 	public List<GameObject> messageslots;
+    
+    public List<GameObject> tutorialPrefabs;
 
 	public List<ActionData> currentSchedule;
 	public ActionData speech;
@@ -114,8 +116,15 @@ public class Tracker : MonoBehaviour
 		}
         
         if (true) {//(DataPassedToMainGame.tutorial) {
-			tutorial = Instantiate(tutorialPrefab, this.transform);
-			tutorial.GetComponent<Tutorial>().Init(2, this, MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
+			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], this.transform);
+            switch (levelData.level) {
+                case 1:
+                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this);
+                    break;
+                case 2:
+                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
+                    break;
+            }
 		} 
 	}
 
@@ -190,14 +199,13 @@ public class Tracker : MonoBehaviour
 	{
 		if (selectedTimeslot != -1)
 		{
-			if(action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled){
+			if (action.actionType == ActionData.ActionType.TradingVotes && levelData.messageEnabled){
 				SpeechUi.SetActive(true);
 				Confirm.GetComponent<Button>().interactable = false;
-
 			} else {
-			currentSchedule[selectedTimeslot] = action;
-			timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
-			selectedTimeslot = -1;
+                currentSchedule[selectedTimeslot] = action;
+                timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(action);
+                selectedTimeslot = -1;
 			}
 		}
 	}
@@ -235,7 +243,6 @@ public class Tracker : MonoBehaviour
             timeslots[i].GetComponent<TimeSlotter>().Reset();
             currentSchedule[i] = null;
         }
-		print(forVotesCount);
 
         Desc.GetComponent<Description>().days = days;
 		Desc.GetComponent<Description>().ratio = String.Format("{0} / {1}",forVotesCount, totalVotesCount - forVotesCount);

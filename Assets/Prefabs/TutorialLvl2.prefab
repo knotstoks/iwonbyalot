@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 246.7503, y: 194.98877}
+  m_SizeDelta: {x: 297.07007, y: 147.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4523335826755945715
 CanvasRenderer:
@@ -65,8 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7bb9a5bffbff4fa44954f8091dfca46d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -492,8 +492,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -0.000005722}
-  m_SizeDelta: {x: 214.32275, y: 127.04468}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 248.9176, y: 95.5948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4523335827715261055
 CanvasRenderer:
@@ -720,8 +720,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038146973, y: -0.000005722}
-  m_SizeDelta: {x: 214.32275, y: 175.19482}
+  m_AnchoredPosition: {x: 0.000011444, y: 5.8}
+  m_SizeDelta: {x: 271.98083, y: 117.53674}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4523335828160718013
 CanvasRenderer:
@@ -984,7 +984,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 218.79208, y: 147.49438}
+  m_SizeDelta: {x: 280.64352, y: 114.996216}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4523335828299190724
 CanvasRenderer:
@@ -1013,8 +1013,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7bb9a5bffbff4fa44954f8091dfca46d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

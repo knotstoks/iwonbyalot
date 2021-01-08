@@ -6,8 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Level", menuName = "ScriptableObjects/Level", order = 1)]
 public class LevelData : ScriptableObject
 {
+    public int level;
+    
     public string position;
     public string defaultBackground;
+    
     public int startTime, endTime;
     public int days;
     public List<string> districtNames;
@@ -16,6 +19,7 @@ public class LevelData : ScriptableObject
     public bool messageEnabled;
     public GameObject mapContainer;
     public DialogueEvent introductionDialogue;
+    
     public List<ActionData> actionSlots;
     public List<GameObject> resources;
     public List<RandomDialogueEvent> NormalEvents;

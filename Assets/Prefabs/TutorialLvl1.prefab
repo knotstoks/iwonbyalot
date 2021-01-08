@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.059006}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -189, y: -20}
-  m_SizeDelta: {x: 494.61328, y: 562.8767}
+  m_AnchoredPosition: {x: -161, y: -58}
+  m_SizeDelta: {x: 241, y: 271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436167109087
 CanvasRenderer:
@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34.999985, y: -16}
-  m_SizeDelta: {x: 237.67444, y: 225.91885}
+  m_AnchoredPosition: {x: 7, y: 3}
+  m_SizeDelta: {x: 174.66577, y: 150.15079}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436177868041
 CanvasRenderer:
@@ -151,7 +151,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: You can also see here the number of days till election day.
 --- !u!1 &603981436304908297
 GameObject:
@@ -187,8 +187,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 7}
-  m_SizeDelta: {x: 245.16833, y: 191.44681}
+  m_AnchoredPosition: {x: 7, y: 8}
+  m_SizeDelta: {x: 199.52689, y: 191.44681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436304908300
 CanvasRenderer:
@@ -229,7 +229,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: You can hover over an action to see what resources you'll gain or lose
     by doing it.
 --- !u!1 &603981436645954671
@@ -267,8 +267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31, y: 11}
-  m_SizeDelta: {x: 505.42743, y: 402.82922}
+  m_AnchoredPosition: {x: 75, y: 59}
+  m_SizeDelta: {x: 256.06137, y: 207.581}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436645954642
 CanvasRenderer:
@@ -342,8 +342,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322, y: -15.8}
-  m_SizeDelta: {x: 597.7872, y: 404.53967}
+  m_AnchoredPosition: {x: 344, y: -78}
+  m_SizeDelta: {x: 304.1435, y: 212.69263}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436648075579
 CanvasRenderer:
@@ -392,6 +392,8 @@ GameObject:
   m_Component:
   - component: {fileID: 603981436859465495}
   - component: {fileID: 603981436859465496}
+  - component: {fileID: 4745717271428310212}
+  - component: {fileID: 3867971848555074824}
   m_Layer: 5
   m_Name: TutorialLvl1
   m_TagString: Untagged
@@ -426,7 +428,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 763, y: 429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603981436859465496
 MonoBehaviour:
@@ -451,6 +453,43 @@ MonoBehaviour:
   - {fileID: 603981436645954671}
   - {fileID: 603981436648075576}
   - {fileID: 6269867413835090765}
+--- !u!222 &4745717271428310212
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603981436859465494}
+  m_CullTransparentMesh: 0
+--- !u!114 &3867971848555074824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603981436859465494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 44f0262d57ba2f34c806af6edc1051d3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &603981436870155918
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,8 +524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.5000305, y: -4.6000032}
-  m_SizeDelta: {x: 263.15094, y: 225.91885}
+  m_AnchoredPosition: {x: 11, y: -2}
+  m_SizeDelta: {x: 245.92648, y: 177.47879}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436870155889
 CanvasRenderer:
@@ -527,7 +566,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: The current vote distribution can be seen here. The number on the left
     is the number of votes you have.
 --- !u!1 &603981436942660371
@@ -565,8 +604,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.059006}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270.3, y: -95}
-  m_SizeDelta: {x: 389.8578, y: 474.338}
+  m_AnchoredPosition: {x: -346, y: -116}
+  m_SizeDelta: {x: 205, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436942660374
 CanvasRenderer:
@@ -639,8 +678,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 7}
-  m_SizeDelta: {x: 245.16833, y: 191.44681}
+  m_AnchoredPosition: {x: 13, y: 11}
+  m_SizeDelta: {x: 225.08606, y: 191.44681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981436948368002
 CanvasRenderer:
@@ -681,7 +720,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: These actions give you resources and votes, though some come at the cost
     of other resources.
 --- !u!1 &603981437078444341
@@ -718,8 +757,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19, y: 0}
-  m_SizeDelta: {x: 215.19257, y: 182.45401}
+  m_AnchoredPosition: {x: 20, y: 0.000005722}
+  m_SizeDelta: {x: 198.76163, y: 149.59213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437078444344
 CanvasRenderer:
@@ -760,7 +799,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: You'll also have to manage resources like Influence and money.
 --- !u!1 &603981437109939579
 GameObject:
@@ -797,8 +836,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286.9, y: 31.487}
-  m_SizeDelta: {x: 472.29114, y: 474.67322}
+  m_AnchoredPosition: {x: 283, y: 11}
+  m_SizeDelta: {x: 295.78406, y: 219.08081}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437109939582
 CanvasRenderer:
@@ -871,8 +910,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.5, y: -13}
-  m_SizeDelta: {x: 222.68652, y: 225.91885}
+  m_AnchoredPosition: {x: 19, y: 0.000012398}
+  m_SizeDelta: {x: 222.68652, y: 180.27734}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437127698150
 CanvasRenderer:
@@ -913,7 +952,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: The main bulk of the game would be managing how you spend your time using
     these timeslot blocks.
 --- !u!1 &603981437232603455
@@ -941,16 +980,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603981437232603455}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 603981437236692936}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: -5}
+  m_AnchoredPosition: {x: 4, y: -5}
   m_SizeDelta: {x: 378.4369, y: 211.76282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437232603426
@@ -992,9 +1031,10 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: 'Welcome to <Game Name>! Your goal is to secure the majority of the votes
     by election day!
+
 
     (Click anywhere to continue, or press Esc to skip tutorial)'
 --- !u!1 &603981437236692935
@@ -1022,18 +1062,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603981437236692935}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7074688, w: 0.7067446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 603981437232603424}
   m_Father: {fileID: 603981436859465495}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.059006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.9, y: 15.9}
-  m_SizeDelta: {x: 235.44394, y: 388.40143}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 406.49802, y: 231.96887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437236692938
 CanvasRenderer:
@@ -1062,8 +1102,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7bb9a5bffbff4fa44954f8091dfca46d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1106,8 +1146,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.299984, y: 2.1999998}
-  m_SizeDelta: {x: 216.69135, y: 177.95767}
+  m_AnchoredPosition: {x: 11, y: 15}
+  m_SizeDelta: {x: 176.52689, y: 177.95767}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437259892865
 CanvasRenderer:
@@ -1148,7 +1188,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: Each timeslot can be spent doing one of the actions in this list.
 --- !u!1 &603981437267670724
 GameObject:
@@ -1185,8 +1225,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.398, y: -20}
-  m_SizeDelta: {x: 421.4953, y: 402.82922}
+  m_AnchoredPosition: {x: -50.451, y: -46.207}
+  m_SizeDelta: {x: 262.1457, y: 192.41461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437267670727
 CanvasRenderer:
@@ -1259,8 +1299,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.899933, y: 0.79999256}
-  m_SizeDelta: {x: 183.59503, y: 299.19986}
+  m_AnchoredPosition: {x: 15, y: -5}
+  m_SizeDelta: {x: 183.59503, y: 234.59824}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437427553704
 CanvasRenderer:
@@ -1301,7 +1341,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.8
   m_Text: Once all the timeslots have an action, click Execute to perform them and
     run through the day's events!
 --- !u!1 &603981437865424065
@@ -1339,8 +1379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: 8}
-  m_SizeDelta: {x: 505.42743, y: 402.82922}
+  m_AnchoredPosition: {x: 60, y: 65}
+  m_SizeDelta: {x: 284.52264, y: 223.91467}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437865424068
 CanvasRenderer:
@@ -1414,8 +1454,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54, y: 8}
-  m_SizeDelta: {x: 421.4953, y: 402.82922}
+  m_AnchoredPosition: {x: 87, y: 59}
+  m_SizeDelta: {x: 229.80096, y: 181.92438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &603981437938601384
 CanvasRenderer:
@@ -1479,17 +1519,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328713843775701549}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1163521160012187209}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0000114, y: 1}
-  m_SizeDelta: {x: 366.58258, y: 211.76282}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 356.79254, y: 174.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &118456983983675788
 CanvasRenderer:
@@ -1530,9 +1570,9 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Beware that your opponent will also get votes at the end of each day,
-    so make sure to stay on top!
+    m_LineSpacing: 0.8
+  m_Text: 'Beware that your opponent will also get a set number of votes at the end
+    of each day, so try to stay on top!
 
 
     Good luck on your campaign!'
@@ -1561,18 +1601,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6269867413835090765}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7074688, w: 0.7067446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8966789159831467564}
   m_Father: {fileID: 603981436859465495}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.059006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -37.1, y: 15.9}
-  m_SizeDelta: {x: 235.44394, y: 389.7539}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 392.92123, y: 199.14194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6356986037478416183
 CanvasRenderer:
@@ -1601,8 +1641,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7bb9a5bffbff4fa44954f8091dfca46d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

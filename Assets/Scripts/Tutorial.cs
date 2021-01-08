@@ -28,6 +28,7 @@ public class Tutorial : MonoBehaviour
     public void Update() {
         if (Input.GetMouseButtonDown(0)) {
             tutorials[next - 1].SetActive(false);
+            
             if (next < tutorials.Count) {
                 tutorials[next].SetActive(true);
                 
@@ -45,6 +46,7 @@ public class Tutorial : MonoBehaviour
                             break;
                     }
                 }
+                
                 next++;
             } else {
                 tracker.removeTutorial();
