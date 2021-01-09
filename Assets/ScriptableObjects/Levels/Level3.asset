@@ -38,7 +38,8 @@ MonoBehaviour:
   advancedResourcesEnabled: 1
   mapContainer: {fileID: 7796927791798461640, guid: 3ee1908326d77df47961a119d571e95e,
     type: 3}
-  introductionDialogue: {fileID: 0}
+  introductionDialogue: {fileID: 11400000, guid: 092c3ad8f86655940b5f1b223d4a4bcc,
+    type: 2}
   actionSlots:
   - {fileID: 11400000, guid: 5e4768265f64c744991933f59a55cc29, type: 2}
   - {fileID: 11400000, guid: 0b630f208eb5a964e86f80670e1edf22, type: 2}
