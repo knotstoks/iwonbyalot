@@ -37,6 +37,7 @@ public class Tracker : MonoBehaviour
 	private List<District> districts;
 	private GameObject mapContainer;
 	public bool isSpeech;
+	private bool usingTutorial;
 	public float eventChance = 0.5f;
 	private int likeVoteGain, neutralVoteGain, dislikeVoteGain;
     public float money, influence, stress, charisma;
@@ -61,6 +62,14 @@ public class Tracker : MonoBehaviour
         {
 			levelData = testLevelData;
 		}
+
+		usingTutorial = DataPassedToMainGame.tutorial;
+
+		if(levelData.level >= 3) {
+			usingTutorial = false;
+		}
+
+		
         
 		timeslots = new List<GameObject>();
 		currentSchedule = new List<ActionData>();
@@ -121,7 +130,7 @@ public class Tracker : MonoBehaviour
 			Reset();
 		}
         
-        if (DataPassedToMainGame.tutorial && levelData.level < 3) {
+        if (usingTutorial) {
 			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], tutorialBox);
             switch (levelData.level) {
                 case 1:
@@ -614,6 +623,18 @@ public class Tracker : MonoBehaviour
                     {
 						available.Add(randomEvent);
                     }
+					break;
+				case RandomDialogueEvent.TriggerVarType.Charisma:
+					if(randomEvent.CompareValue(charisma))
+					{
+						available.Add(randomEvent);
+					}
+					break;
+				case RandomDialogueEvent.TriggerVarType.Stress:
+					if(randomEvent.CompareValue(stress))
+					{
+						available.Add(randomEvent);
+					}
 					break;
 			}
 		}
