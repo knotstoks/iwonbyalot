@@ -548,16 +548,33 @@ public class Tracker : MonoBehaviour
 
 		if (days <= 0) 
 		{
-		
-			if(forVotesCount >= totalVotesCount / 2) 
+			bool isWin = false;
+			if (isUsingDistricts)
+            {
+				int winCount = 0;
+				for (int i = 0; i < districts.Count; i++)
+                {
+					if (districts[i].forVotesCount * 2 >= districts[i].totalVotesCount)
+                    {
+						winCount += 1;
+					}
+                }
+				if (winCount * 2 > districts.Count)
+                {
+					isWin = true;
+				}
+			}
+			else
+            {
+				if (forVotesCount * 2 >= totalVotesCount) isWin = true;
+			}
+			if (isWin) 
 			{
 				dialogueList.Add(String.Format(" Congratulations! You have won the election with a result of {0} against {1}", 
 					forVotesCount, totalVotesCount - forVotesCount)); 
 				dialogueList.Add("(On your social account......)");
 				dialogueList.Add("'Guys!");
 				dialogueList.Add("I won this election, by a lot!'");
-
-
 			}
 			else 
 			{
@@ -569,8 +586,6 @@ public class Tracker : MonoBehaviour
 				dialogueList.Add("Wait...");
 				dialogueList.Add("I lost? That can't be!");
 				dialogueList.Add("This is FRAUD!");
-					
-					
 			}
 			
 			
