@@ -1032,14 +1032,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: 'Welcome to <Game Name>! Your goal is to secure the majority of the votes
-    by election day!
+  m_Text: 'Welcome to Majority Ruling! Your goal is to secure the majority of the
+    votes by election day!
 
 
     (Click anywhere to continue)
 
-    (You can also hit Esc
-    to open the Options menu)'
+    (You can also
+    hit Esc to open the Options menu)'
 --- !u!1 &603981437236692935
 GameObject:
   m_ObjectHideFlags: 0

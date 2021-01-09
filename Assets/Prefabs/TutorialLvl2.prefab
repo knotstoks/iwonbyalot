@@ -109,8 +109,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.46984124}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.104, y: -20}
-  m_SizeDelta: {x: 232.41455, y: 237.81885}
+  m_AnchoredPosition: {x: 18.3, y: -20}
+  m_SizeDelta: {x: 214.85599, y: 237.81885}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4523335826898154327
 CanvasRenderer:
@@ -152,8 +152,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: Higher levels of stress will lessen the amount of resources you gain from
-    actions, so don't stress yourself out!
+  m_Text: When your stress hits 100, you'll faint and lose two days of the campaign,
+    so don't stress yourself out!
 --- !u!1 &4523335826912296539
 GameObject:
   m_ObjectHideFlags: 0

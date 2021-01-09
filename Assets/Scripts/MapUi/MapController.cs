@@ -77,6 +77,18 @@ public class MapController : MonoBehaviour
         gameObject.SetActive(false);
         isMapDisplayed = false;
     }
+    
+    public void SetDistrictColors(int districtIndex) {
+        for (int i = 0; i < districtScripts.Count; i++) {
+            districtScripts[i].SetSelectedColor(i == districtIndex);
+        }
+    }
+    
+    public void ResetDistrictColors() {
+        for (int i = 0; i < districtScripts.Count; i++) {
+            districtScripts[i].SetSelectedColor(false);
+        }
+    }
 
     //{
     //    testDistricts = new List<District>();

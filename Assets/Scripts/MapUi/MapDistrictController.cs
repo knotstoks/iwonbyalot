@@ -13,6 +13,7 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
     private static Color32 red = new Color32(255, 51, 51, 200);
     private static Color32 hover = new Color32(0, 200, 0, 200);
     public MapDetailController mapDetailController;
+    public MapController mapController;
     public bool popoutEnable = true;
 
     public void setMini()
@@ -68,6 +69,7 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
     public void AssignDistrict()
     {
         track.SelectDistrict(districtIndex);
+        mapController.SetDistrictColors(districtIndex);
     }
 
     public void AssignTrack(Tracker track)
@@ -78,5 +80,14 @@ public class MapDistrictController : MonoBehaviour, IPointerEnterHandler, IPoint
         colorVar.highlightedColor = hover;
         gameObject.GetComponent<Button>().colors = colorVar;
     }
-
+    
+    public void SetSelectedColor(bool green) {
+        Color32 color = green ? hover : new Color32(255, 255, 255, 255);
+        ColorBlock colorVar = gameObject.GetComponent<Button>().colors;
+        
+        colorVar.normalColor = color;
+        colorVar.selectedColor = color;
+        
+        gameObject.GetComponent<Button>().colors = colorVar;
+    }
 }
