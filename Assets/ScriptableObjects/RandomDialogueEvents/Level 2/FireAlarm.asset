@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireAlarm
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: f7b426b875e8a58428d82efd54c09ce2, type: 2}
-  triggerVarType: 0
-  comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerVarType: 3
+  comparisonType: 2
+  triggerValue: 40
+  triggerChance: 1

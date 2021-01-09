@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cat
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 6b70250874903c447bb48f56ba79b0a5, type: 2}
-  triggerVarType: 0
+  triggerVarType: 4
   comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerValue: 30
+  triggerChance: 3

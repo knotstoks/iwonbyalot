@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Falling Sick
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 42147b07cf63ad24b8a57155b946d8d7, type: 2}
-  triggerVarType: 0
-  comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerVarType: 4
+  comparisonType: 2
+  triggerValue: 50
+  triggerChance: 4

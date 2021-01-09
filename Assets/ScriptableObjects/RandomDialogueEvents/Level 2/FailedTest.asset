@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FailedTest
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 50709fc87050db84584ff028503a8a88, type: 2}
-  triggerVarType: 0
+  triggerVarType: 3
   comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerValue: 40
+  triggerChance: 1

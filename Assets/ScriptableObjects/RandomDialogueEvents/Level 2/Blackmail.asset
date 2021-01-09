@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Blackmail
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 1e3ff4b931a9f9c40b615ba1f4c93ce2, type: 2}
-  triggerVarType: 0
+  triggerVarType: 3
   comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerValue: 20
+  triggerChance: 1

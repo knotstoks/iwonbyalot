@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Girlfriend
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 1f65bb709f98e78459894694cfa06ac6, type: 2}
-  triggerVarType: 0
-  comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerVarType: 1
+  comparisonType: 2
+  triggerValue: 40
+  triggerChance: 1

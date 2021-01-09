@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spa
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 4073e66c822c8b345a4ae95607bcadf3, type: 2}
-  triggerVarType: 0
-  comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerVarType: 3
+  comparisonType: 2
+  triggerValue: 50
+  triggerChance: 3
