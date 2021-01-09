@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rumors
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 01460390cd24da748b789d24eabc2cfd, type: 2}
-  triggerVarType: 0
+  triggerVarType: 2
   comparisonType: 0
-  triggerValue: 0
+  triggerValue: 6
   triggerChance: 0

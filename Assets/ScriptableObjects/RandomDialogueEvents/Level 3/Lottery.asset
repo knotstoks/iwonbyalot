@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lottery
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: 9189077d7c662ca4484348e2727b7864, type: 2}
-  triggerVarType: 0
-  comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerVarType: 3
+  comparisonType: 2
+  triggerValue: 50
+  triggerChance: 2

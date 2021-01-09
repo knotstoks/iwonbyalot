@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Word
   m_EditorClassIdentifier: 
   dialogueEvent: {fileID: 11400000, guid: d1d0e1a3d0ece9e478cfde5b87976b52, type: 2}
-  triggerVarType: 0
-  comparisonType: 0
-  triggerValue: 0
-  triggerChance: 0
+  triggerVarType: 3
+  comparisonType: 2
+  triggerValue: 60
+  triggerChance: 3

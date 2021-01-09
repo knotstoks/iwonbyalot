@@ -1311,6 +1311,8 @@ RectTransform:
   - {fileID: 1109319704}
   - {fileID: 873496367}
   - {fileID: 1012663407}
+  - {fileID: 1109319704}
+  - {fileID: 480596735}
   - {fileID: 1142429134}
   - {fileID: 6576071445420736246}
   - {fileID: 998118189}
