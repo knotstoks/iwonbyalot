@@ -613,6 +613,18 @@ public class Tracker : MonoBehaviour
 						available.Add(randomEvent);
                     }
 					break;
+				case RandomDialogueEvent.TriggerVarType.Charisma:
+					if(randomEvent.CompareValue(charisma))
+					{
+						available.Add(randomEvent);
+					}
+					break;
+				case RandomDialogueEvent.TriggerVarType.Stress:
+					if(randomEvent.CompareValue(stress))
+					{
+						available.Add(randomEvent);
+					}
+					break;
 			}
 		}
 		if (available.Count == 0)

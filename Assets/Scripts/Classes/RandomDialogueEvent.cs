@@ -10,6 +10,8 @@ public class RandomDialogueEvent : ScriptableObject
         None,
         Influence,
         Day,
+        Charisma,
+        Stress,
     }
     public enum ComparisonType
     {
@@ -24,7 +26,7 @@ public class RandomDialogueEvent : ScriptableObject
     // Chance of triggering the event. Higher means more likely. 0 is guarenteed.
     public int triggerChance;
 
-    public bool CompareValue(int other)
+    public bool CompareValue(float other)
     {
         switch (comparisonType)
         {
