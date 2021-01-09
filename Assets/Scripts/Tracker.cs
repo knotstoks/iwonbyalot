@@ -122,13 +122,14 @@ public class Tracker : MonoBehaviour
 		}
         
         if (DataPassedToMainGame.tutorial) {
-			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], tutorialBox);
             switch (levelData.level) {
                 case 1:
-                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG);
+					tutorial = Instantiate(tutorialPrefabs[0], tutorialBox);
+					tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG);
                     break;
                 case 2:
-                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG,
+					tutorial = Instantiate(tutorialPrefabs[1], tutorialBox);
+					tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG,
                                                            MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
                     break;
             }
