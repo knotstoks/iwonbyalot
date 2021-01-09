@@ -15,9 +15,9 @@ MonoBehaviour:
   level: 3
   position: President
   defaultBackground: District
-  likeVoteGain: 0
-  neutralVoteGain: 0
-  dislikeVoteGain: 0
+  likeVoteGain: 10
+  neutralVoteGain: 5
+  dislikeVoteGain: -5
   startTime: 8
   endTime: 20
   days: 21
