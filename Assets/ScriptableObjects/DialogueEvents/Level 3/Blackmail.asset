@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: Blackmail
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 000000000000000007000000
+  dialogueLineTypes: 00000000000000000000000007000000
   dialogueLines:
   - Logging onto social media, you see a trending post with your name on it...
-  - A fake photo has surfaced of you cooking and eating dogs!
+  - A fake photo has surfaced of you playing an M-rated dating simulator!
+  - Lost 10 influence.
   - inf -10
-  dialogueLineLinks: 0100000002000000
+  dialogueLineLinks: 01000000020000000300000004000000

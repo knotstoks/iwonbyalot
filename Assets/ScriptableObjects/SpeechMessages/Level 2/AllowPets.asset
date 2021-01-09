@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AllowPets
   m_EditorClassIdentifier: 
   messageName: Allow class pets in school
-  speech: "Friendship is magic, and I can\u2019t stress the bond we need with animals!\u201D"
+  speech: "\"Friendship is magic, and I can\u2019t stress the bond we need with animals!\u201D"
   like: "\u201CWe love animals! What a great idea!\u201D The Class liked your speech:
     +10 Votes"
   neutral: "\u201CSome of us have allergies\u2026\u201D The Class was neutral to

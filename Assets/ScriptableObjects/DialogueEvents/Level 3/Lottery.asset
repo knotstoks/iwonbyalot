@@ -17,6 +17,6 @@ MonoBehaviour:
   - Oh! A new letter came in the mail!
   - It's a notification from the Lottery Committee!
   - You won a small prize in the Lottery!
-  - Gained 20 Money
+  - Gained 20 Money.
   - money +20
   dialogueLineLinks: 01000000020000000300000004000000

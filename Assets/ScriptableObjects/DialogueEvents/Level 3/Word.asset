@@ -15,8 +15,7 @@ MonoBehaviour:
   dialogueLineTypes: 00000000000000000000000007000000
   dialogueLines:
   - Word spreads on how you were an amazing School President!
-  - You feel eyes watching your every move and feel more motivated to serve the community
-    as more and more people place their trust in you!
-  - Gained 10 Influence
+  - All those days you spent on student politics weren't a complete waste of time!
+  - Gained 10 Influence.
   - inf +10
   dialogueLineLinks: 010000000200000003000000

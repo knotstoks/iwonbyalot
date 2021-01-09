@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20938de84fc73544b55df24945ea8f0, type: 3}
   m_Name: MandatoryEnlistment
   m_EditorClassIdentifier: 
-  messageName: Mandatory Enlistment
+  messageName: Mandatory Conscription
   speech: "\u201CThere is a threat to our nation\u2019s security that has been long
     overlooked: The threat of potential threats!\u201D"
   like: "\u201CWhat a great mindset! Truly the greatest leader of our generation!\u201D
     The District liked your speech: +10 Votes"
-  neutral: "\u201CSounds like a horrible idea but we can\u2019t really do anything
-    about it I guess\u2026\u201D  The District was neutral to your speech: +5 Votes"
-  dislike: "\u201CThat literally doesn\u2019t make sense!\u201D The District disliked
+  neutral: "\u201CWe're already required to start training for the military in preschool
+    but ok... \u201D  The District was neutral to your speech: +5 Votes"
+  dislike: "\u201CWe don't want to join the military!\u201D The District disliked
     your speech: -5 Votes"
   icon: {fileID: 21300000, guid: a5bf6191f1ece7945bad7048eef673b9, type: 3}

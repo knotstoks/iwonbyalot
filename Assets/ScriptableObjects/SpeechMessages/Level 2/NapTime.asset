@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: NapTime
   m_EditorClassIdentifier: 
   messageName: Nap Time during School
-  speech: "\u201CI think we all agree this has to happen on so many levels\u201D"
-  like: "You can see many students nod in agreement..or maybe they\u2019re nodding
-    off to sleep...  The Class like your speech: +10 Votes"
+  speech: '"It''s only natural for growing young adults like us to get all the sleep
+    we need!"'
+  like: "You see many students nod in agreement..or maybe they\u2019re nodding off
+    to sleep...  The Class like your speech: +10 Votes"
   neutral: "\u201CWe will never get enough sleep anyway\u2026\u201D The Class was
     neutral to your speech: +5 Votes"
-  dislike: 'The Class seems too distracted with their homework to pay you any attention.
-    Wrong audience. The Class disliked your speech: -5 Votes'
+  dislike: 'The Class seems too distracted with their homework to pay attention to
+    your speech. Looks like you were speaking to the nerd class. The Class disliked
+    your speech: -5 Votes'
   icon: {fileID: 21300000, guid: 12279da87f670f54fa490f7321774a1b, type: 3}

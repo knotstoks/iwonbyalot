@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20938de84fc73544b55df24945ea8f0, type: 3}
   m_Name: NappingSchool
   m_EditorClassIdentifier: 
-  messageName: All schools will now have a compulsory napping period in the day
+  messageName: Compulsory napping period in all schools and workplaces
   speech: "\u201CI would like to spread this idea that was rather popular and effective
     in my very own school!\u201D"
   like: 'Burnouts all over the District raise their thumbs. Nice. The District liked
     your speech: +10 Votes'
   neutral: "\u201CMore sleep is good but not VERY good\u2026\u201D The District was
     neutral to your speech: +5 Votes"
-  dislike: "\u201CThat\u2019s ridiculous! How do we finish our work at that rate!\u201D
+  dislike: "\u201CSleep is for snowflakes! Real citizens would never take a nap!\u201D
     The District disliked your speech: -5 Votes"
   icon: {fileID: 21300000, guid: a5b8777cc5894514ba53628848e24458, type: 3}

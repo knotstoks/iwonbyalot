@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLineTypes: 000000000000000007000000
   dialogueLines:
-  - 'The fire alarm sounds! You skip the most hated lesson of all: Chinese'
+  - The fire alarm sounds! Fortunately, you were able to skip the Chinese test next
+    period.
   - Lost 10 Stress
   - stress -10
   dialogueLineLinks: 010000000200000003000000

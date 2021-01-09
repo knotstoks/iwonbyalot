@@ -16,8 +16,8 @@ MonoBehaviour:
   dialogueLines:
   - Oh! A new letter came in the mail!
   - A bright postcard with floral designs on it came out of the envelope!
-  - 'It reads: "Please enjoy this threat on us! Good Luck in your campaign!"'
+  - 'It reads: "Please enjoy this free spa coupon on us! Good Luck in your campaign!"'
   - Maybe campaigning for president really has its perks!
-  - Lost 10 Stress
+  - Lost 10 Stress.
   - stress -10
   dialogueLineLinks: 0100000002000000030000000400000005000000

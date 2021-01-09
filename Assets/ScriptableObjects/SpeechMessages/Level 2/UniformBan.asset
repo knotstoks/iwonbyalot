@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: UniformBan
   m_EditorClassIdentifier: 
   messageName: Ban on Standardised Uniforms
-  speech: "\u201CWhy do we have to be limited to the exact same clothing choice!
-    We are students, not prisoners!\u201D"
+  speech: "\u201CWhy are we all forced to wear the exact same clothes? We're individuals,
+    not prisoners!\u201D"
   like: "\u201CFinally we can express ourselves and not only in our homework!\u201D
     The Class liked your speech: +10 Votes"
   neutral: "\u201CWe\u2019re not really fashionistas but sure\u2026\u201D The Class
     was neutral to your speech: +5 Votes"
-  dislike: "\u201CIt\u2019s our identity!\u201D The Class disliked your speech: -5
-    Votes"
+  dislike: "\u201CDO NOT DEFY THE HIVE MIND. RESISTANCE IS FUTILE.\u201D The Class
+    disliked your speech: -5 Votes"
   icon: {fileID: 21300000, guid: 70b734f35934ee448b0d15e4e84b21df, type: 3}
