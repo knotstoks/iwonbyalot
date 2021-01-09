@@ -37,7 +37,6 @@ public class Tracker : MonoBehaviour
 	private List<District> districts;
 	private GameObject mapContainer;
 	public bool isSpeech;
-	private bool usingTutorial;
 	public float eventChance = 0.5f;
 	private int likeVoteGain, neutralVoteGain, dislikeVoteGain;
     public float money, influence, stress, charisma;
@@ -62,14 +61,6 @@ public class Tracker : MonoBehaviour
         {
 			levelData = testLevelData;
 		}
-
-		usingTutorial = DataPassedToMainGame.tutorial;
-
-		if(levelData.level >= 3) {
-			usingTutorial = false;
-		}
-
-		
         
 		timeslots = new List<GameObject>();
 		currentSchedule = new List<ActionData>();
@@ -130,14 +121,15 @@ public class Tracker : MonoBehaviour
 			Reset();
 		}
         
-        if (usingTutorial) {
-			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], tutorialBox);
+        if (DataPassedToMainGame.tutorial) {
             switch (levelData.level) {
                 case 1:
-                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG);
+					tutorial = Instantiate(tutorialPrefabs[0], tutorialBox);
+					tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG);
                     break;
                 case 2:
-                    tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG,
+					tutorial = Instantiate(tutorialPrefabs[1], tutorialBox);
+					tutorial.GetComponent<Tutorial>().Init(levelData.level, this, greyBG,
                                                            MapUi.GetComponentInChildren<MapButton>(), SpeechUi);
                     break;
             }

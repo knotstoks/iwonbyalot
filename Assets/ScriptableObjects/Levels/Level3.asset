@@ -22,15 +22,15 @@ MonoBehaviour:
   endTime: 20
   days: 21
   districtNames:
-  - a
-  - b
-  - c
-  - d
-  - e
-  - f
-  - g
-  - h
-  - i
+  - Pencilvania
+  - Burrrlin
+  - Old Zealand
+  - Danceapore
+  - The Huchamucha
+  - Blueland
+  - San Capuccino
+  - Eejeep
+  - Zawarudo
   opponentGainPerRound: 2
   forVotesStart: 0
   totalVotes: 30
