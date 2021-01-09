@@ -36,7 +36,8 @@ MonoBehaviour:
   totalVotes: 30
   messageEnabled: 1
   advancedResourcesEnabled: 1
-  mapContainer: {fileID: 0}
+  mapContainer: {fileID: 7796927791798461640, guid: 3ee1908326d77df47961a119d571e95e,
+    type: 3}
   introductionDialogue: {fileID: 0}
   actionSlots:
   - {fileID: 11400000, guid: 5e4768265f64c744991933f59a55cc29, type: 2}
