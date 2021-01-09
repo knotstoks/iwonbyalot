@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f46dfdb7f6a90d14e911c6fba71247da, type: 2}
   - {fileID: 11400000, guid: be99162f5b326ad4e9d638e1c9a68662, type: 2}
   - {fileID: 11400000, guid: 7cdccf1591103e14e831c25669d6461d, type: 2}
+  - {fileID: 11400000, guid: cd542f3bf9ab3224296eab44bf129ca7, type: 2}
   HardcoreEvents:
   - {fileID: 0}
   - {fileID: 0}

@@ -16,4 +16,4 @@ MonoBehaviour:
   triggerVarType: 3
   comparisonType: 2
   triggerValue: 50
-  triggerChance: 2
+  triggerChance: 4

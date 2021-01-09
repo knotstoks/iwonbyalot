@@ -2024,7 +2024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -322, y: -117.6}
+  m_AnchoredPosition: {x: -362, y: -72}
   m_SizeDelta: {x: 163.48114, y: 235.28957}
   m_Pivot: {x: 0.49999985, y: 0.5}
 --- !u!222 &777528210
@@ -3016,7 +3016,7 @@ MonoBehaviour:
   forVotesCount: 0
   totalVotesCount: 0
   tutorialBox: {fileID: 423121492}
-  testLevelData: {fileID: 11400000, guid: 283aed72f677b8c42a343a4f9ed5ea78, type: 2}
+  testLevelData: {fileID: 11400000, guid: 97f4c7562ce4ffb45ad73308c478cad9, type: 2}
 --- !u!1 &1289509586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3424,7 +3424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 453, y: -191}
+  m_AnchoredPosition: {x: 383, y: -186}
   m_SizeDelta: {x: 255.03699, y: 105.51248}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500299413
