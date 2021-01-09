@@ -18,6 +18,6 @@ MonoBehaviour:
   - A cute cat emerges from the alley and starts purring and rubbing against your
     leg!
   - You decide to adopt it and news of this spreads like wildfire!
-  - 'Gained 10 Charisma '
+  - Gained 10 Charisma.
   - charisma +10
-  dialogueLineLinks: 01000000020000000300000004000000
+  dialogueLineLinks: 0100000002000000030000000400000005000000

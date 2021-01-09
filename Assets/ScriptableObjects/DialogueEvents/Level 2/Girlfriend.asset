@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: Girlfriend
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 000000000000000007000000
+  dialogueLineTypes: 0000000000000000000000000000000007000000
   dialogueLines:
-  - A classmate asks you out in the middle of class. Your popularity skyrockets.
-  - Gained 10 charisma
+  - You're minding your own business when a classmate walks up to you.
+  - '"Hey, um, I know we don''t know each other much, but do you wanna go out for
+    lunch later?"'
+  - All the other students in the classroom secretly go "aww".
+  - Gained 10 charisma.
   - charisma +10
-  dialogueLineLinks: 010000000200000003000000
+  dialogueLineLinks: 0100000002000000030000000400000005000000

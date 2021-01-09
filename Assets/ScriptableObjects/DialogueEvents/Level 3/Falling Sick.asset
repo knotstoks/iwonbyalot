@@ -17,7 +17,7 @@ MonoBehaviour:
   - '*Cough Cough* You begin to feel a little feverish...'
   - 'You struggle to find your thermometer and measure your temperature: 38.2 degrees!'
   - With the election day drawing closer and closer, you feel the pressure slowly
-    building
-  - Gained 10 Stress
+    building.
+  - Gained 10 Stress.
   - stress +10
-  dialogueLineLinks: 01000000020000000300000004000000
+  dialogueLineLinks: 0100000002000000030000000400000005000000

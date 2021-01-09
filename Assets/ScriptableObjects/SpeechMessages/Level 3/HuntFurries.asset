@@ -17,8 +17,8 @@ MonoBehaviour:
     host a festival to celebrate the occasion once every year!\u201D"
   like: "\u201CFinally! Time to bring out the big guns!\u201D The District liked
     your speech: +10 Votes"
-  neutral: "Neutral: \u201CWell whatever...animals are animals!\u201D The District
-    was neutral to your speech: +5 Votes"
-  dislike: "\u201CWas this really the most important issue?\u201D The District disliked
-    your speech: -5 Votes"
+  neutral: "\"What are furries?\u201D The District was neutral to your speech: +5
+    Votes"
+  dislike: 'It probably wasn''t the best idea to give this speech at the local furry
+    convention. The District disliked your speech: -5 Votes'
   icon: {fileID: 21300000, guid: 8e7ce1cd9ff189243ba0dc3be05e5b79, type: 3}

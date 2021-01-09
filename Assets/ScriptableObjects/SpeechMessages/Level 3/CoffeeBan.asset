@@ -19,6 +19,6 @@ MonoBehaviour:
     +10 Votes"
   neutral: "\u201CI don\u2019t drink coffee?\u201D The District was neutral to your
     speech: +5 Votes"
-  dislike: "\u201CWhat are you? A dirty tea drinker?\u201D The District disliked
-    your speech: -5 Votes"
+  dislike: "\u201CUgh, another filthy tea drinker running for president...\u201D
+    The District disliked your speech: -5 Votes"
   icon: {fileID: 21300000, guid: 3010d5ab58874ed45b5aea43c63b122c, type: 3}

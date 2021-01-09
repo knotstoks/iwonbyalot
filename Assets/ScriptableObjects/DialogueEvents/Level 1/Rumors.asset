@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: Rumors
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 000000000000000007000000
+  dialogueLineTypes: 0000000000000000000000000000000007000000
   dialogueLines:
-  - A rumor spread that your breath smells rotten and you never brush your teeth.
+  - As you pass through the corridor, you hear whispers behind you.
+  - '"I heard they never brush their teeth...I bet their breath smells like rotten
+    eggs!"'
+  - '"Yeah, no way I''d want a dogbreath for president."'
   - Lost 5 influence.
   - inf -5
-  dialogueLineLinks: 010000000200000003000000
+  dialogueLineLinks: 0100000002000000030000000400000005000000

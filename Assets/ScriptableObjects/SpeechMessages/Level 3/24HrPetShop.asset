@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: 24HrPetShop
   m_EditorClassIdentifier: 
   messageName: Open up a chain of 24hr Pet Shops
-  speech: "\u201CI will ensure that anyone who wants to buy a fish at 3am, can buy
-    a fish at 3am!\u201D"
+  speech: "\u201CAnyone who wants to buy a fish at 3am, can buy a fish at 3am!\u201D"
   like: "\u201COh boy 3am!\u201D The District liked your speech: +10 Votes"
   neutral: "\u201CI guess I may need a dog or cat at 11pm?\u201D The District was
     neutral to your speech: +5 Votes"
-  dislike: "\u201CIsn\u2019t that animal abuse\u2026?\u201D The District disliked
-    your speech: -5 Votes"
+  dislike: '"Booo! No pet store besides PetCo! We were definitely not paid off!"
+    The District disliked your speech: -5 Votes'
   icon: {fileID: 21300000, guid: d96d4f865bcf5064d82bee3cd48cdb14, type: 3}

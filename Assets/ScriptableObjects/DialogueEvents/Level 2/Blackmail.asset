@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: Blackmail
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 000000000000000007000000
+  dialogueLineTypes: 00000000000000000000000007000000
   dialogueLines:
-  - Your classmate lost their wallet and someone planted it in your bag, where it
-    was later found
-  - Lost 10 influence
+  - '"Hey, my wallet''s in your bag!" your classmate points to your open backpack.'
+  - You swear that you didn't steal it and someone must've planted it there, but
+    no one listens.
+  - Lost 10 influence.
   - inf -10
-  dialogueLineLinks: 0100000002000000
+  dialogueLineLinks: 01000000020000000300000004000000

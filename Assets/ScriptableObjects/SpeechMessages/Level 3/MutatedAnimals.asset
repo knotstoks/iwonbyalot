@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: MutatedAnimals
   m_EditorClassIdentifier: 
   messageName: Stop the increase of mutated animals in the area
-  speech: "\u201CThe new nuclear power plant has caused a few...complications with
-    the wildlife in the area. I will personally lead a team to exterminate these
-    troubles plaguing this District.\u201D "
-  like: "\u201CGood riddance to those pesky animals!\u201D The District liked your
-    speech: +10 Votes"
-  neutral: "\u201COkay I guess?\u201D The District was neutral to your speech: +5
-    Votes"
-  dislike: "\u201CThey didn\u2019t choose this life! Save the animals!\u201D The
-    District disliked your speech: -5 Votes"
+  speech: "\u201CI will personally lead a team to exterminate these pests plaguing
+    this District. Any and all Fallout players are welcome to join.\u201D "
+  like: "\u201CGood riddance! Kill the animals!\u201D The District liked your speech:
+    +10 Votes"
+  neutral: "\u201CThose were mutated animals? We thought they were just imports from
+    Australia...\u201D The District was neutral to your speech: +5 Votes"
+  dislike: "\u201CThey didn\u2019t choose to be mutated! Save the animals!\u201D
+    The District disliked your speech: -5 Votes"
   icon: {fileID: 21300000, guid: 85d78bd374c036243915a7a4b42d99dc, type: 3}

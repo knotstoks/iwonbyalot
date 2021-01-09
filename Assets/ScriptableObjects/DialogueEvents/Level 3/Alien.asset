@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueLineTypes: 00000000000000000000000007000000
   dialogueLines:
-  - A low humming sound spread throughout the district
+  - A low humming sound spread throughout the district.
   - When you wake up, reports surface which describes beams of light from the sky
     beaming down on District {0}
-  - Your opponent gained 2 Votes in District {0}
+  - Your opponent gained 2 Votes in District {0}.
   - district +2 {0}
-  dialogueLineLinks: 010000000200000003000000
+  dialogueLineLinks: 01000000020000000300000004000000

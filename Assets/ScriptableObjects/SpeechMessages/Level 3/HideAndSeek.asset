@@ -19,6 +19,6 @@ MonoBehaviour:
     your speech: +10 Votes"
   neutral: 'You can feel the indifference in the crowd as they listen to you speak.
     The District was neutral to your speech: +5 Votes'
-  dislike: "\u201CThat would be utter chaos, wouldn\u2019t it?\u201D The District
-    disliked your speech: -5 Votes"
+  dislike: 'No one shows up. The crowd must have started the Hide-and-Seek game already.
+    The District disliked your speech: -5 Votes'
   icon: {fileID: 21300000, guid: b5f21472e5a898649a9091910d66fc3f, type: 3}

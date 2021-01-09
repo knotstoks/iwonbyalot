@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20938de84fc73544b55df24945ea8f0, type: 3}
   m_Name: WantItThatWay
   m_EditorClassIdentifier: 
-  messageName: "Make it mandatory to sing \u201CI want it that way\u201D by the Backstreet
-    Boys every morning"
+  messageName: "Mandatory daily singing of \u201CI Want It That Way\u201D by the
+    Backstreet Boys"
   speech: "\u201CSuch a classic hit must be celebrated in its respected fashion!\u201D"
   like: "\u201CAin\u2019t nothing like a heartbreak!\u201D The District liked your
     speech: +10 Votes"
   neutral: "\u201CTell me why?\u201D The District was neutral to your speech: +5
     Votes"
-  dislike: "\u201CAin\u2019t nothing but a mistake\u201D The District disliked your
+  dislike: "\u201CAin\u2019t nothing but a mistake!\u201D The District disliked your
     speech: -5 Votes"
   icon: {fileID: 21300000, guid: 82acfb0b281742a40bcb0930f1ea5037, type: 3}

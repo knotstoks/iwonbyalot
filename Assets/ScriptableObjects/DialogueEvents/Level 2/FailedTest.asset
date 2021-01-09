@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8dca8b672c6fe64f898fc619304a876, type: 3}
   m_Name: FailedTest
   m_EditorClassIdentifier: 
-  dialogueLineTypes: 000000000000000007000000
+  dialogueLineTypes: 0000000000000000000000000000000007000000
   dialogueLines:
-  - Oh no! Spending too much time campaigning made you neglect your studies and you
-    failed a test.
-  - Gained 10 stress
+  - '"Hey, did you study for the test today?" your classmate asks.'
+  - '"Wait, there was a test today??? Oh sh-"'
+  - You failed the test.
+  - Gained 10 stress.
   - stress +10
-  dialogueLineLinks: 010000000200000003000000
+  dialogueLineLinks: 0100000002000000030000000400000005000000
