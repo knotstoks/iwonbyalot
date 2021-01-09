@@ -90,6 +90,7 @@ MonoBehaviour:
   track: {fileID: 0}
   districtIndex: 3
   mapDetailController: {fileID: 7299384822827225528}
+  mapController: {fileID: 7299384823837880058}
   popoutEnable: 1
 --- !u!1 &7299384822827225476
 GameObject:
@@ -109,7 +110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7299384822827225477
 RectTransform:
   m_ObjectHideFlags: 0
@@ -431,6 +432,7 @@ MonoBehaviour:
   track: {fileID: 0}
   districtIndex: 0
   mapDetailController: {fileID: 7299384822827225528}
+  mapController: {fileID: 7299384823837880058}
   popoutEnable: 1
 --- !u!1 &7299384823726402003
 GameObject:
@@ -712,6 +714,7 @@ MonoBehaviour:
   track: {fileID: 0}
   districtIndex: 4
   mapDetailController: {fileID: 7299384822827225528}
+  mapController: {fileID: 7299384823837880058}
   popoutEnable: 1
 --- !u!1 &7299384824475446830
 GameObject:
@@ -803,6 +806,7 @@ MonoBehaviour:
   track: {fileID: 0}
   districtIndex: 1
   mapDetailController: {fileID: 7299384822827225528}
+  mapController: {fileID: 7299384823837880058}
   popoutEnable: 1
 --- !u!1 &7299384824585957906
 GameObject:
@@ -894,6 +898,7 @@ MonoBehaviour:
   track: {fileID: 0}
   districtIndex: 2
   mapDetailController: {fileID: 7299384822827225528}
+  mapController: {fileID: 7299384823837880058}
   popoutEnable: 1
 --- !u!1 &7432945977880025541
 GameObject:

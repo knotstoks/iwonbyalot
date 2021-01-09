@@ -13,7 +13,7 @@ public class Tracker : MonoBehaviour
 	public GameObject Desc, actionslotPrefab, timeslotPrefab, executeButton, messageslotPrefab, greyBG, options,
 		TimeslotContainer, ActionContainer, ResourceContainer,MapUi, SpeechUi,SpeechContainer, Confirm;
     private GameObject InfluenceSlider, MoneySlider, StressSlider, CharismaSlider, tutorial,
-		miniMap, bigMap;
+		miniMap, bigMap, speechMap;
 	public List<GameObject> schedulingUi;
 
 	private List<CampaignMessage> campaignMessages;
@@ -121,7 +121,7 @@ public class Tracker : MonoBehaviour
 			Reset();
 		}
         
-        if (DataPassedToMainGame.tutorial) {
+        if (DataPassedToMainGame.tutorial && levelData.level < 3) {
 			tutorial = Instantiate(tutorialPrefabs[levelData.level - 1], tutorialBox);
             switch (levelData.level) {
                 case 1:
@@ -193,7 +193,7 @@ public class Tracker : MonoBehaviour
 				messageslots.Add(messageslot);
 				
 			}
-			GameObject speechMap = Instantiate(mapContainer,SpeechUi.transform.Find("SpeechMap"));
+			speechMap = Instantiate(mapContainer,SpeechUi.transform.Find("SpeechMap"));
 			speechMap.GetComponent<MapController>().DisableDistricts(this);
 			speechMap.GetComponent<MapController>().Buttonify(this);
 			SpeechUi.SetActive(false);
@@ -248,6 +248,7 @@ public class Tracker : MonoBehaviour
 		currentSchedule[selectedTimeslot] = speech ;
 		timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(speech);
 		selectedTimeslot = -1;
+        speechMap.GetComponent<MapController>().ResetDistrictColors();
 	}
 
 	public void ResearchSelectAction()
@@ -255,6 +256,7 @@ public class Tracker : MonoBehaviour
 		currentSchedule[selectedTimeslot] = research;
 		timeslots[selectedTimeslot].GetComponent<TimeSlotter>().SetAction(research);
 		selectedTimeslot = -1;
+        speechMap.GetComponent<MapController>().ResetDistrictColors();
 	}
 
 	public void SelectDistrict(int districtIndex) 
@@ -742,8 +744,9 @@ public class Tracker : MonoBehaviour
     }
 
 	public void reAssignDistrictAndMessage() {
-	actionDistrictTarget[selectedTimeslot] = -1;
-	actionMessageTarget[selectedTimeslot] = -1;
+        actionDistrictTarget[selectedTimeslot] = -1;
+        actionMessageTarget[selectedTimeslot] = -1;
+        speechMap.GetComponent<MapController>().ResetDistrictColors();
 	}
 }
 

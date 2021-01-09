@@ -915,7 +915,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 363.04605}
+  m_SizeDelta: {x: 260, y: 363.04605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &272935565
 MonoBehaviour:
@@ -1487,7 +1487,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 240, y: 361.2288}
+  m_SizeDelta: {x: 260, y: 361.2288}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608790760
 MonoBehaviour:
@@ -2815,7 +2815,6 @@ MonoBehaviour:
   tutorialPrefabs:
   - {fileID: 603981436859465494, guid: 9a7021d6053efad4ebf397fecb994b33, type: 3}
   - {fileID: 4523335828164085796, guid: 6a5b3c5f833519840a2153278e8ffbc9, type: 3}
-  - {fileID: 0}
   currentSchedule: []
   speech: {fileID: 11400000, guid: 73151ce3d1e958e40b0ee641915ca25c, type: 2}
   research: {fileID: 11400000, guid: ac0e346acde448241b59db5b3ee07a46, type: 2}
@@ -3012,8 +3011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.43, y: -181.52303}
-  m_SizeDelta: {x: 240, y: 0}
+  m_AnchoredPosition: {x: 130, y: -181.52303}
+  m_SizeDelta: {x: 260, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371178465
 MonoBehaviour:
@@ -3042,11 +3041,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 5
+    m_Left: 15
     m_Right: 5
     m_Top: 5
     m_Bottom: 5
-  m_ChildAlignment: 0
+  m_ChildAlignment: 1
   m_Spacing: 20
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
@@ -3827,8 +3826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 120, y: -180.6144}
-  m_SizeDelta: {x: 240, y: 0}
+  m_AnchoredPosition: {x: 130, y: -180.6144}
+  m_SizeDelta: {x: 260, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055498146
 MonoBehaviour:
@@ -3861,7 +3860,7 @@ MonoBehaviour:
     m_Right: 5
     m_Top: 5
     m_Bottom: 5
-  m_ChildAlignment: 7
+  m_ChildAlignment: 1
   m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
