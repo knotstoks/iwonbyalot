@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: bcd8a4befde7c3d46b3dfb869afd9071, type: 3}
   actionName: Rally
-  description: +5 Charisma
+  description: +15 Charisma
   influenceGain: 0
   moneyGain: 0
   stressGain: 5
-  charismaGain: 5
+  charismaGain: 15
   actionType: 0
